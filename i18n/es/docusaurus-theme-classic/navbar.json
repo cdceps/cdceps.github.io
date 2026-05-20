@@ -1,0 +1,38 @@
+{
+  "title": {
+    "message": "Ayuda Docente - EPS",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "logo CATEPS",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.CIA / Control Internet Aulas": {
+    "message": "CIA / Control Internet Aulas",
+    "description": "Navbar item with label CIA / Control Internet Aulas"
+  },
+  "item.label.Más": {
+    "message": "Más",
+    "description": "Navbar item with label Más"
+  },
+  "item.label.US": {
+    "message": "US",
+    "description": "Navbar item with label US"
+  },
+  "item.label.EPS": {
+    "message": "EPS",
+    "description": "Navbar item with label EPS"
+  },
+  "item.label.Contacto": {
+    "message": "Contacto",
+    "description": "Navbar item with label Contacto"
+  },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Guías": {
+    "message": "Guías",
+    "description": "Navbar item with label Guías"
+  }
+}

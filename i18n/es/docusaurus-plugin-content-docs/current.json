@@ -1,0 +1,30 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.sidebar.category.Aulas": {
+    "message": "Aulas",
+    "description": "The label for category 'Aulas' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Aulas.link.generated-index.title": {
+    "message": "Guía de Aulas",
+    "description": "The generated-index page title for category 'Aulas' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Aulas.link.generated-index.description": {
+    "message": "Configuración técnica, software y planos de las aulas de Informática del CATEPS.",
+    "description": "The generated-index page description for category 'Aulas' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Control Internet Aulas (CIA)": {
+    "message": "Control Internet Aulas (CIA)",
+    "description": "The label for category 'Control Internet Aulas (CIA)' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Docs": {
+    "message": "Docs",
+    "description": "The label for category 'Docs' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Guías": {
+    "message": "Guías",
+    "description": "The label for category 'Guías' in sidebar 'sidebar'"
+  }
+}

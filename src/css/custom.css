@@ -1,0 +1,1315 @@
+/* ==========================================================================
+   1. IMPORTACIONES (Fuentes externas)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ==========================================================================
+   2. VARIABLES Y COLORES BASE (THEME CONFIG)
+   ========================================================================== */
+   
+   
+  /* PALETA OFICIAL DE COLORES DE LA EPS */
+  
+:root {
+  --ifm-color-primary: #a43b8d;
+  --ifm-color-primary-dark: #94357f;
+  --ifm-color-primary-darker: #8b3278;
+  --ifm-color-primary-darkest: #732963;
+  --ifm-color-primary-light: #b4419b;
+  --ifm-color-primary-lighter: #bc45a2;
+  --ifm-color-primary-lightest: #c55dae;
+  --ifm-table-cell-padding: 0.5rem;
+}
+
+/* Ajustes específicos para el modo oscuro */
+[data-theme='dark'] {
+  --ifm-color-primary: #93BD22;
+  --ifm-color-primary-dark: #84aa1f;
+  --ifm-color-primary-darker: #7da11d;
+  --ifm-color-primary-darkest: #678418;
+  --ifm-color-primary-light: #a2ca2d;
+  --ifm-color-primary-lighter: #add142;
+  --ifm-color-primary-lightest: #cde38f;
+}
+
+/* ==========================================================================
+   3. NAVEGACIÓN (NAVBAR & BRANDING)
+   ========================================================================== */
+.navbar,
+.navbar-sidebar__brand {
+  background-image: url('/img/bg.png');
+  background-size: cover;
+  background-color: #000;
+  box-shadow: 0 0 10px #0006;
+}
+
+.navbar__logo img {
+  filter: drop-shadow(1px 1px 2px #0003);
+}
+
+.navbar__inner,
+.navbar__inner a,
+.navbar-sidebar__brand a {
+  color: #fff;
+}
+
+/* Bloque Logo + Título */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  margin-right: 10px;
+}
+
+.navbar__brand:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.navbar__title {
+  color: #f9b905 !important;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.navbar__brand:hover .navbar__title {
+  color: #ffcc33;
+}
+
+.navbar__logo {
+  margin-right: 12px;
+}
+
+.navbar__inner .navbar__item {
+  transition: background var(--ifm-transition-fast);
+  border-radius: var(--ifm-global-radius);
+  margin: 0 .1rem;
+  padding: var(--ifm-navbar-item-padding-vertical) calc(var(--ifm-navbar-item-padding-horizontal) - .1rem);
+}
+
+.navbar__inner .navbar__item:hover,
+.navbar__inner .dropdown__link:hover {
+  background-color: #fff3;
+}
+
+.navbar__inner .dropdown__menu {
+  background: #0c040ecc;
+  border: 1px solid #fff3;
+  backdrop-filter: blur(1rem);
+}
+
+/* ==========================================================================
+   4. ELEMENTOS DE LA SIDEBAR Y BOTONES (CONSOLIDADO)
+   ========================================================================== */
+.sidebar-hr {
+  background-color: var(--ifm-toc-border-color);
+  margin: .5rem .75em;
+}
+
+/* Botones de colapso y expansión */
+.collapseSidebarButtonIcon_kv0_,
+[class*='collapseSidebarButton'] svg,
+div[class*="expandButton"] svg g,
+div[class*="expandButton"] svg path {
+  color: #f9b905 !important;
+  fill: #f9b905 !important;
+  transition: all 0.3s ease;
+}
+
+div[class*="expandButton"],
+button[class*="collapseSidebarButton"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+div[class*="expandButton"]:hover svg g,
+button[class*="collapseSidebarButton"]:hover svg g,
+div[class*="expandButton"]:hover svg path,
+button[class*="collapseSidebarButton"]:hover svg path {
+  fill: #F9B905 !important;
+}
+
+/* ==========================================================================
+   5. COMPONENTES (TABS, TABLES & PESTAÑAS)
+   ========================================================================== */
+.tabs__item {
+  border: 1px var(--ifm-toc-border-color) solid;
+  border-radius: var(--ifm-global-radius);
+  margin: .1875em;
+  padding: .75em 1em;
+  margin-right: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabs__item--active {
+  background-color: transparent !important;
+  border: 1px solid #f9b905 !important;
+  border-bottom: 1px solid #f9b905 !important;
+  color: #f9b905 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 5px rgba(249, 185, 5, 0.2);
+}
+
+.tabs__item:hover:not(.tabs__item--active) {
+  background-color: rgba(249, 185, 5, 0.05) !important;
+}
+
+table {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--ifm-code-font-size);
+}
+
+.pagination-nav {
+  display: none;
+}
+
+/* ==========================================================================
+   6. BOTONES ESPECIALES (BACK TO TOP & GITHUB)
+   ========================================================================== */
+.backToTopButton {
+  background-color: #93BD22 !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.backToTopButton:hover {
+  background-color: #f9b905 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 0 15px rgba(249, 185, 5, 0.4) !important;
+}
+
+.header-github-link {
+  margin-left: 14px !important;  /* Simetría de distancia con Contacto */
+  margin-right: 14px !important; /* Simetría de distancia con Buscador */
+  padding: 0 !important;
+}
+
+.header-github-link::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 22px;
+  background-color: #ffffff !important;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.header-github-link:hover::before {
+  background-color: #f9b905 !important;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   7. FOOTER Y SCROLLBAR
+   ========================================================================== */
+.footer-link-docusaurus {
+  color: #25C19F !important;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-link-docusaurus:hover {
+  text-decoration: underline !important;
+}
+
+/* Scrollbar Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #93bd22;
+  border-radius: 10px;
+  border: 2px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aadb32;
+}
+
+/* Soporte para Firefox */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #93bd22 #0a0a0a;
+}
+
+/* ==========================================================================
+   8. BÚSQUEDA (IBM PLEX MONO)
+   ========================================================================== */
+.navbar__search {
+  margin-left: 0 !important; /* Reseteo para coordinar la simetría con GitHub */
+}
+
+.navbar__search-input {
+  width: 190px !important;
+  height: 36px !important;
+  background-color: #18171c !important;
+  border: 1px solid #333 !important;
+  border-radius: 4px !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  background-image: none !important;
+  padding-left: 12px !important;
+  padding-right: 85px !important; 
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease !important;
+}
+
+.navbar__search-input:focus {
+  width: 340px !important; /* Expandido proporcional al focus (antes 280px) */
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid #f9b905 !important;
+  background-color: #18171c !important;
+}
+
+.navbar__search-input:focus + .search-input-keyboard-shortcut-help {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.navbar__search::before,
+.navbar__search-input-icon {
+  display: none !important;
+}
+
+.navbar__search-input::placeholder {
+  color: #A3A6AE !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 14px !important;
+  opacity: 1 !important;
+}
+
+.search-input-keyboard-shortcut-help {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  right: 12px !important; /* Alineación limpia al borde derecho */
+  opacity: 1 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.navbar__search kbd,
+.search-input-keyboard-shortcut-help kbd {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #232228 !important;
+  border: 1px solid #3a3940 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) !important;
+  color: #F9B905 !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  min-width: 24px !important;
+  height: 22px !important;
+  padding: 0 6px !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  text-transform: capitalize !important;
+}
+
+.search-input-keyboard-shortcut-help kbd:first-child::after {
+  content: "+" !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin-left: 8px !important; /* Mayor separación entre la palabra y el atajo */
+  margin-right: 2px !important;
+  background: #232228 !important;
+  border: 1px solid #3a3940 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) !important;
+  color: #F9B905 !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+}
+
+/* ==========================================================================
+   9. MISCELÁNEA Y CURSORES (TYPED.JS)
+   ========================================================================== */
+.texto-verde {
+  color: #93BD22;
+}
+
+.hr-separador-cia {
+  border: none;
+  border-top: 1px solid var(--ifm-toc-border-color);
+  margin: 3rem 0;
+  opacity: 1;
+}
+
+html[data-theme='light'] .navbar__items--right button:hover {
+  background: transparent !important;
+}
+
+html[data-theme='light'] .navbar__items--right button:hover svg {
+  color: #f9b905 !important;
+  fill: #f9b905 !important;
+  stroke: #f9b905 !important;
+}
+
+.white-cursor .typed-cursor {
+  color: #FFFFFF !important;
+  font-weight: 900;
+  margin-left: 8px;
+  font-family: monospace;
+  animation: blink 0.9s infinite;
+}
+
+.yellow-cursor .typed-cursor {
+  color: #F9B905 !important;
+  font-weight: 900;
+  margin-left: 8px;
+  font-family: monospace;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ==========================================================================
+   10. AJUSTES FINALES HOME Y MÁRGENES
+   ========================================================================== */
+.img-header-contacto {
+  width: 45px !important;
+  height: auto !important;
+  vertical-align: middle !important;
+  margin-right: 2px !important;
+  margin-bottom: 8px !important;
+}
+
+[itemid="/"] .theme-doc-markdown {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* ==========================================================================
+   11. ICONO FAQ CIA - MENÚ LATERAL
+   ========================================================================== */
+.sidebar-faq-item a {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.sidebar-faq-item a::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-image: url('../../static/img/eps-faq-icon-yellow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  /* Un toque de margen para que respire */
+  margin-left: 2px;
+  /* Aseguramos que se vea sobre el fondo oscuro */
+  filter: drop-shadow(0 0 2px rgba(249, 185, 5, 0.3));
+}
+
+/* Efecto hover sutil para el icono */
+.sidebar-faq-item a:hover::after {
+  filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.8));
+  transition: filter 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   12. BOTÓN DOCS DESTACADO EN EL HEADER
+   ========================================================================== */
+.navbar__inner .navbar__item[href="/docs"] {
+  background-color: rgba(255, 255, 255, 0.15) !important; /* Contenedor sombreado permanente */
+  border: 1px solid transparent !important; /* Borde invisible en reposo */
+  border-radius: 4px !important;
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+  padding: 4px 12px !important; /* Aire interno simétrico */
+  align-self: center !important; /* Centrado vertical automático en la barra */
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Estado Hover (ratón encima) O Estado Activo (cuando estamos dentro de Docs) */
+.navbar__inner .navbar__item[href="/docs"]:hover,
+.navbar__inner .navbar__item[href="/docs"][class*="active"] {
+  background-color: rgba(255, 255, 255, 0.18) !important; /* Mantiene sombreado con extra de brillo */
+  border-color: #f9b905 !important; /* El borde amarillo EPS se queda fijo si estás en Docs */
+  text-decoration: none !important;
+}
+
+/* ==========================================================================
+   13. BOTÓN CIA DESTACADO EN EL HEADER (CON ACTIVACIÓN EN SUBSECCIONES)
+   ========================================================================== */
+/* Estado normal del botón destacado */
+.navbar__inner .navbar-btn-cia {
+  background-color: transparent !important; 
+  border: 1px solid transparent !important; 
+  border-radius: 4px !important;
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+  padding: 4px 12px !important; 
+  align-self: center !important; 
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Estado Hover O cuando el Regex de Docusaurus inyecta la clase activa oficial */
+.navbar__inner .navbar-btn-cia:hover,
+.navbar__inner .navbar-btn-cia.navbar__link--active {
+  background-color: rgba(255, 255, 255, 0.15) !important; 
+  border-color: #f9b905 !important;
+  text-decoration: none !important;
+}
+
+/* ==========================================================================
+   14. GRID DE TECNOLOGÍAS CON IMÁGENES ESTÁTICAS ALEATORIAS (HOME)
+   ========================================================================== */
+.home-logos-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.7rem; /* Separación limpia entre iconos */
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  padding: 1rem;
+}
+
+.tech-home-icon {
+  width: 55px; /* Tamaño ideal para cuando añada 5 iconos más */
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.tech-home-icon:hover {
+  transform: scale(1.18);
+}
+
+/* ==========================================================================
+   15. GALERÍA INTERACTIVA (ESTILO INDUSTRIAL EPS - FIX COMPLETO)
+   ========================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-card {
+  background: #1a1a1a;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-card:hover { border-color: #f9b905; }
+
+.gallery-thumbnail-wrapper { width: 100%; height: 130px; background: #000; overflow: hidden; }
+.gallery-thumbnail { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.2s; }
+.gallery-card:hover .gallery-thumbnail { opacity: 1; }
+
+.gallery-card-footer { padding: 0.6rem; font-size: 0.85rem; text-align: center; font-weight: 600; color: #fff; }
+
+/* --- Lightbox EPS Viewport Completo --- */
+.gallery-lightbox {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.96); 
+  z-index: 9999;
+}
+
+/* Capa absoluta al 100% para scroll nativo */
+.img-zoom-container { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: auto; /* Desbloquea el scroll perimetral al agrandar */
+  z-index: 10000;
+  padding: 100px 140px; /* Colchón de seguridad para que la imagen pase por debajo de los botones fijos */
+  box-sizing: border-box;
+}
+
+/* Centrado compatible con desbordamientos de pantalla */
+.img-zoom-container img { 
+  margin: auto; /* Centrado mágico que respeta los límites superiores e izquierdos al hacer scroll */
+  width: auto;
+  height: auto;
+  object-fit: contain; 
+  transition: max-width 0.2s ease, max-height 0.2s ease;
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+/* Controles Fijos indexados por encima del scroll de la foto */
+.gallery-controls-top {
+  position: absolute; top: 30px; right: 30px; display: flex; gap: 15px; z-index: 10002;
+}
+
+.gallery-controls-top button {
+  background: transparent; border: 1px solid #f9b905; color: #f9b905;
+  width: 40px; height: 40px; cursor: pointer;
+  font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+
+.gallery-controls-top button:hover { background: rgba(249, 185, 5, 0.1); }
+.gallery-controls-top button.close-x { font-size: 1.5rem; }
+
+.nav-btn-clean {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: transparent; border: none; color: #f9b905;
+  font-size: 2.5rem; cursor: pointer; z-index: 10002;
+  padding: 20px; transition: opacity 0.2s;
+}
+
+.nav-btn-clean:hover { color: #93BD22 !important; }
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Atajos de teclado informativos */
+.kbd-help {
+  position: absolute; color: #fff;
+  font-family: monospace; font-size: 0.8rem; text-transform: uppercase;
+  z-index: 10002;
+}
+.top-left { top: 30px; left: 30px; }
+.top-right { top: 60px; left: 30px; }
+
+/* Pie de foto blindado abajo en el centro */
+.gallery-lightbox-caption {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff; 
+  font-family: 'Inter', sans-serif;
+  font-size: 17px; 
+  font-weight: 500;
+  z-index: 10002;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 8px 18px;
+  border-radius: 4px;
+  backdrop-filter: blur(5px);
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   16. CONTROL TOP INTEGRADO EN FOOTER
+   ========================================================================== */
+.footer-wrapper-relative {
+  position: relative;
+}
+
+.custom-back-to-top {
+  position: absolute;
+  
+  
+  bottom: 20px; /* El centro de las FLECHAS se alinea al píxel con el texto del copyright */  
+  right: 40px;  /* Margen limpio respecto al borde derecho */
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.35); /* Gris táctico mimetizado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  transition: color 0.2s ease;
+  font-family: var(--ifm-font-family-base), system-ui, -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.custom-back-to-top svg {
+  width: 20px !important;  
+  height: 20px !important;
+  transition: transform 0.2s ease;
+}
+
+/* 🙈 ESTADO INICIAL DEL TEXTO: Oculto y desplazado hacia arriba */
+.custom-back-to-top span {
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 4px;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  transform: translateY(-6px); 
+}
+
+/* 🔥 ESTADO HOVER: Iluminación general del bloque */
+.custom-back-to-top:hover {
+  color: #f9b905;
+}
+
+/* Las flechas suben sutilmente en el hover */
+.custom-back-to-top:hover svg {
+  transform: rotate(-90deg) translateX(2px);
+}
+
+/* En hover, el texto se vuelve visible y cae suavemente a su posición real */
+.custom-back-to-top:hover span {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   17. PORTAL DE INCIDENCIAS
+   ========================================================================== */
+.incidencias-page-bg {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(rgba(18, 18, 18, 0.88), rgba(18, 18, 18, 0.88)), 
+              url('/img/cateps.webp') no-repeat center center fixed;
+  background-size: cover;
+  padding: 3rem 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* CAPA OSCURA FULL-SCREEN */
+.privacy-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75); 
+  z-index: 100; 
+  animation: fadeInOverlay 0.2s ease-out forwards;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.incidencias-wrapper {
+  max-width: 900px; 
+  width: 100%;   
+  margin: 0 auto; 
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* BARRA DE ESTADO EXTERNA PERIMETRAL */
+.incidencias-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem; 
+  position: relative;    
+  width: 100%;
+}
+
+/* Encapsula los botones del ala izquierda */
+.status-bar-utilities {
+  display: flex;
+  align-items: center;
+  gap: 14px; 
+}
+
+/* Sello de Fecha y Hora estilo Consola (Lado Derecho) */
+.incidencias-timestamp {
+  font-family: monospace;
+  font-size: 1rem;
+  color: #f9b905; 
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.incidencias-card {
+  background: #1e1e1e;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+  width: 100%;      
+  box-sizing: border-box;
+  position: relative; 
+}
+
+/* Fila superior interna de la tarjeta */
+.incidencias-top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.terminal-dot.red { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #27c93f; }
+
+/* El isotipo de colores encajado arriba a la derecha */
+.incidencias-card-logo {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ZONA DE CONTROL DE LA 'i' */
+.incidencias-info-zone {
+  display: flex;
+  align-items: center;
+}
+
+.info-icon-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  z-index: 102; 
+}
+
+.info-icon-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ANIMACIÓN ESTILO HOME PARA LA 'i' */
+.info-svg-icon {
+  width: 22px;  
+  height: 22px;
+  object-fit: contain;
+  animation: homeStylePulse 2s infinite ease-in-out; 
+}
+
+@keyframes homeStylePulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+    filter: drop-shadow(0 0 2px rgba(249, 185, 5, 0.3)); 
+  }
+  50% { 
+    transform: scale(1.12); 
+    opacity: 1; 
+    filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.8)) 
+            drop-shadow(0 0 15px rgba(249, 185, 5, 0.4)); 
+  }
+}
+
+/* MECÁNICA INTERACTIVA DEL BOTÓN DE RESET (Giro de 360 grados) */
+.reset-icon-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+  z-index: 102;
+}
+
+.reset-svg-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.reset-icon-btn:hover {
+  transform: rotate(-360deg) scale(1.1); 
+}
+
+reset-icon-btn:hover .reset-svg-icon {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+/* CAJA DE PRIVACIDAD */
+.tooltip-privacy-box {
+  position: absolute;
+  top: 20px;
+  left: 85px;
+  z-index: 105;
+  width: 100vw;
+  max-width: 440px;
+  background: #121212;
+  border: 1px solid #f9b905;
+  border-radius: 6px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
+  animation: tooltipPrivacyZoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes tooltipPrivacyZoomIn {
+  from { opacity: 0; transform: scale(0.9) translateY(5px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* FLECHA DIBUJADA */
+.privacy-drawn-arrow {
+  position: absolute;
+  right: 103%;
+  top: 1px;         /* Bajada para que nazca de la base de la 'i' */
+  width: 100px;
+  height: auto;
+  pointer-events: none;
+  animation: drawArrowEffect 0.4s ease-out 0.1s both;
+}
+
+@keyframes drawArrowEffect {
+  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+.tooltip-privacy-title {
+  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f9b905;
+  margin: 0 0 0.6rem 0;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+.tooltip-privacy-text {
+  font-size: 0.95rem !important;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.45;
+  margin: 0;
+  text-align: left;
+}
+
+/* Título H2 centrado */
+.terminal-title-center {
+  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Línea divisoria */
+.incidencias-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0 0 1.5rem 0;
+}
+
+/* Subtítulo */
+.incidencias-card .subtitle {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.incidencias-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-group label {
+  font-size: 16px !important;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
+}
+
+/* Estilo unificado para inputs */
+.incidencias-form input[type="text"],
+.incidencias-form input[type="email"],
+.incidencias-form select,
+.incidencias-form textarea {
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  color: #ffffff;
+  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
+  font-size: 16px !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.incidencias-form textarea {
+  resize: vertical; 
+}
+
+/* Customización de las flechas desplegables estilo Chevron Geométrico */
+.incidencias-form select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  /* Dejamos hueco a la derecha para que el texto del aula no pise el icono */
+  padding-right: 2.5rem !important; 
+  
+  /* Inyección de SVG en código: Un chevron fino y limpio idéntico al "back to top" */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  background-size: 14px;
+  
+  transition: border-color 0.2s, box-shadow 0.2s, background-image 0.2s;
+}
+
+/* Cuando el desplegable está activo o tiene el foco, la flecha muta a amarillo corporativo */
+.incidencias-form select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f9b905' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.incidencias-form input:focus,
+.incidencias-form select:focus,
+.incidencias-form textarea:focus {
+  outline: none;
+  border-color: #f9b905;
+  box-shadow: 0 0 0 1px #f9b905;
+}
+
+/* Checkbox personalizado EPS */
+.checkbox-group { margin-top: 0.5rem; }
+.checkbox-label { display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 16px !important; user-select: none; font-weight: 600; color: rgba(255,255,255,0.8); }
+.checkbox-label input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+.custom-checkbox { width: 20px; height: 20px; background: #121212; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; display: inline-block; position: relative; transition: all 0.2s; }
+.checkbox-label input:checked ~ .custom-checkbox { background: rgba(249, 185, 5, 0.1); border-color: #f9b905; }
+.checkbox-label input:checked ~ .custom-checkbox:after { content: ""; position: absolute; left: 6px; top: 2px; width: 6px; height: 11px; border: solid #f9b905; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+.checkbox-label:hover input ~ .custom-checkbox { border-color: #f9b905; }
+
+/* Botón Estilo Consola */
+.btn-submit {
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid #f9b905;
+  color: #f9b905;
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.05em;
+}
+
+.btn-submit:hover:not(:disabled) { background: rgba(249, 185, 5, 0.1); }
+.btn-submit:disabled { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.2); cursor: not-allowed; }
+
+.alert { padding: 1rem; border-radius: 4px; font-family: monospace; font-size: 0.9rem; margin-bottom: 1.5rem; }
+.alert-success { background: rgba(39, 201, 63, 0.1); border: 1px solid #27c93f; color: #27c93f; }
+.alert-danger { background: rgba(255, 95, 86, 0.1); border: 1px solid #ff5f56; color: #ff5f56; }
+
+/* Opciones del Punto 5 */
+.incidencias-radio-group {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.2rem;
+}
+
+.incidencias-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 16px !important;
+  font-weight: 600;
+  user-select: none;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  color: #ffffff !important; 
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-radio-box {
+  width: 20px;
+  height: 20px;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.incidencias-radio-label input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* 🟢 INTERACTIVO SÍ (VERDE) */
+.incidencias-radio-label.radio-si:hover { border-color: #27c93f; }
+.incidencias-radio-label.radio-si:hover .custom-radio-box { border-color: #27c93f; }
+.incidencias-radio-label.radio-si:has(input:checked) { background: transparent !important; border-color: #27c93f !important; box-shadow: 0 0 8px rgba(39, 201, 63, 0.25); }
+.incidencias-radio-label.radio-si input:checked ~ .custom-radio-box { border-color: #27c93f !important; background: transparent !important; }
+.incidencias-radio-label.radio-si input:checked ~ .custom-radio-box:after { content: ""; position: absolute; left: 6px; top: 2px; width: 6px; height: 11px; border: solid #27c93f; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+
+/* 🔴 INTERACTIVO NO (ROJO) */
+.incidencias-radio-label.radio-no:hover { border-color: #ff5f56; }
+.incidencias-radio-label.radio-no:hover .custom-radio-box { border-color: #ff5f56; }
+.incidencias-radio-label.radio-no:has(input:checked) { background: transparent !important; border-color: #ff5f56 !important; box-shadow: 0 0 8px rgba(255, 95, 86, 0.25); }
+.incidencias-radio-label.radio-no input:checked ~ .custom-radio-box { border-color: #ff5f56 !important; background: transparent !important; }
+.incidencias-radio-label.radio-no input:checked ~ .custom-radio-box:after { content: ""; position: absolute; left: 6px; top: 2px; width: 6px; height: 11px; border: solid #ff5f56; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+
+/* Entrada Campo 6 */
+.field-animate-fade { animation: fadeInField 0.25s ease-out forwards; }
+@keyframes fadeInField { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Error Neón Inline */
+.incidencias-error-msg {
+  color: #ff0055;
+  text-shadow: 0 0 8px rgba(255, 0, 85, 0.4);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 0.4rem;
+  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
+  animation: fadeInField 0.2s ease-out forwards;
+}
+
+/* Botón de aspas (X) para cerrar el cuadro flotante */
+.tooltip-privacy-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 1.1rem;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.35); 
+  font-size: 1.6rem;
+  line-height: 1;
+  font-family: Arial, sans-serif; 
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.tooltip-privacy-close:hover {
+  color: #f9b905;
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   HEADER: ENLACE CONTACTO
+   ========================================================================== */
+.navbar__link[href*="contacto"].navbar__link--active {
+  border: 1px solid #27c93f;
+  background: rgba(39, 201, 63, 0.05) !important; /* Fondo translúcido en activo */
+  border-radius: 6px;
+  padding: 6px 14px !important;
+  margin: 0 0.2rem;
+  box-shadow: 0 0 8px rgba(39, 201, 63, 0.25); /* Aura neón verde */
+  transition: all 0.15s ease;
+}
+
+/* El estado hover nativo de Docusaurus se encarga del resto cuando no está activo */
+
+/* Unificar tipografía y forzar los 16px en los desplegables */
+details, 
+summary,
+details p, 
+details div,
+details li {
+  font-family: var(--ifm-font-family-base), system-ui, -apple-system, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important; /* Para que mantenga un buen espaciado de lectura */
+}
+
+/* Unificar tipografía y forzar 16px en los Admonitions */
+.theme-admonition,
+[class*="admonition"],
+.alert,
+.alert * {
+  font-family: var(--ifm-font-family-base), system-ui, -apple-system, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+}
+
+/* ==========================================================================
+   Sección 17.11: MUDANZA DE ESTILOS MODO INSPECTOR, FLECHA Y CAJA PRIVACIDAD
+   ========================================================================== */
+
+/* Capa oscura de fondo fija a la pantalla completa */
+.privacy-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000 !important; 
+}
+
+/* Caja de aviso de privacidad */
+.tooltip-privacy-box {
+  position: fixed;   
+  top: 3rem;
+  left: calc(50% - 358px);  
+  z-index: 1005 !important; 
+  width: 100vw;
+  max-width: 440px;
+  background: #121212;
+  border: 1px solid #f9b905;
+  border-radius: 6px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
+  animation: tooltipPrivacyZoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes tooltipPrivacyZoomIn {
+  from { opacity: 0; transform: scale(0.9) translateY(5px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.privacy-drawn-arrow {
+  position: fixed;     
+  left: calc(50% - 448px); 
+  top: 4.2rem;        
+  width: 100px;
+  height: auto;
+  pointer-events: none;
+  animation: drawArrowEffect 0.4s ease-out 0.1s both;
+  z-index: 1004 !important;
+}
+
+@keyframes drawArrowEffect {
+  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+
+.inspector-fade {
+  transition: opacity 0.2s ease-out;
+}
+
+/* BOTÓN DE RESCATE CENTRADO ARRIBA (LIMPIO Y DESNUDO) */
+.rescue-eye-top-center {
+  position: fixed;
+  top: 1.5rem;          
+  left: 50%;
+  transform: translateX(-50%); 
+  z-index: 10000;       
+  animation: inspectorPulseActive 2s infinite ease-in-out;
+}
+
+.rescue-eye-top-btn {
+  background: transparent; 
+  border: none;            
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rescue-eye-top-svg {
+  width: 36px;             
+  height: 36px;
+  object-fit: contain;
+}
+
+@keyframes inspectorPulseActive {
+  0%, 100% { 
+    filter: drop-shadow(0 0 4px rgba(249, 185, 5, 0.5)); 
+  }
+  50% { 
+    transform: translateX(-50%) scale(1.15); 
+    filter: drop-shadow(0 0 14px rgba(249, 185, 5, 0.95)) 
+            drop-shadow(0 0 25px rgba(249, 185, 5, 0.6)); 
+  }
+}
+
+.mirror-info-zone {
+  position: fixed;
+  top: 3.1rem;             
+  left: calc(50% - 432px); 
+  z-index: 1006 !important; 
+}
+
+.mirror-info-zone .info-icon-btn {
+  opacity: 1 !important;
+  background: transparent; 
+}
+
+.incidencias-card-branding {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.branding-link {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.branding-link:hover {
+  transform: scale(1.08);
+}
+
+.incidencias-card-logo.eps-logo-dim {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+.branding-link:hover .eps-logo-dim {
+  filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.3));
+}

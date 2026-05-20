@@ -1,0 +1,57 @@
+---
+id: L1-A-ESC
+title: Aula L1-A-ESC
+sidebar_label: L1-A-ESC
+---
+
+## 🏢 Expresión Gráfica
+
+Bienvenido a la ficha técnica del aula **L1-A-ESC** (nave taller).
+
+Aquí encontrarás información técnica del aula y un plano interactivo de la misma en vista cenital. <a href="#plano" style={{fontSize: '26px', fontWeight: 'bold', textDecoration: 'none', marginLeft: '5px'}}>↓</a>
+
+---
+
+## 📍 Ubicación y capacidad
+* **Edificio:** CATEPS - Planta 0 (Bloque amarillo - Nave Taller)
+* **Puestos:** 32 alumnos + 1 profesor
+* **Monitor interactivo:** Sí (HDMI) 
+
+## 🖥️ Especificaciones de los equipos
+| Componente | Detalle | Información |
+| :--- | :--- | :--- |
+| **SO** | Windows 11 PRO 24H2 | [Web de Microsoft](https://learn.microsoft.com/es-es/windows/whats-new/whats-new-windows-11-version-24h2) |
+| **Procesador** | Intel i7 - 12700 (12ª gen) | [Web de Intel](https://www.intel.la/content/www/xl/es/products/sku/134591/intel-core-i712700-processor-25m-cache-up-to-4-90-ghz/specifications.html) |
+| **GPU integrada** | Intel® UHD Graphics 770 | [Ficha técnica <FontAwesomeIcon icon="fa-solid fa-file-pdf" style={{color: '#e74c3c', marginLeft: '5px'}} />](/assets/Intel-Core-Desktop-Boxed-Processors-HD-GFX-List.pdf) |
+| **RAM** | 16 GB Team Group DDR4-3200 / PC4-25600 TED416G3200C22-S01 | [Ficha técnica <FontAwesomeIcon icon="fa-solid fa-file-pdf" style={{color: '#e74c3c', marginLeft: '5px'}} />](/assets/Ficha_técnica_DDR4_16GB_Team_Group_RAM_elite-en.pdf) |
+| **Disco** | 1TB SSD Kingston SNV2S NVMe M.2 (2280) PCIe 4.0 x4 | [Ficha técnica <FontAwesomeIcon icon="fa-solid fa-file-pdf" style={{color: '#e74c3c', marginLeft: '5px'}} />](/assets/Ficha_técnica_NVMe_Kingston_1TB_CATEPS.pdf) |
+
+## 🛠️ Software instalado
+* **Ofimática:** Office LTSC 2024 - Más información [aquí](https://learn.microsoft.com/es-es/office/ltsc/2024/overview).
+* **Específico:** El software solicitado por el departamento.
+* **Navegadores:** Chrome, Firefox, Edge.
+---
+
+:::tip[RECUERDA]
+
+El sistema de **Control de Internet (CIA)** controla la conectividad en el aula. Consulta la sección [CIA](/docs/cia).
+
+:::
+
+import AulaL1AESC from '@site/src/components/AulaL1AESC';
+
+<h2 id="plano" style={{ scrollMarginTop: 'calc(var(--ifm-navbar-height) + 1.5rem)' }}>
+  📊 Plano interactivo del aula
+</h2>
+
+<AulaL1AESC />
+
+## 💡 Descripción general
+
+-   **Infraestructura de Red:** Cada nodo dispone de conectividad física mediante interfaz Gigabit Ethernet (1000BASE-T), garantizando una transferencia de datos de alta velocidad y baja latencia hacia el núcleo de red del centro.
+
+-   **Directivas:** Los equipos operan bajo un entorno protegido mediante la implementación de directivas de grupo locales (GPO). Se han configurado objetos de directiva específicos en el editor de Directivas de Grupo (gpedit.msc) and Directivas de Seguridad Local (secpol.msc) para restringir el escalado de privilegios y asegurar la integridad del sistema operativo.
+
+-   **Gestión de privilegios:** Para facilitar la flexibilidad docente, los usuarios mantienen permisos de administración; no obstante, el sistema implementa una capa de seguridad proactiva mediante directivas de red. Esto blinda los parámetros críticos del sistema y la configuración de red, evitando desajustes accidentales o la ejecución de software no autorizado, asegurando que el aula esté siempre operativa para la siguiente sesión, salvo vandalización del equipo.
+
+-   **Navegación blindada:** Con el fin de proteger la privacidad de alumnos y docentes, todos los navegadores están configurados por defecto en [modo invitado](https://support.google.com/chrome/answer/6130773?hl=es&co=GENIE.Platform%3DDesktop), salvo Mozilla Firefox por no disponer de este modo. Este protocolo garantiza que, al cerrar la ventana, se eliminen automáticamente historiales, cookies y sesiones iniciadas. De esta forma, ningún dato personal o credencial queda expuesto para el siguiente usuario.
