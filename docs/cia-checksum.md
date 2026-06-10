@@ -30,12 +30,12 @@ A continuación, se facilitan las firmas de comprobación oficiales de los scrip
     <div className="launcher-command">
       **Script:** `CIA-L1-D-ATC.ps1`
       ```powershell title="Checksum SHA-256"
-      CCA272340E6FD2AF880C51767F89CEA9F3EFE2D2B2B4A281821663B043C6684B
+      F6EF3EA93F910D1EECFA13E0B2F3659B72E3BE786D5AFC3E0DF905E904FA4D20
       ```
 	   {/*
 		PS C:\Windows\System32> Get-FileHash -Path "C:\ProgramData\CATEPS\CIA-L1-D-ATC.ps1" -Algorithm SHA256 | Format-List Path, Hash
 		Path : C:\ProgramData\CATEPS\CIA-L1-D-ATC.ps1
-		Hash : CCA272340E6FD2AF880C51767F89CEA9F3EFE2D2B2B4A281821663B043C6684B
+		Hash : F6EF3EA93F910D1EECFA13E0B2F3659B72E3BE786D5AFC3E0DF905E904FA4D20
 	   */}
     </div>
   </TabItem>
@@ -44,12 +44,12 @@ A continuación, se facilitan las firmas de comprobación oficiales de los scrip
     <div className="launcher-command">
       **Script:** `CIA-L2-D-ATC.ps1`
       ```powershell title="Checksum SHA-256"
-      D51018D08A0B6105F04E3CFCBC698F464C3EDC7D65B17B3B0C86C4BA7013FA27
+      65B0BFB94F88648DC6BBE9A5C20D94B97A024A480245509C487A1EB977696797
       ```
 	   {/*
 		PS C:\Windows\System32> Get-FileHash -Path "C:\ProgramData\CATEPS\CIA-L2-D-ATC.ps1" -Algorithm SHA256 | Format-List Path, Hash
 		Path : C:\ProgramData\CATEPS\CIA-L2-D-ATC.ps1
-		Hash : D51018D08A0B6105F04E3CFCBC698F464C3EDC7D65B17B3B0C86C4BA7013FA27
+		Hash : 65B0BFB94F88648DC6BBE9A5C20D94B97A024A480245509C487A1EB977696797
 	   */}
     </div>
   </TabItem>
@@ -58,12 +58,12 @@ A continuación, se facilitan las firmas de comprobación oficiales de los scrip
     <div className="launcher-command">
       **Script:** `CIA-L1-A-ESC.ps1`
       ```powershell title="Checksum SHA-256"
-      30EC1BCAEFCFA5899F98D0242E3353EE1009E811546198BDE4F7F3D39D42DB01
+      57A618946B2857B7B3698972687CF18C2BE6157F97C104BF88B9AE60EFED4443
       ```
 	   {/*
 	    PS C:\Windows\System32> Get-FileHash -Path "C:\ProgramData\CATEPS\CIA-L1-A-ESC.ps1" -Algorithm SHA256 | Format-List Path, Hash
 	    Path : C:\ProgramData\CATEPS\CIA-L1-A-ESC.ps1
-		Hash : 30EC1BCAEFCFA5899F98D0242E3353EE1009E811546198BDE4F7F3D39D42DB01 
+		Hash : 57A618946B2857B7B3698972687CF18C2BE6157F97C104BF88B9AE60EFED4443 
 	   */}
     </div>
   </TabItem>
