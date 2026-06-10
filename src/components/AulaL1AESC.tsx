@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   ReactFlow,
   Controls,
@@ -7,12 +7,19 @@ import {
   Handle,
   Position
 } from '@xyflow/react';
+import type { Node, Edge, EdgeProps, NodeProps } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-/* ============================================================
-   1) INDICADOR: ACCESO AL AULA (VERDE EPS)
-============================================================ */
-const AccesoIndicador = () => (
+const FONDOS_CATEPS = [
+  '/img/cateps.webp',
+  '/img/cateps-aerea.webp',
+  '/img/cateps-patio-central.webp',
+  '/img/cateps-edificio.webp',
+  '/img/cateps-terraza.webp',
+  '/img/cateps-entrada.webp'
+];
+
+const AccesoIndicador: React.FC = () => (
   <div style={{
     position: 'absolute', top: '25px', right: '40px',
     display: 'flex', flexDirection: 'column', alignItems: 'center',
@@ -43,10 +50,7 @@ const AccesoIndicador = () => (
   </div>
 );
 
-/* ============================================================
-   2) CONSOLA POWERSHELL (VERDE EPS)
-============================================================ */
-const PowerShellConsole = ({ visible }) => {
+const PowerShellConsole: React.FC<{ visible: boolean }> = ({ visible }) => {
   const commands = ['Ejecutando Windows Terminal...', 'PowerShell 7 activado', 'Lanzando comando remoto 🚀'];
   const [text, setText] = useState('');
   const [charIndex, setCharIndex] = useState(0);
@@ -85,10 +89,7 @@ const PowerShellConsole = ({ visible }) => {
   );
 };
 
-/* ============================================================
-   3) NODO PROFESOR (CON GRADIENTE)
-============================================================ */
-const ProfesorNode = ({ data }) => (
+const ProfesorNode: React.FC<NodeProps> = ({ data }) => (
   <div style={{ 
     background: 'linear-gradient(135deg, rgba(147, 189, 34, 0.25) 0%, rgba(10, 10, 10, 0.9) 100%)', 
     border: '2px solid #93BD22', 
@@ -100,8 +101,8 @@ const ProfesorNode = ({ data }) => (
     position: 'relative',
     boxShadow: data.showEffects ? '0 0 15px rgba(147, 189, 34, 0.3)' : 'none'
   }}>
-    <PowerShellConsole visible={data.showEffects} />
-    <div style={{ fontWeight: 'bold', fontSize: '15px', letterSpacing: '1px' }}>{data.label}</div>
+    <PowerShellConsole visible={!!data.showEffects} />
+    <div style={{ fontWeight: 'bold', fontSize: '15px', letterSpacing: '1px' }}>{data.label as string}</div>
     <Handle type="source" id="h-pc01" position={Position.Bottom} style={{ left: '35%', opacity: 0 }} />
     <Handle type="source" id="h-pc02" position={Position.Bottom} style={{ left: '50%', opacity: 0 }} />
     <Handle type="source" id="h-pc03" position={Position.Bottom} style={{ left: '65%', opacity: 0 }} />
@@ -109,19 +110,16 @@ const ProfesorNode = ({ data }) => (
   </div>
 );
 
-/* ============================================================
-   4) EDGE PERSONALIZADO
-============================================================ */
-const PulseEdge = ({ id, sourceX, sourceY, targetX, targetY, data }) => {
+const PulseEdge: React.FC<EdgeProps> = ({ id, sourceX, sourceY, targetX, targetY, data }) => {
   if (!data?.showEffects) return null;
-  let path;
+  let path: string;
   if (data?.straight) {
     [path] = getStraightPath({ sourceX, sourceY, targetX, targetY });
   } else {
     const dx = targetX - sourceX;
-    const k = data?.k ?? 0.6;
-    const dy = data?.dy ?? 60;
-    const ay = data?.ay ?? 60;
+    const k = (data?.k as number) ?? 0.6;
+    const dy = (data?.dy as number) ?? 60;
+    const ay = (data?.ay as number) ?? 60;
     const c1x = sourceX + dx * k;
     const c1y = sourceY + dy;
     const c2x = targetX;
@@ -138,10 +136,7 @@ const PulseEdge = ({ id, sourceX, sourceY, targetX, targetY, data }) => {
   );
 };
 
-/* ============================================================
-   5) NODO PC (CON TOOLTIP VERDE)
-============================================================ */
-const PCNodeContent = ({ data }) => {
+const PCNodeContent: React.FC<{ data: any }> = ({ data }) => {
   const [isHovered, setIsHovered] = React.useState(false);
   return (
     <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} style={{ width: '100%', height: '100%', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'crosshair' }}>
@@ -167,18 +162,15 @@ const PCNodeContent = ({ data }) => {
 const nodeTypes = { profNode: ProfesorNode };
 const edgeTypes = { pulseEdge: PulseEdge };
 
-/* ============================================================
-   6) COMPONENTE PRINCIPAL
-============================================================ */
-export default function AulaL1AESC() {
+export default function AulaL1AESC(): JSX.Element {
   const [showEffects, setShowEffects] = useState(false);
-  const [rfInstance, setRfInstance] = useState(null);
+  const [rfInstance, setRfInstance] = useState<any>(null);
 
   useEffect(() => {
     if (rfInstance) { rfInstance.fitView({ padding: 0.07 }); }
   }, [rfInstance]);
 
-  const initialNodes = [
+  const initialNodes: Node[] = [
     { id: 'prof', type: 'profNode', data: { label: 'PROFESOR' }, position: { x: 0, y: 0 } },
     { id: '1', data: { label: 'PC-04', sub: '10.1.56.13', alias: 'Taller13' }, position: { x: 0, y: 150 } },
     { id: '2', data: { label: 'PC-03', sub: '10.1.56.14', alias: 'Taller14' }, position: { x: 130, y: 150 } },
@@ -215,7 +207,7 @@ export default function AulaL1AESC() {
     { id: 'anchor', position: { x: 520, y: 0 }, data: { label: '' }, style: { opacity: 0, width: 1, height: 1, pointerEvents: 'none' } }
   ];
 
-  const initialEdges = [
+  const initialEdges: Edge[] = [
     { id: 'e-p1', source: 'prof', sourceHandle: 'h-pc01', target: '1', type: 'pulseEdge', data: { straight: true, showEffects } },
     { id: 'e-p2', source: 'prof', sourceHandle: 'h-pc02', target: '2', type: 'pulseEdge', data: { k: 0.45, dy: 40, ay: 40, showEffects } },
     { id: 'e-p3', source: 'prof', sourceHandle: 'h-pc03', target: '3', type: 'pulseEdge', data: { k: 0.65, dy: 60, ay: 60, showEffects } },
@@ -223,7 +215,7 @@ export default function AulaL1AESC() {
   ];
 
   for (let col = 1; col <= 4; col++) {
-    let nodesInCol = [];
+    let nodesInCol: number[] = [];
     for (let i = col; i <= 32; i += 4) nodesInCol.push(i);
     for (let i = 0; i < nodesInCol.length - 1; i++) {
       initialEdges.push({

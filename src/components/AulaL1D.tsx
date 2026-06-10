@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ReactFlow, Controls, BaseEdge, getSmoothStepPath, Handle, Position } from '@xyflow/react';
+import type { Node, Edge, EdgeProps, NodeProps } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-// 1. COMPONENTE ACCESO AL AULA (VERDE EPS)
-const AccesoIndicador = () => (
+const AccesoIndicador: React.FC = () => (
   <div style={{
     position: 'absolute', bottom: '60px', right: '25px',
     display: 'flex', flexDirection: 'column', alignItems: 'center',
@@ -19,8 +19,7 @@ const AccesoIndicador = () => (
   </div>
 );
 
-// 2. TERMINAL POWERSHELL (VERDE EPS)
-const PowerShellConsole = ({ visible }) => {
+const PowerShellConsole: React.FC<{ visible: boolean }> = ({ visible }) => {
   const commands = ["Ejecutando Windows Terminal...", "PowerShell 7 activado", "Lanzando comando remoto 🚀"];
   const [text, setText] = useState("");
   const [cmdIndex, setCmdIndex] = useState(0);
@@ -57,23 +56,21 @@ const PowerShellConsole = ({ visible }) => {
   );
 };
 
-// 3. NODO PROFESOR (GRADIENTE VERDE)
-const ProfesorNode = ({ data }) => (
+const ProfesorNode: React.FC<NodeProps> = ({ data }) => (
   <div style={{ 
     background: 'linear-gradient(135deg, rgba(147, 189, 34, 0.25) 0%, rgba(10, 10, 10, 0.9) 100%)', 
     border: '2px solid #93BD22', 
     padding: '15px 10px', borderRadius: '6px', width: '150px', textAlign: 'center', color: '#fff', position: 'relative' 
   }}>
-    <PowerShellConsole visible={data.showEffects} />
-    <div style={{ fontWeight: 'bold', fontSize: '15px', letterSpacing: '1px' }}>{data.label}</div>
+    <PowerShellConsole visible={!!data.showEffects} />
+    <div style={{ fontWeight: 'bold', fontSize: '15px', letterSpacing: '1px' }}>{data.label as string}</div>
     <Handle type="source" position={Position.Bottom} id="h-izq" style={{ left: '15%', opacity: 0 }} />
     <Handle type="source" position={Position.Bottom} id="h-centro" style={{ left: '45%', opacity: 0 }} />
     <Handle type="source" position={Position.Bottom} id="h-der" style={{ left: '85%', opacity: 0 }} />
   </div>
 );
 
-// 4. LÍNEA ANIMADA (VERDE EPS)
-const ColumnAnimatedEdge = ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data }) => {
+const ColumnAnimatedEdge: React.FC<EdgeProps> = ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data }) => {
   const [edgePath] = getSmoothStepPath({ sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition, borderRadius: 20 });
   if (!data?.showEffects) return null;
   return (
@@ -86,8 +83,7 @@ const ColumnAnimatedEdge = ({ id, sourceX, sourceY, targetX, targetY, sourcePosi
   );
 };
 
-// 5. CONTENIDO PC (VERDE EPS)
-const PCNodeContent = ({ id, data }) => {
+const PCNodeContent: React.FC<{ id: string; data: any }> = ({ id, data }) => {
   const [isHovered, setIsHovered] = React.useState(false);
   const isCornerNode = id === '1';
 
@@ -125,11 +121,10 @@ const PCNodeContent = ({ id, data }) => {
 const nodeTypes = { profNode: ProfesorNode };
 const edgeTypes = { animColumna: ColumnAnimatedEdge };
 
-// 6. COMPONENTE PRINCIPAL
-export default function AulaL1D() {
+export default function AulaL1D(): JSX.Element {
   const [showEffects, setShowEffects] = useState(false);
 
-  const initialNodes = [
+  const initialNodes: Node[] = [
     { id: 'prof', type: 'profNode', data: { label: 'PROFESOR' }, position: { x: 450, y: 0 } },
     { id: '1', data: { label: 'PC-10', sub: '10.1.56.61', alias: 'L1ATC61' }, position: { x: 80, y: 80 } },
     { id: '2', data: { label: 'PC-09', sub: '10.1.56.57', alias: 'L1ATC57' }, position: { x: 80, y: 135 } },
@@ -153,13 +148,13 @@ export default function AulaL1D() {
     { id: '20', data: { label: 'PC-15', sub: '10.1.56.60', alias: 'L1ATC60' }, position: { x: 580, y: 425 } },
   ];
 
-  const initialEdges = [
+  const initialEdges: Edge[] = [
     { id: 'e-izq', source: 'prof', sourceHandle: 'h-izq', target: '1', type: 'animColumna', data: { showEffects } },
     { id: 'e-centro', source: 'prof', sourceHandle: 'h-centro', target: '11', type: 'animColumna', data: { showEffects } },
     { id: 'e-der', source: 'prof', sourceHandle: 'h-der', target: '15', type: 'animColumna', data: { showEffects } },
   ];
 
-  const addLines = (start, end, prefix) => {
+  const addLines = (start: number, end: number, prefix: string) => {
     for (let i = start; i < end; i++) {
       initialEdges.push({
         id: `line-${prefix}-${i}`, source: `${i}`, target: `${i+1}`,
@@ -190,8 +185,6 @@ export default function AulaL1D() {
 
   return (
     <div style={{ width: '100%', height: '820px', background: '#0a0a0a', border: '1px solid #93BD22', borderRadius: '12px', position: 'relative', overflow: 'hidden' }}>
-      
-      {/* ACTIVADOR DINÁMICO IZQUIERDO */}
       <div style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 100, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
         <button 
           onClick={() => setShowEffects(!showEffects)}

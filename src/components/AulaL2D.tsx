@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ReactFlow, Controls, BaseEdge, getSmoothStepPath, Handle, Position } from '@xyflow/react';
+import type { Node, Edge, EdgeProps, NodeProps } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-// COMPONENTE ACCESO AL AULA (VERDE EPS)
-const AccesoIndicador = () => (
+const AccesoIndicador: React.FC = () => (
   <div style={{
     position: 'absolute', top: '30px', right: '25px', 
     display: 'flex', flexDirection: 'column', alignItems: 'center',
@@ -24,8 +24,7 @@ const AccesoIndicador = () => (
   </div>
 );
 
-// TERMINAL POWERSHELL (VERDE EPS)
-const PowerShellConsole = ({ visible }) => {
+const PowerShellConsole: React.FC<{ visible: boolean }> = ({ visible }) => {
   const commands = ["Ejecutando Windows Terminal...", "PowerShell 7 activado", "Lanzando comando remoto 🚀"];
   const [text, setText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
@@ -63,22 +62,21 @@ const PowerShellConsole = ({ visible }) => {
   );
 };
 
-// NODOS (PROFESOR CON GRADIENTE VERDE)
-const ProfesorNode = ({ data }) => (
+const ProfesorNode: React.FC<NodeProps> = ({ data }) => (
   <div style={{ 
     background: 'linear-gradient(135deg, rgba(147, 189, 34, 0.25) 0%, rgba(10, 10, 10, 0.9) 100%)', 
     border: '2px solid #93BD22', 
     borderRadius: '6px', width: '150px', height: '60px', color: '#fff', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' 
   }}>
-    <PowerShellConsole visible={data.showEffects} />
-    <div style={{ fontWeight: 'bold', fontSize: '15px', letterSpacing: '1px' }}>{data.label}</div>
+    <PowerShellConsole visible={!!data.showEffects} />
+    <div style={{ fontWeight: 'bold', fontSize: '15px', letterSpacing: '1px' }}>{data.label as string}</div>
     <Handle type="source" position={Position.Top} id="h-t1" style={{ left: '15%', opacity: 0 }} />
     <Handle type="source" position={Position.Top} id="h-t2" style={{ left: '50%', opacity: 0 }} />
     <Handle type="source" position={Position.Top} id="h-t3" style={{ left: '85%', opacity: 0 }} />
   </div>
 );
 
-const PCNode = ({ id, data }) => {
+const PCNode: React.FC<NodeProps> = ({ id, data }) => {
   const [isHovered, setIsHovered] = useState(false);
   const isInactive = data.inactive === true;
   const showEffects = data.showEffects;
@@ -98,8 +96,8 @@ const PCNode = ({ id, data }) => {
         zIndex: isHovered ? 1000 : 1 
       }}>
       <div className="pc-text-container">
-        <span className="pc-label-l2">{data.label}</span>
-        <span className="pc-sub-l2" style={{ color: isInactive ? '#A40133' : '#93BD22' }}>{data.alias ? data.alias : data.sub}</span>
+        <span className="pc-label-l2">{data.label as string}</span>
+        <span className="pc-sub-l2" style={{ color: isInactive ? '#A40133' : '#93BD22' }}>{data.alias ? (data.alias as string) : (data.sub as string)}</span>
       </div>
       <Handle type="target" position={Position.Top} style={{ opacity: 0 }} />
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
@@ -112,7 +110,7 @@ const PCNode = ({ id, data }) => {
           color: '#fff', fontSize: '11px', zIndex: 1001, textAlign: 'left',
           boxShadow: `0 0 15px ${isInactive ? 'rgba(164, 1, 51, 0.3)' : 'rgba(147, 189, 34, 0.3)'}`
         }}>
-          <div><strong>IP:</strong> {data.sub}</div>
+          <div><strong>IP:</strong> {data.sub as string}</div>
           <div style={{ color: isInactive ? '#A40133' : '#00ff00', fontSize: '10px', fontWeight: 'bold', borderTop: `1px solid ${isInactive ? 'rgba(164, 1, 51, 0.2)' : 'rgba(147, 189, 34, 0.2)'}`, marginTop: '5px', paddingTop: '5px' }}>
             ● {isInactive ? 'SISTEMA INACTIVO' : 'SISTEMA ACTIVO'}
           </div>
@@ -123,9 +121,8 @@ const PCNode = ({ id, data }) => {
   );
 };
 
-// EDGES (VERDE EPS)
-const AnimatedEdge = ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data }) => {
-  const [edgePath] = getSmoothStepPath({ sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition, borderRadius: 40, offset: data?.offset || 20 });
+const AnimatedEdge: React.FC<EdgeProps> = ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data }) => {
+  const [edgePath] = getSmoothStepPath({ sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition, borderRadius: 40, offset: (data?.offset as number) || 20 });
   if (!data?.showEffects) return null;
   return (
     <>
@@ -140,10 +137,10 @@ const AnimatedEdge = ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, 
 const nodeTypes = { profNode: ProfesorNode, pcNode: PCNode };
 const edgeTypes = { animEdge: AnimatedEdge };
 
-export default function AulaL2D() {
+export default function AulaL2D(): JSX.Element {
   const [showEffects, setShowEffects] = useState(false);
 
-  const initialNodes = [
+  const initialNodes: Node[] = [
     { id: 'prof', type: 'profNode', position: { x: 750, y: 780 }, data: { label: 'PROFESOR' } },
     { id: '1', type: 'pcNode', position: { x: 50, y: 20 }, data: { label: 'PC-22', sub: '10.1.56.96', alias: 'L2ATC96' } },
     { id: '2', type: 'pcNode', position: { x: 50, y: 95 }, data: { label: 'PC-21', sub: '10.1.56.95', alias: 'L2ATC95' } },
@@ -169,7 +166,7 @@ export default function AulaL2D() {
     { id: '22', type: 'pcNode', position: { x: 450, y: 735 }, data: { label: 'PC-01', sub: '10.1.56.91', alias: 'L2ATC91' } },
   ];
 
-  const initialEdges = [
+  const initialEdges: Edge[] = [
     { id: 'e-long', source: 'prof', sourceHandle: 'h-t3', target: '1', type: 'animEdge' },
     { id: 'e-mid', source: 'prof', sourceHandle: 'h-t2', target: '3', type: 'animEdge', data: { offset: 60 } },
     { id: 'e-short', source: 'prof', sourceHandle: 'h-t1', target: '13', type: 'animEdge', data: { offset: 30 } },

@@ -1,5 +1,10 @@
 ---
 title: PowerShell Gallery
+tags:
+  - Aulas
+  - PowerShell 7
+  - Gestión de Dependencias
+  - Repositorio de Paquetes
 sidebar_label: PowerShell Gallery
 ---
 
@@ -36,7 +41,7 @@ Repositorio central oficial de Microsoft.
 
 La gestión de más de 300 puestos de trabajo entre los edificios que conforman la EPS requiere una consistencia absoluta. No instalamos software manualmente; desplegamos y orquestamos de forma centralizada.
 
-### ⚡ ¿Por qué utilizamos PowerShell Gallery?
+### ⚡ Uso de PowerShell Gallery
 
 * **Verificación de Identidad:** Si necesitamos utilizar módulos para nuestros scripts, nos aseguramos previamente de que están firmados digitalmente y publicados por fuentes confiables (Microsoft o comunidades verificadas).
 * **Gestión de Dependencias:** El sistema resuelve automáticamente qué librerías necesita un script antes de ejecutarse, evitando errores de "archivo no encontrado".
@@ -44,7 +49,7 @@ La gestión de más de 300 puestos de trabajo entre los edificios que conforman 
 
 ---
 
-### 📈 Esquema de Distribución Centralizada
+### 📈 Esquema de Distribución
 
 {/* ![Diagrama de Orquestación](/img/diagrama-powershell-gallery.svg) */}
 <br />

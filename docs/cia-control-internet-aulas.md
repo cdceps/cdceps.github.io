@@ -1,3 +1,16 @@
+---
+id: cia-control-internet-aulas
+title: Control Internet Aulas (CIA)
+tags:
+  - Automatización
+  - Modo Examen
+  - PowerShell 7
+  - Seguridad
+sidebar_position: 1
+---
+
+<span className="theme-doc-version-badge badge badge--secondary" style={{ verticalAlign: 'middle', marginBottom: '0.5rem', display: 'inline-block' }}>Versión: 1.1.2</span>
+
 # Control Internet Aulas (CIA)
 
 :::info
@@ -8,7 +21,7 @@
 
 :::
 
----
+------------------------------------------------------------------------
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -68,6 +81,10 @@ GitHub Gist es una herramienta de GitHub que nos permite crear y compartir fragm
   </TabItem>
 </Tabs>
 
+:::danger[Atención]
+Debido a la política de mantenimiento (Auto-Unlock), el bloqueo **no persiste tras un reinicio**. Es **imperativo** que el docente utilice la **Opción 3 (Ver estado)** periódicamente durante el examen para confirmar que ningún equipo ha sido reiniciado fraudulentamente.
+:::
+
 ---
 
 - To activate additional products such as **Office for macOS, Visual Studio, RDS CALs, and Windows XP**.
@@ -82,13 +99,6 @@ GitHub Gist es una herramienta de GitHub que nos permite crear y compartir fragm
 - Be cautious of third parties spreading malware disguised as MAS by altering the URL in the PowerShell command.
 
 :::
-
-------------------------------------------------------------------------
-
-## CIA Última Versión
-
-Última versión: v1.2 (abril 2026)  
-[Changelog](./cia-changelog) / [FAQ](./cia-faq)
 
 ------------------------------------------------------------------------
 
@@ -160,36 +170,6 @@ Activation with is required after the installation of Office.
 
 ---
 
-## FAQ
-
-#### Guides
-- [Clean Install Windows]
-- [Manually Update Windows ISOs]
-- [In-place Repair Upgrade (Keeping files and apps)]
-- [Windows 11 on Unsupported Hardware]
-- [Edition List During Windows Installation]
-- [Bypass Windows 11 Internet and Microsoft Account Requirements]
-- [Windows 10 Updates After End-Of-Life]
-
-#### Why are we hosting files on our server when we can download them from Microsoft?
-
-<details>
-<summary>Click here for info</summary>
-
-Microsoft provides consumer ISOs for free on their [site](https://www.microsoft.com/en-us/software-download), but business, enterprise, and older ISOs are behind paywalls such as [MVS](https://visualstudio.microsoft.com/subscriptions/) and [M365 Admin Center](https://learn.microsoft.com/en-us/licensing/vlsc-faqs-home-page). That's why we need to host files on our servers.
-
-</details>
-
-#### How can I verify that these files are genuine?
-
-<details>
-<summary>Click here for info</summary>
-
-You can see on how to be sure that files are genuine by verifying the checksum available on the official Microsoft website.
-
-</details>
-
-
 #### There are both consumer and business ISOs listed here. What is the difference between them?
 
 <details>
@@ -222,52 +202,6 @@ The Consumer ISO includes all editions such as Home, Pro, and Education, but exc
 <summary>Click here for info</summary>
 
 You can request the file [here](https://discord.gg/FajfGaH3nD).
-
-</details>
-
----
-
-## Verify Authenticity Of Files
-
-You can use the [file hashing method](https://en.wikipedia.org/wiki/File_verification) to verify if a file is genuine. This can be done using tools like [7-Zip](https://7-zip.org/) (After installing 7-Zip, right-click on the ISO file and go to 7-Zip > CRC SHA > SHA-256).
-
-There are many places where you can find these checksums for verification. Examples can be found below.
-
- -  [files.rg-adguard](https://files.rg-adguard.net/search) (the most complete collection)
- -  [MVS dump](https://awuctl.github.io/mvs/)
- -  [genuine-iso-verifier](https://genuine-iso-verifier.weebly.com/)
- -  [msdn.rg-adguard](https://msdn.rg-adguard.net/)
- -  [sha1.rg-adguard](https://sha1.rg-adguard.net/)
- -  Google
-
-#### Microsoft's Official free links for checksums:
-
- -	[MVS](https://my.visualstudio.com/Downloads)
- -	[Windows 11](https://www.microsoft.com/en-us/software-download/windows11)
- -	[Windows 10](https://www.microsoft.com/en-us/software-download/windows10)
-
-<details>
-  <summary>More info on Official links!</summary>
-
-**MVS**  
-On MVS, you need to login and click on 'All Downloads' button and then search the product name.  
-
-**MVS Limitations:**  
- -	They used to publish only SHA-1, but later started publishing SHA-1 and SHA-256 both and from 2022 they now publish only SHA-256.  
- -	However they removed all the SHA-1 data and as a result, old files checksums are simply not available on MVS site.  
- -	Also, around the time when they were publishing SHA-1 and SHA-256 both, they messed up some SHA-256 data, for example 
- 	```
- 	Incorrect SHA-256 example
- 	SHA256: BDB3D0C5C933B201ECE736A172FB604AA5D7D0705DD75681F9FCC4B1EE79FAC8
- 	File name: en-uk_windows_10_enterprise_ltsc_2019_x64_dvd_723dfbc1.iso
- 	```
- -	So its useful only for the latest files.
-
-**Windows 11**  
-SHA-256 list will appear if you download the ISO file.
-
-**Windows 10**  
-Microsoft doesn't allow you to download ISO file directly if browser's useragent is Windows OS. So you need to change it to something else like Android or IOS and then download the ISO file to see the list.
 
 </details>
 
@@ -332,30 +266,7 @@ After you have done that, connect to the internet again and Windows should be ac
 | SE N                                  | K9VKN-3BGWV-Y624W-MCRMQ-BHDCD | [Link](https://github.com/massgravel/hwid-kms38-tickets/releases/latest/download/CloudEdition.SE.N.xml)                     |
 | Team                                  | XKCNC-J26Q9-KFHD2-FKTHY-KD72Y | [Link](https://github.com/massgravel/hwid-kms38-tickets/releases/latest/download/Team.xml)                                  |
 
-## Unsupported Products Activation
-
-:::info
-
-- On this page, only those product activation methods are mentioned that are **not supported**.
-- If you are unsure, run script activation options first.
-
-:::
-
-## MS Office For Mac
-
--   See.
-
-------------------------------------------------------------------------
-
-## Windows XP Pro VL
-
--  Download Windows XP Pro VL ISO.
--	32-bit (x86) Windows XP Pro VL SP3 ISO Activation key - `XCYBK-2B3KV-G8T8F-WXJM7-WCTYT`
--	64-bit (x64) Windows XP Pro VL SP2 ISO Activation key - `VCFQD-V9FX9-46WVH-K3CD4-4J3JM`
-
-------------------------------------------------------------------------
-
-## Office 2010 on Windows XP / Server 2003
+## Office 2010
 
 - [Office 2010 Installer.] 
 - [Ohook Script for Office 2010 by abbodi1406.](https://gitlab.com/-/project/11037551/uploads/bbdc7aae987d08f8e2bf6533942e623a/office2010_ohook.7z) *(Password: `2010`)*  
@@ -374,23 +285,7 @@ Office 2010 should now be permanently activated.
 
 ------------------------------------------------------------------------
 
-## Remote Desktop Services / Client Access Licenses (RDS CALs)
-
-**Installation**  
-
-<details>
-<summary>Click here for info</summary>
-
--  Sign into the server you want to use as the license server using an administrator account.
--  In Server Manager, select Manage > Add Roles and Features.
--  On the Select installation type page, select Role-based or feature-based installation.
--  Specify the server on which you install the licensing role.
--  On the Server Roles page, check the box for Remote Desktop Services, then select Next until you see the Remote Desktop Services page.
--  Select the roles you want to install. Make sure you include the Remote Desktop Licensing role.
--  In the Add Roles and Features Wizard dialog box, select Add Features.
--  Select Next until you see the Confirmation page, then select Install.
-
-</details>
+## Remote Desktop Services
 
 **Activation**  
 
@@ -405,13 +300,6 @@ Office 2010 should now be permanently activated.
    The wizard will prompt you to enter a **License Key Pack ID**.
 8. Generate the License Key Pack ID from the same LyssaRDSGen website and enter it into the wizard.
 9. Once the message **"The requested licenses have been successfully installed."** appears, the process is complete.
-
-Website:  
-https://thecatontheceiling.github.io/LyssaRDSGen/  
-
-Source code and details:  
-https://github.com/thecatontheceiling/LyssaRDSGen  
-https://gist.github.com/WitherOrNot/c34c4c7b893e89ab849ce04e007d89a9
 
 ------------------------------------------------------------------------
 

@@ -1,14 +1,32 @@
 ---
+title: Historial de Cambios
 sidebar_label: Changelog
+tags:
+  - Actualizaciones
+  - Changelog
+  - Mantenimiento
+  - Scripts
+sidebar_position: 2
 ---
 
 # CIA Changelog
 
+## 1.1.2 (08-06-2026)
 ---
 
-## 1.2 (abril 2026)
+<strong className="texto-verde">Refactorización y optimización del código</strong>
 
-<strong className="texto-verde">Mejoras funcionales y actualización de entorno</strong>
+#### Seguridad (ACLs)
+- **Optimización del módulo de restricciones:** Refactorización de la lógica de asignación de permisos administrativos. Se ha simplificado el código de bloqueo: ahora las restricciones se aplican a la vez con un bucle sobre una lista, reduciendo el volumen de código y facilitando la escalabilidad.
+
+#### Actualización
+
+- Actualización a [PowerShell 7.6.2](https://github.com/PowerShell/PowerShell/blob/master/CHANGELOG/7.6.md#762) en todos los puestos de `L1-D-ATC`, `L2-D-ATC` y `L1-A-ESC`.
+
+## 1.1.1
+---
+
+<strong className="texto-verde">Mantenimiento y optimización de entorno</strong>
 
 #### Modo examen
 - El script muestra un mensaje en pantalla más descriptivo al activar o desactivar el **modo examen**.
@@ -17,14 +35,12 @@ sidebar_label: Changelog
 - La opción 3 muestra, debajo de la tabla, una breve descripción de los tres estados posibles.
 
 #### Actualización y mejoras
-- Actualización a [PowerShell 7.6.1](https://learn.microsoft.com/es-es/powershell/scripting/whats-new/what-s-new-in-powershell-76) en todos los equipos.
-	+ Repositorio de GitHub: https://github.com/PowerShell/PowerShell/blob/master/CHANGELOG/7.6.md
-- Mejora del rendimiento del script mediante optimizaciones en el código.
-- Cambios en algunos textos.
+- Actualización a [PowerShell 7.6.1](https://github.com/PowerShell/PowerShell/blob/master/CHANGELOG/7.6.md#761) en la totalidad de los puestos de los laboratorios.
+- Optimización del rendimiento global del script.
+- Corrección y pulido de cadenas de texto en los menús interactivos.
 
+## 1.1.0
 ---
-
-## 1.1
 
 <strong className="texto-verde">Soporte y Experiencia de Usuario</strong>
 
@@ -39,9 +55,8 @@ sidebar_label: Changelog
 La documentación online (Opción 0) se abre en el navegador predeterminado del sistema, permitiendo al profesor consultar dudas sin cerrar la consola.
 :::
 
+## 1.0.0
 ---
-
-## 1.0
 
 <strong className="texto-verde">Primera versión en Producción</strong>
 
@@ -72,9 +87,8 @@ Para garantizar un despliegue fiable en todos los laboratorios del centro, se ha
 La versión 22H2 de Windows 10 es la última versión oficial lanzada por Microsoft antes de centrar el soporte exclusivamente en actualizaciones de seguridad y mantenimiento. El script CIA aprovecha la madurez de esta build para garantizar una estabilidad del 100% en equipos de laboratorio más antiguos.
 :::
 
+## 0.9.0
 ---
-
-## 0.9
 
 <strong className="texto-verde">Monitorización avanzada</strong>
 
@@ -85,9 +99,8 @@ La versión 22H2 de Windows 10 es la última versión oficial lanzada por Micros
     - <span style={{color: 'grey'}}>❌ OFFLINE</span> (Equipo apagado/sin red)
 - Implementación del orden automático de puestos independientemente del orden de respuesta de los Jobs.
 
+## 0.8.0
 ---
-
-## 0.8
 
 <strong className="texto-verde">Mejora del entorno visual y soporte ANSI</strong>
 
@@ -100,9 +113,8 @@ La versión 22H2 de Windows 10 es la última versión oficial lanzada por Micros
 Se han estandarizado los colores de la consola siguiendo la paleta corporativa de la EPS: Cyan para IPs, Amarillo para advertencias y Verde para procesos finalizados.
 :::
 
+## 0.7.0
 ---
-
-## 0.7
 
 <strong className="texto-verde">Refactorización de Red</strong>
 
@@ -113,9 +125,8 @@ Se han estandarizado los colores de la consola siguiendo la paleta corporativa d
 #### Seguridad
 - Inclusión de `lusrmgr.msc` en la lista de bloqueos para evitar la creación de usuarios locales "puente".
 
+## 0.6.0
 ---
-
-## 0.6
 
 <strong className="texto-verde">Ampliación de restricciones de sistema</strong>
 
@@ -123,13 +134,8 @@ Se han estandarizado los colores de la consola siguiendo la paleta corporativa d
 - El modo examen ahora también restringe el acceso a la consola de servicios (`services.msc`) y al Administrador de Dispositivos (`devmgmt.msc`).
 - Bloqueo preventivo de la Microsoft Management Console (`mmc.exe`) para evitar la carga de complementos administrativos externos.
 
-:::danger[Atención]
-Debido a la política de mantenimiento (Auto-Unlock), el bloqueo **no persiste tras un reinicio**. Es **imperativo** que el docente utilice la **Opción 3 (Ver estado)** periódicamente durante el examen para confirmar que ningún equipo ha sido reiniciado fraudulentamente.
-:::
-
+## 0.5.0
 ---
-
-## 0.5
 
 <strong className="texto-verde">Optimización de escaneo y UI</strong>
 
@@ -145,9 +151,8 @@ El tiempo de carga del menú inicial se ha reducido de ~20 segundos a menos de 3
 - Inclusión de cabecera gráfica ASCII con las siglas "CATEPS" en el menú principal.
 - Implementación de la función `Esperar-Enter`, que integra el control de interrupciones mediante `TreatControlCAsInput` para blindar la sesión y evitar cierres involuntarios del script durante procesos críticos.
 
+## 0.4.0
 ---
-
-## 0.4
 
 <strong className="texto-verde">Fortalecimiento del Modo Examen</strong>
 
@@ -158,9 +163,8 @@ El tiempo de carga del menú inicial se ha reducido de ~20 segundos a menos de 3
 #### Red
 - Refinado el `ProxyOverride` para permitir excepciones críticas de la Universidad (`*.us.es`, `*.blackboard.com`) incluso durante el bloqueo.
 
+## 0.3.0
 ---
-
-## 0.3
 
 <strong className="texto-verde">Gestión remota y Credenciales</strong>
 
@@ -171,9 +175,8 @@ El tiempo de carga del menú inicial se ha reducido de ~20 segundos a menos de 3
 #### Funcionalidades del sistema
 - Creación de la función `Ver-Estado`. Ahora es posible obtener una tabla comparativa en tiempo real de qué equipos están 🔒 BLOQUEADOS o 🔓 LIBRES.
 
+## 0.2.0
 ---
-
-## 0.2
 
 <strong className="texto-verde">Control de persistencia</strong>
 
@@ -184,12 +187,11 @@ El tiempo de carga del menú inicial se ha reducido de ~20 segundos a menos de 3
 #### UI (Interfaz de usuario)
 - Añadidos códigos de escape ANSI para colores en la terminal (Verde para éxitos, Rojo para errores).
 
+## 0.1.0
 ---
-
-## 0.1
 
 <strong className="texto-verde">Prueba de concepto</strong>
 
 #### Funcionalidades del sistema
-- Definición del diccionario de puestos y mapeo de IPs de los laboratorios L1-D-ATC, L2-D-ATC y L1-A-ESC.
+- Definición del diccionario de puestos y mapeo de IPs de los laboratorios `L1-D-ATC`, `L2-D-ATC` y `L1-A-ESC`.
 - Funciones básicas de `Bloquear-Internet` y `Revertir-Bloqueo` mediante manipulación directa de la clave de registro `Internet Settings`.

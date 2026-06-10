@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-export default function TechLogos() {
+export default function TechLogos(): JSX.Element {
   // Los 4 sufijos de color oficiales que coinciden con tus archivos
-  const colors = ['green', 'yellow', 'red', 'blue'];
-  const [selectedColor, setSelectedColor] = useState('yellow'); // Por defecto en amarillo
+  const colors: string[] = ['green', 'yellow', 'red', 'blue'];
+  const [selectedColor, setSelectedColor] = useState<string>('yellow');
 
   useEffect(() => {
-    // Tira el dado en el cliente y elige el color de la sesión
+    // Cambia el color de los logos de forma aleatoria
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     setSelectedColor(randomColor);
   }, []);
 
-  // Tus 5 tecnologías actuales (fácilmente ampliable a 10 metiendo más strings al array)
-  const techs = ['github', 'linux', 'opengnsys', 'powershell', 'windows'];
+  // Tus 5 tecnologías actuales
+  const techs: string[] = ['github', 'linux', 'opengnsys', 'powershell', 'windows'];
 
   return (
     <div className="home-logos-grid">

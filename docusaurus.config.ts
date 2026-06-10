@@ -1,7 +1,7 @@
 import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: 'Ayuda Docente - EPS',
   tagline: 'Centro de Soporte: Guías de configuración y gestión avanzada de sistemas de la EPS.',
   favicon: 'img/favicon-cateps.ico',
@@ -14,9 +14,9 @@ const config = {
   onBrokenLinks: 'ignore', 
   trailingSlash: false,
 
-future: {
+  future: {
     v4: true,
-    faster: true
+    faster: false
   },
   
   i18n: {
@@ -32,6 +32,8 @@ future: {
   },
 
   themes: ['@docusaurus/theme-mermaid'],
+  
+  clientModules: ['./src/css/clear-tooltips.ts'],
 
   presets: [
     [
@@ -40,7 +42,7 @@ future: {
       ({
         docs: {
           routeBasePath: 'docs', 
-          sidebarPath: './sidebars.js',
+          sidebarPath: './sidebars.ts',
         },
         blog: false,
         theme: {
@@ -95,7 +97,7 @@ future: {
         disableSwitch: true,
         respectPrefersColorScheme: false, 
       },
-
+      
       docs: {
         sidebar: {
           hideable: true,
@@ -119,23 +121,23 @@ future: {
             className: 'navbar-docs-highlight',
           },
           {
-			to: '/docs/cia-control-internet-aulas', 
-			position: 'left',
-			label: 'CIA / Control Internet Aulas',
-			className: 'navbar-btn-cia',
-			activeBaseRegex: 'docs/cia-(control-internet-aulas|changelog|checksum|faq)', 
-		  },
+            to: '/docs/cia-control-internet-aulas', 
+            position: 'left',
+            label: 'CIA / Control Internet Aulas',
+            className: 'navbar-btn-cia',
+            activeBaseRegex: 'docs/cia-(control-internet-aulas|changelog|checksum|faq)', 
+          },
           {
             href: 'https://www.us.es/',      
             position: 'right',
             label: 'US',
-            title: 'Universidad de Sevilla',
+            title: '',
           },      
           {
             href: 'https://eps.us.es/',      
             position: 'right',
             label: 'EPS',
-            title: 'Escuela Politécnica Superior',
+            title: '',
           },
           {
             to: '/docs/contacto', 
@@ -147,7 +149,7 @@ future: {
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
-            title: 'GitHub EPS',
+            title: '',
           },
         ],
       },

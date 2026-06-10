@@ -1,57 +1,93 @@
 ---
-title: Checksum
+title: Verificación de Integridad
 sidebar_label: Checksum
+tags:
+  - Aulas
+  - PowerShell 7
+  - Seguridad
+sidebar_position: 3
 ---
-
-### 🛡️ Verificación de Integridad
-Con el fin de asegurar la trazabilidad y la integridad de la herramienta, proporcionamos la firma digital para verificar que el código fuente coincide exactamente con el distribuido por el Centro de Cálculo:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+### 🛡️ Verificación de Integridad
+
+Con el fin de asegurar la trazabilidad y la integridad de la herramienta, proporcionamos la firma digital para verificar que el código fuente coincide exactamente con el distribuido por el Centro de Cálculo:
+
+---
+
+### 🔑 Hashes de los scripts (SHA-256)
+
+A continuación, se facilitan las firmas de comprobación oficiales de los scripts de producción en los laboratorios.
+
+<details>
+  <summary>📦 Haga clic aquí para ver los *hashes* oficiales de las aulas</summary>
+  <div style={{ marginTop: '15px' }}>
+
 <Tabs>
   <TabItem value="l1d" label="Aula L1-D-ATC" default>
-  
-   <div className="launcher-command">
-  **Control_Internet_Aula_L1-D-ATC.ps1**
-  ```powershell title="Checksum SHA-256"
-  42e608762a318c3a27a92cf0b562109309362e550a969c0b8105420ee4249713
-  ```
-  </div>
+    <div className="launcher-command">
+      **Script:** `CIA-L1-D-ATC.ps1`
+      ```powershell title="Checksum SHA-256"
+      CCA272340E6FD2AF880C51767F89CEA9F3EFE2D2B2B4A281821663B043C6684B
+      ```
+	   {/*
+		PS C:\Windows\System32> Get-FileHash -Path "C:\ProgramData\CATEPS\CIA-L1-D-ATC.ps1" -Algorithm SHA256 | Format-List Path, Hash
+		Path : C:\ProgramData\CATEPS\CIA-L1-D-ATC.ps1
+		Hash : CCA272340E6FD2AF880C51767F89CEA9F3EFE2D2B2B4A281821663B043C6684B
+	   */}
+    </div>
   </TabItem>
   
-  <TabItem value="l2d" label="Aula L2-D-ATC" default>
-	
-	<div className="launcher-command">
-  **Control_Internet_Aula_L2-D-ATC.ps1**
-  ```powershell title="Checksum SHA-256"
-  
-  ```
-  </div>	
-	</TabItem>
+  <TabItem value="l2d" label="Aula L2-D-ATC">
+    <div className="launcher-command">
+      **Script:** `CIA-L2-D-ATC.ps1`
+      ```powershell title="Checksum SHA-256"
+      D51018D08A0B6105F04E3CFCBC698F464C3EDC7D65B17B3B0C86C4BA7013FA27
+      ```
+	   {/*
+		PS C:\Windows\System32> Get-FileHash -Path "C:\ProgramData\CATEPS\CIA-L2-D-ATC.ps1" -Algorithm SHA256 | Format-List Path, Hash
+		Path : C:\ProgramData\CATEPS\CIA-L2-D-ATC.ps1
+		Hash : D51018D08A0B6105F04E3CFCBC698F464C3EDC7D65B17B3B0C86C4BA7013FA27
+	   */}
+    </div>
+  </TabItem>
 
   <TabItem value="l1a" label="Aula L1-A-ESC">
-    
     <div className="launcher-command">
-  **Control_Internet_Aula_L1-A-ESC.ps1**
-  ```powershell title="Checksum SHA-256"
-  
-  ```
-  </div>
+      **Script:** `CIA-L1-A-ESC.ps1`
+      ```powershell title="Checksum SHA-256"
+      30EC1BCAEFCFA5899F98D0242E3353EE1009E811546198BDE4F7F3D39D42DB01
+      ```
+	   {/*
+	    PS C:\Windows\System32> Get-FileHash -Path "C:\ProgramData\CATEPS\CIA-L1-A-ESC.ps1" -Algorithm SHA256 | Format-List Path, Hash
+	    Path : C:\ProgramData\CATEPS\CIA-L1-A-ESC.ps1
+		Hash : 30EC1BCAEFCFA5899F98D0242E3353EE1009E811546198BDE4F7F3D39D42DB01 
+	   */}
+    </div>
   </TabItem>
 </Tabs>
 
-### ✅ Checksum, ¿qué es?
+  </div>
+</details>
 
-El **checksum** es una suma de comprobación generada a partir de un origen de datos. Se utiliza principalmente para verificar la integridad de un archivo y asegurar que no haya sido alterado durante la transferencia, ya sea por errores técnicos o de forma maliciosa. Por esta razón, es común encontrar una cadena alfanumérica junto a las descargas que indica el algoritmo empleado para validar dicha integridad.
+### ✅ Utilidad del Checksum
+
+El **checksum** es una suma de comprobación generada a partir de un origen de datos. Se utiliza principalmente para verificar la integridad de un archivo y asegurar que no haya sido alterado durante la transferencia, ya sea por errores técnicos o de forma maliciosa.
+
+Si una sola línea de código, un carácter o un espacio en blanco del script `.ps1` es modificado por un tercero o se corrompe durante una transferencia de red, el Hash resultante cambiará por completo.
 
 ### Windows
 
-Podemos introducir el comando `get-filehash` en PowerShell seguido de la ubicación del archivo. También podemos introducir el comando y luego arrastrar y soltar el archivo en la ventana de PowerShell. Por defecto, PowerShell utiliza SHA-256 para producir la suma de comprobación, pero podemos utilizar otros como SHA-512 o MD5. Todos ellos producirán un hash diferente, pero seguirá siendo único para ese archivo. Para utilizar una función diferente, añadimos el comando -algorithm seguido del código correspondiente.
+Podemos introducir el comando `Get-FileHash` en PowerShell seguido de la ubicación del archivo. También podemos introducir el comando y luego arrastrar y soltar el archivo en la ventana de PowerShell.
+
+Por defecto, PowerShell utiliza SHA-256 para producir la suma de comprobación, pero podemos utilizar otros como ```SHA-512``` o ```MD5```. Todos ellos producen un hash diferente, pero seguirá siendo único para ese archivo. Para utilizar una función diferente, añadimos el comando ```-Algorithm``` seguido del código correspondiente.
 
 <div className="launcher-command">
-  ```powershell title="PowerShell"
-  get-fileHash C:\CATEPS\Scripts\script-de-prueba.ps1 -Algorithm SHA256
+
+  ```powershell title="PowerShell (ejemplo)"
+  Get-FileHash C:\CATEPS\Scripts\script-de-prueba.ps1 -Algorithm SHA256
   ```
   </div>
   
@@ -136,110 +172,47 @@ If you applied the registry command and ran the setup promptly, it shouldn’t a
 
 </details>
 
-#### Notes
+## Verify Authenticity Of Files
+
+You can use the [file hashing method](https://en.wikipedia.org/wiki/File_verification) to verify if a file is genuine. This can be done using tools like [7-Zip](https://7-zip.org/) (After installing 7-Zip, right-click on the ISO file and go to 7-Zip > CRC SHA > SHA-256).
+
+There are many places where you can find these checksums for verification. Examples can be found below.
+
+ -  [files.rg-adguard](https://files.rg-adguard.net/search) (the most complete collection)
+ -  [MVS dump](https://awuctl.github.io/mvs/)
+ -  [genuine-iso-verifier](https://genuine-iso-verifier.weebly.com/)
+ -  [msdn.rg-adguard](https://msdn.rg-adguard.net/)
+ -  [sha1.rg-adguard](https://sha1.rg-adguard.net/)
+ -  Google
+
+#### Microsoft's Official free links for checksums:
+
+ -	[MVS](https://my.visualstudio.com/Downloads)
+ -	[Windows 11](https://www.microsoft.com/en-us/software-download/windows11)
+ -	[Windows 10](https://www.microsoft.com/en-us/software-download/windows10)
 
 <details>
-<summary>Click here for info</summary>
+  <summary>More info on Official links!</summary>
 
-- LTSC editions do not have Store apps installed by default. However, if you upgrade from GAC to LTSC, all your Store apps will be retained. In contrast, if you perform a clean installation of Windows LTSC, Store apps will not be installed. For instructions on how to install them manually, please refer to this.
-- The IoT Enterprise LTSC edition is [binary identical](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/Overview) to the Enterprise LTSC edition. The only difference is in licensing. You can use it just fine on a general-purpose device.
-- To learn about the advantages and disadvantages of LTSC, click [here].
+**MVS**  
+On MVS, you need to login and click on 'All Downloads' button and then search the product name.  
 
-</details>
+**MVS Limitations:**  
+ -	They used to publish only SHA-1, but later started publishing SHA-1 and SHA-256 both and from 2022 they now publish only SHA-256.  
+ -	However they removed all the SHA-1 data and as a result, old files checksums are simply not available on MVS site.  
+ -	Also, around the time when they were publishing SHA-1 and SHA-256 both, they messed up some SHA-256 data, for example 
+ 	```
+ 	Incorrect SHA-256 example
+ 	SHA256: BDB3D0C5C933B201ECE736A172FB604AA5D7D0705DD75681F9FCC4B1EE79FAC8
+ 	File name: en-uk_windows_10_enterprise_ltsc_2019_x64_dvd_723dfbc1.iso
+ 	```
+ -	So its useful only for the latest files.
 
----
+**Windows 11**  
+SHA-256 list will appear if you download the ISO file.
 
-## Windows 11 IoT Enterprise Editions
-
-Applies to:  
-- Windows 11 IoT Enterprise, beginning with version 24H2 (Build 26100 and newer)
-- Windows 11 IoT Enterprise LTSC 2024 (Build 26100)
----
-Many users choose not to use Windows 11 due to hardware limitations, such as a lack of TPM, Secure Boot, or UEFI support. While it is possible to bypass these limitations, doing so is officially unsupported and may lead to issues with future updates.
-
-However, a promising alternative is available.
-
-In 2024, Microsoft released Windows 11 IoT Enterprise 24H2 (GAC) and IoT Enterprise LTSC 2024 (LTSC), which have [relaxed hardware requirements](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/Hardware/System_Requirements?tabs=Windows11LTSC#optional-minimum-requirements).
-You can officially install these Windows 11 editions without meeting the usual hardware requirements (such as TPM, Secure Boot, and UEFI) while still receiving continued support in the future. 
-
-#### Clean install Windows 11 IoT Enterprise (GAC 25H2 / LTSC 2024)
-
-<details>
-<summary>Click here for info</summary>
-
-The IoT edition ISO is only available in English, but don't worry. 
-
-- Download any [Windows 11 25H2] (for GAC) or [Enterprise LTSC 2024] (for LTSC) ISO in your desired language. The ISO file does not need to be the IoT version.
-- Follow the [normal clean installation guide](clean_install_windows) if you are using the English IoT edition ISO.
-- Follow the [PID.txt method](clean_install_windows#windows-11-on-unsupported-hardware) to install the IoT edition from scratch if you are using a non-IoT ISO.
-- You also need to activate this edition.
-
-Alternatively, you can install any Windows 11 25H2 (for GAC) or Enterprise LTSC 2024 (for LTSC) ISO file using [Rufus](clean_install_windows). Once the installation is complete, you can use the change edition option in MAS to switch to IoT Enterprise and enjoy official support on unsupported hardware.
-
-</details>
-
-#### Upgrade Windows 10 Home, Pro, etc., to Windows 11 IoT Enterprise (GAC 25H2 / LTSC 2024) While Keeping Files and Apps
-
-<details>
-<summary>Click here for info</summary>
-
-:::note
-
-- **If you are using Windows 11 24H2/25H2** and trying to upgrade to Windows 11 IoT LTSC 2024 using the guide below, it **will not work**.  
-- In this case, you need the latest monthly updated Windows 11 LTSC 2024 ISO. Since Microsoft does not provide updated ISO files for LTSC, you must [manually update the ISO file](update-windows-iso) before following the guide below.
-
-:::
-
-The IoT edition ISO is only available in English, but don't worry. 
-
-- Download any [Windows 11 25H2] (for GAC) or [Enterprise LTSC 2024] (for LTSC) ISO in the **same Windows language and architecture**. The ISO file does not need to be the IoT version.
-  - To check the installed Windows architecture, open PowerShell as administrator and enter:  
-`Get-WmiObject -Class Win32_OperatingSystem | Format-List OSArchitecture`  
-    AMD64/x64 indicates 64-bit; x86 indicates 32-bit.  
-  - To check the installed Windows language, open PowerShell as administrator and enter:  
-`dism /english /online /get-intl | find /i "Default system UI language"`
-- Right-click the downloaded ISO file and select **Open with** > **Windows Explorer**
-- A new DVD drive will appear in Windows Explorer, which means the installation image has been mounted successfully.
-- Now open Command Prompt as administrator and enter:  
-  **for GAC:**  
-`reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v EditionID /d IoTEnterprise /f`  
-  **for LTSC:**  
-`reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v EditionID /d IoTEnterpriseS /f`
-- Quickly open the newly mounted DVD drive, run `setup.exe`, and continue until you reach the final confirmation screen. (Do not delay at this step, or the option to keep files and apps may not appear)
-- Make sure it says "**Keep personal files and apps**" on the final screen. You can then continue the process and wait until it is finished.
-- You also need to activate this edition. Follow the for activation.
-
-:::note
-
-These are generic keys intended for use during edition changes or when running `setup.exe`.
-
-If you applied the registry command and ran the setup promptly, it shouldn’t ask you to enter a key. However, if a key is needed, use the keys below:
-
-- `XQQYW-NFFMW-XJPBH-K8732-CKFFD` – **Windows 11 IoT Enterprise (GAC) key**  
-   If you try to use this key on the Windows activation page in Settings to change the edition, it might not work. In that case, run the following command in Command Prompt as administrator to change the edition:  
-  `slmgr.vbs /ipk XQQYW-NFFMW-XJPBH-K8732-CKFFD`
-
-- `KBN8V-HFGQ4-MGXVD-347P6-PDQGT` – **Windows 11 IoT Enterprise LTSC 2024 key**  
-
-:::
-
-</details>
-
-#### Notes
-
-<details>
-<summary>Haz clic aquí para más info</summary>
-
-- Many tools allow you to install Windows 11 on unsupported hardware, and regular monthly updates will work fine. However, yearly feature updates will fail to install if the hardware requirements are not met.
-- This is why the IoT (25H2/2024) editions are recommended; they allow you to get official support for future feature upgrades.
-- LTSC editions do not have Store apps installed by default. However, if you upgrade from GAC to LTSC, all your Store apps will be retained. In contrast, if you perform a clean installation of Windows LTSC, Store apps will not be installed. For instructions on how to install them manually, please refer to this [page].
-- Windows 11 25H2 / 2024 requires CPUs that support SSE4.2 and POPCNT instructions.
-- The IoT Enterprise LTSC edition is [binary identical](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/Overview) to Enterprise LTSC edition. The only difference is in licensing. You can use it just fine on a general-purpose device.
-
----
-
-- To learn about the advantages and disadvantages of LTSC, click [here].
-- You can install the [officially supported](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/Hardware/System_Requirements?tabs=Windows11LTSC#optional-minimum-requirements) Windows 11 25H2 IoT editions on a system without a TPM. However, some games may not allow you to play if your system lacks a TPM on Windows 11. In that case, you will need to stick with Windows 10.
+**Windows 10**  
+Microsoft doesn't allow you to download ISO file directly if browser's useragent is Windows OS. So you need to change it to something else like Android or IOS and then download the ISO file to see the list.
 
 </details>
 
@@ -247,6 +220,7 @@ If you applied the registry command and ran the setup promptly, it shouldn’t a
 
 :::info
 
--   Windows 11 solo se distribuye como un sistema operativo de 64 bits. Sin embargo, Windows 11 incluye versiones de 32 bits de Windows PowerShell y Windows PowerShell ISE. En nuestra sede del CATEPS solo disponemos de equipos con Windows 11 en las aulas.
+Windows 11 solo se distribuye como sistema operativo de 64 bits. Sin embargo, incluye versiones de 32 bits de Windows PowerShell y Windows PowerShell ISE. En nuestra sede del CATEPS solo disponemos de equipos con Windows 11 en las aulas.
 
 :::
+

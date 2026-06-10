@@ -1,16 +1,13 @@
 /* ==========================================================================
-   1. IMPORTACIONES (Fuentes externas)
+   1. IMPORTACIONES & FUENTES EXTERNAS
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 /* ==========================================================================
-   2. VARIABLES Y COLORES BASE (THEME CONFIG)
+   2. VARIABLES, TEMAS Y COLORES BASE (THEME CONFIG)
    ========================================================================== */
-   
-   
-  /* PALETA OFICIAL DE COLORES DE LA EPS */
-  
 :root {
+  /* Paleta oficial de colores EPS (Modo Claro) */
   --ifm-color-primary: #a43b8d;
   --ifm-color-primary-dark: #94357f;
   --ifm-color-primary-darker: #8b3278;
@@ -21,8 +18,8 @@
   --ifm-table-cell-padding: 0.5rem;
 }
 
-/* Ajustes específicos para el modo oscuro */
 [data-theme='dark'] {
+  /* Paleta oficial de colores EPS (Modo Oscuro) */
   --ifm-color-primary: #93BD22;
   --ifm-color-primary-dark: #84aa1f;
   --ifm-color-primary-darker: #7da11d;
@@ -33,7 +30,7 @@
 }
 
 /* ==========================================================================
-   3. NAVEGACIÓN (NAVBAR & BRANDING)
+   3. NAVEGACIÓN (NAVBAR, BRANDING & BOTONES DESTACADOS)
    ========================================================================== */
 .navbar,
 .navbar-sidebar__brand {
@@ -83,6 +80,7 @@
   margin-right: 12px;
 }
 
+/* Elementos comunes de la Navbar */
 .navbar__inner .navbar__item {
   transition: background var(--ifm-transition-fast);
   border-radius: var(--ifm-global-radius);
@@ -101,15 +99,67 @@
   backdrop-filter: blur(1rem);
 }
 
+/* Estilo Base Común para Botones Destacados (Docs, CIA, Contacto) */
+.navbar__inner .navbar__item[href="/docs"],
+.navbar__inner .navbar-btn-cia,
+.navbar__items .navbar__item[href="/docs/contacto"] {
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+  padding: 4px 12px !important;
+  align-self: center !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Botón Docs Destacado (Sombreado Permanente) */
+.navbar__inner .navbar__item[href="/docs"] {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Botón CIA & Contacto (Transparentes en reposo) */
+.navbar__inner .navbar-btn-cia,
+.navbar__items .navbar__item[href="/docs/contacto"] {
+  background-color: transparent !important;
+}
+
+/* Interacción de Estados Activos/Hover con Amarillo EPS */
+.navbar__inner .navbar__item[href="/docs"]:hover,
+.navbar__inner .navbar__item[href="/docs"][class*="active"],
+.navbar__inner .navbar-btn-cia:hover,
+.navbar__inner .navbar-btn-cia.navbar__link--active {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  border-color: #f9b905 !important;
+  text-decoration: none !important;
+}
+
+/* Interacción de Estado Activo/Hover del botón Contacto con Verde EPS */
+.navbar__items .navbar__item[href="/docs/contacto"]:hover,
+.navbar__items .navbar__item[href="/docs/contacto"].navbar__link--active,
+.navbar__items .navbar__item[href="/docs/contacto"][class*="active"] {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: #93BD22 !important;
+  text-decoration: none !important;
+}
+
+/* Elemento de Cabecera de Contacto */
+.img-header-contacto {
+  width: 45px !important;
+  height: auto !important;
+  vertical-align: middle !important;
+  margin-right: 2px !important;
+  margin-bottom: 8px !important;
+}
+
 /* ==========================================================================
-   4. ELEMENTOS DE LA SIDEBAR Y BOTONES (CONSOLIDADO)
+   4. MENÚ LATERAL (SIDEBAR) & COMPONENTES NATIVOS
    ========================================================================== */
 .sidebar-hr {
   background-color: var(--ifm-toc-border-color);
   margin: .5rem .75em;
 }
 
-/* Botones de colapso y expansión */
+/* Botones de colapso y expansión integrados */
 .collapseSidebarButtonIcon_kv0_,
 [class*='collapseSidebarButton'] svg,
 div[class*="expandButton"] svg g,
@@ -133,8 +183,35 @@ button[class*="collapseSidebarButton"]:hover svg path {
   fill: #F9B905 !important;
 }
 
+/* Icono FAQ CIA - Menú Lateral */
+.sidebar-faq-item a {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.sidebar-faq-item a::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-image: url('../../static/img/eps-faq-icon-yellow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  margin-left: 2px;
+  filter: drop-shadow(0 0 2px rgba(249, 185, 5, 0.3));
+}
+
+.sidebar-faq-item a:hover::after {
+  filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.8));
+  transition: filter 0.2s ease-in-out;
+}
+
 /* ==========================================================================
-   5. COMPONENTES (TABS, TABLES & PESTAÑAS)
+   5. CONTENEDORES GLOBALES (TABS, TABLES & PESTAÑAS)
    ========================================================================== */
 .tabs__item {
   border: 1px var(--ifm-toc-border-color) solid;
@@ -168,33 +245,19 @@ table {
 }
 
 /* ==========================================================================
-   6. BOTONES ESPECIALES (BACK TO TOP & GITHUB)
+   6. INTEGRACIONES DE TERCEROS
    ========================================================================== */
-.backToTopButton {
-  background-color: #93BD22 !important;
-  color: #fff !important;
-  border-radius: 6px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
-  transition: all 0.3s ease !important;
-}
-
-.backToTopButton:hover {
-  background-color: #f9b905 !important;
-  transform: translateY(-3px) !important;
-  box-shadow: 0 0 15px rgba(249, 185, 5, 0.4) !important;
-}
-
 .header-github-link {
-  margin-left: 14px !important;  /* Simetría de distancia con Contacto */
-  margin-right: 14px !important; /* Simetría de distancia con Buscador */
+  margin-left: 5px !important;  /* Simetría con Contacto */
+  margin-right: 5px !important; /* Simetría con Buscador */
   padding: 0 !important;
 }
 
 .header-github-link::before {
   content: '';
   display: block;
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
   background-color: #ffffff !important;
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
   mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
@@ -211,8 +274,16 @@ table {
   transition: background-color 0.2s ease-in-out;
 }
 
+.header-github-link:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
 /* ==========================================================================
-   7. FOOTER Y SCROLLBAR
+   7. FOOTER & ENTORNO DE SCROLLBAR GLOBAL
    ========================================================================== */
 .footer-link-docusaurus {
   color: #25C19F !important;
@@ -224,7 +295,7 @@ table {
   text-decoration: underline !important;
 }
 
-/* Scrollbar Webkit (Chrome, Safari, Edge) */
+/* Scrollbar Ecosistema Webkit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
@@ -244,112 +315,191 @@ table {
   background: #aadb32;
 }
 
-/* Soporte para Firefox */
+/* Compatibilidad Scrollbar Engine Firefox */
 html {
   scrollbar-width: auto;
   scrollbar-color: #93bd22 #0a0a0a;
 }
 
 /* ==========================================================================
-   8. BÚSQUEDA (IBM PLEX MONO)
+   8. MOTOR DE BÚSQUEDA
    ========================================================================== */
 .navbar__search {
-  margin-left: 0 !important; /* Reseteo para coordinar la simetría con GitHub */
+  margin-left: 0 !important;
 }
 
-.navbar__search-input {
-  width: 190px !important;
-  height: 36px !important;
-  background-color: #18171c !important;
-  border: 1px solid #333 !important;
-  border-radius: 4px !important;
-  font-family: 'IBM Plex Mono', monospace !important;
-  font-size: 14px !important;
-  color: #ffffff !important;
-  background-image: none !important;
-  padding-left: 12px !important;
-  padding-right: 85px !important; 
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease !important;
+/* Ocultar el input nativo de Docusaurus en móvil para que no rompa el Layout */
+@media (max-width: 996px) {
+  .navbar__search {
+    display: none !important;
+  }
 }
 
-.navbar__search-input:focus {
-  width: 340px !important; /* Expandido proporcional al focus (antes 280px) */
-  outline: none !important;
-  box-shadow: none !important;
-  border: 1px solid #f9b905 !important;
-  background-color: #18171c !important;
-}
+/* ESTILOS EXCLUSIVOS PARA ESCRITORIO (Mantiene tu IBM Plex Mono intacto) */
+@media (min-width: 997px) {
+  .cateps-search-movil-container,
+  .cateps-github-movil-container {
+    display: none !important; /* Escondemos los clones móviles en PC */
+  }
+  
+  .navbar__search-input {
+    width: 190px !important;
+    height: 36px !important;
+    background-color: #18171c !important;
+    border: 1px solid #333 !important;
+    border-radius: 4px !important;
+    font-family: 'IBM Plex Mono', monospace !important;
+    font-size: 14px !important;
+    color: #ffffff !important;
+    background-image: none !important;
+    padding-left: 12px !important;
+    padding-right: 85px !important; 
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease !important;
+  }
 
-.navbar__search-input:focus + .search-input-keyboard-shortcut-help {
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
+  .navbar__search-input:focus {
+    width: 340px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid #f9b905 !important;
+    background-color: #18171c !important;
+  }
 
-.navbar__search::before,
-.navbar__search-input-icon {
-  display: none !important;
-}
-
-.navbar__search-input::placeholder {
-  color: #A3A6AE !important;
-  font-family: 'IBM Plex Mono', monospace !important;
-  font-size: 14px !important;
-  opacity: 1 !important;
-}
-
-.search-input-keyboard-shortcut-help {
-  display: flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  right: 12px !important; /* Alineación limpia al borde derecho */
-  opacity: 1 !important;
-  transition: opacity 0.2s ease !important;
-}
-
-.navbar__search kbd,
-.search-input-keyboard-shortcut-help kbd {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: #232228 !important;
-  border: 1px solid #3a3940 !important;
-  border-radius: 4px !important;
-  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) !important;
-  color: #F9B905 !important;
-  font-family: 'IBM Plex Mono', monospace !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  min-width: 24px !important;
-  height: 22px !important;
-  padding: 0 6px !important;
-  margin: 0 !important;
-  line-height: 1 !important;
-  text-transform: capitalize !important;
-}
-
-.search-input-keyboard-shortcut-help kbd:first-child::after {
-  content: "+" !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 18px !important;
-  height: 18px !important;
-  margin-left: 8px !important; /* Mayor separación entre la palabra y el atajo */
-  margin-right: 2px !important;
-  background: #232228 !important;
-  border: 1px solid #3a3940 !important;
-  border-radius: 4px !important;
-  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) !important;
-  color: #F9B905 !important;
-  font-size: 11px !important;
-  font-weight: 500 !important;
+  .navbar__search-input:focus + .search-input-keyboard-shortcut-help { opacity: 0 !important; pointer-events: none !important; }
+  .navbar__search::before, .navbar__search-input-icon { display: none !important; }
+  .navbar__search-input::placeholder { color: #A3A6AE !important; font-family: 'IBM Plex Mono', monospace !important; font-size: 14px !important; opacity: 1 !important; }
+  .search-input-keyboard-shortcut-help { display: flex !important; align-items: center !important; gap: 4px !important; background: transparent !important; border: none !important; box-shadow: none !important; right: 12px !important; opacity: 1 !important; transition: opacity 0.2s ease !important; }
+  .navbar__search kbd, .search-input-keyboard-shortcut-help kbd { display: inline-flex !important; align-items: center !important; justify-content: center !important; background: #232228 !important; border: 1px solid #3a3940 !important; border-radius: 4px !important; box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) !important; color: #F9B905 !important; font-family: 'IBM Plex Mono', monospace !important; font-size: 13px !important; font-weight: 500 !important; min-width: 24px !important; height: 22px !important; padding: 0 6px !important; margin: 0 !important; line-height: 1 !important; text-transform: capitalize !important; }
+  .search-input-keyboard-shortcut-help kbd:first-child::after { content: "+" !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; width: 18px !important; height: 18px !important; margin-left: 8px !important; margin-right: 2px !important; background: #232228 !important; border: 1px solid #3a3940 !important; border-radius: 4px !important; box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) !important; color: #F9B905 !important; font-size: 11px !important; font-weight: 500 !important; }
 }
 
 /* ==========================================================================
-   9. MISCELÁNEA Y CURSORES (TYPED.JS)
+   8.1. MODAL DE BÚSQUEDA MÓVIL
+   ========================================================================== */
+@media (max-width: 996px) {
+  /* Ocultar el GitHub nativo dentro del panel lateral de hamburguesa */
+  .navbar-sidebar .header-github-link {
+    display: none !important;
+  }
+
+  /* Ubicar la lupa fija arriba a la derecha en la navbar */
+  .cateps-search-movil-container {
+    position: fixed !important;
+    top: 0.75rem !important;
+    right: 1.5rem !important; /* Esquina derecha limpia */
+    z-index: 2000 !important;
+  }
+
+  /* Contenedor del clon de GitHub móvil (Justo a la izquierda de la lupa) */
+  .cateps-github-movil-container {
+    position: fixed !important;
+    top: 0.75rem !important;
+    right: 4.25rem !important; /* Calibrado a 12px exactos de distancia con la lupa */
+    z-index: 2000 !important;
+  }
+
+  /* Estilos de botones unificados (Sombreado idéntico a Docs) */
+  .cateps-lupa-trigger,
+  .cateps-github-movil-btn {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid transparent !important;
+    border-radius: 4px !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+  }
+
+  .cateps-lupa-trigger {
+    color: #f9b905 !important; /* Amarillo corporativo */
+  }
+
+  /* Inyección de la máscara SVG de GitHub en el botón móvil */
+  .cateps-github-movil-btn::before {
+    content: '' !important;
+    display: block !important;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: #ffffff !important;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E") !important;
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E") !important;
+    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    -webkit-mask-position: center; mask-position: center;
+    -webkit-mask-size: contain; mask-size: contain;
+    transition: background-color 0.2s ease !important;
+  }
+
+  .cateps-github-movil-btn:hover::before {
+    background-color: #f9b905 !important; /* Hover amarillo corporativo */
+  }
+
+  /* Capa oscura translúcida de fondo */
+  .cateps-search-modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(10, 10, 10, 0.97) !important;
+    backdrop-filter: blur(4px) !important;
+    z-index: 99999 !important;
+  }
+
+  /* El modal contenedor */
+  .cateps-search-modal-card {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #18171c !important;
+  }
+
+  /* Cabecera del input */
+  .cateps-search-modal-header {
+    display: flex !important;
+    align-items: center !important;
+    background: #121212 !important;
+    padding: 1rem !important;
+    border-bottom: 1px solid #333 !important;
+    gap: 12px !important;
+  }
+
+  .cateps-lupa-interna {
+    color: #f9b905 !important;
+  }
+
+  .cateps-search-modal-input {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    font-family: 'IBM Plex Mono', monospace !important;
+    color: #f9b905 !important;
+    font-size: 18px !important;
+    outline: none !important;
+  }
+
+  .cateps-search-modal-input::placeholder {
+    color: rgba(249, 185, 5, 0.6) !important;
+  }
+
+  .cateps-search-modal-close {
+    background: transparent !important;
+    border: none !important;
+    color: #f9b905 !important; /* Aspa en amarillo */
+    font-size: 2rem !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+  }
+
+  .cateps-search-modal-footer {
+    display: none !important; /* Pie de página purgado */
+  }
+}
+
+/* ==========================================================================
+   9. MISCELÁNEA & CURSORES DINÁMICOS (TYPED.JS)
    ========================================================================== */
 .texto-verde {
   color: #93BD22;
@@ -372,137 +522,50 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
   stroke: #f9b905 !important;
 }
 
-.white-cursor .typed-cursor {
+/* ⚙️ CONFIGURACIÓN DE LOS CURSORES NATIVOS DE TYPED.JS */
+
+/* Base común para todos los cursores que aparezcan en la web */
+.typed-cursor {
+  font-weight: 900 !important;
+  margin-left: 8px !important;
+  font-family: monospace !important;
+}
+
+/* 🤍 ESTADO 1: Cursor de la primera línea (Hereda el blanco por defecto) */
+h1 div span[style*="color: #FFFFFF"] + .typed-cursor,
+h1 div span:not([style*="transparent"]) + .typed-cursor {
   color: #FFFFFF !important;
-  font-weight: 900;
-  margin-left: 8px;
-  font-family: monospace;
-  animation: blink 0.9s infinite;
+  animation: blink 0.9s infinite !important;
 }
 
-.yellow-cursor .typed-cursor {
+/* 💛 ESTADO 2: El cursor de la segunda línea. 
+   Apunta al cursor que va justo detrás del span que tiene el degradado amarillo de fondo */
+h1 div span[style*="linear-gradient"] + .typed-cursor {
   color: #F9B905 !important;
-  font-weight: 900;
-  margin-left: 8px;
-  font-family: monospace;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+  animation: blink 0.7s infinite !important;
 }
 
 /* ==========================================================================
-   10. AJUSTES FINALES HOME Y MÁRGENES
+   10. MODELADO MAQUETA HOME Y ARQUITECTURA GENERAL
    ========================================================================== */
-.img-header-contacto {
-  width: 45px !important;
-  height: auto !important;
-  vertical-align: middle !important;
-  margin-right: 2px !important;
-  margin-bottom: 8px !important;
-}
-
 [itemid="/"] .theme-doc-markdown {
   display: flex;
   flex-direction: column;
   min-height: 100%;
 }
 
-/* ==========================================================================
-   11. ICONO FAQ CIA - MENÚ LATERAL
-   ========================================================================== */
-.sidebar-faq-item a {
-  display: flex !important;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-}
-
-.sidebar-faq-item a::after {
-  content: '';
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  background-image: url('../../static/img/eps-faq-icon-yellow.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  flex-shrink: 0;
-  /* Un toque de margen para que respire */
-  margin-left: 2px;
-  /* Aseguramos que se vea sobre el fondo oscuro */
-  filter: drop-shadow(0 0 2px rgba(249, 185, 5, 0.3));
-}
-
-/* Efecto hover sutil para el icono */
-.sidebar-faq-item a:hover::after {
-  filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.8));
-  transition: filter 0.2s ease-in-out;
-}
-
-/* ==========================================================================
-   12. BOTÓN DOCS DESTACADO EN EL HEADER
-   ========================================================================== */
-.navbar__inner .navbar__item[href="/docs"] {
-  background-color: rgba(255, 255, 255, 0.15) !important; /* Contenedor sombreado permanente */
-  border: 1px solid transparent !important; /* Borde invisible en reposo */
-  border-radius: 4px !important;
-  margin-left: 6px !important;
-  margin-right: 6px !important;
-  padding: 4px 12px !important; /* Aire interno simétrico */
-  align-self: center !important; /* Centrado vertical automático en la barra */
-  transition: all 0.2s ease-in-out !important;
-}
-
-/* Estado Hover (ratón encima) O Estado Activo (cuando estamos dentro de Docs) */
-.navbar__inner .navbar__item[href="/docs"]:hover,
-.navbar__inner .navbar__item[href="/docs"][class*="active"] {
-  background-color: rgba(255, 255, 255, 0.18) !important; /* Mantiene sombreado con extra de brillo */
-  border-color: #f9b905 !important; /* El borde amarillo EPS se queda fijo si estás en Docs */
-  text-decoration: none !important;
-}
-
-/* ==========================================================================
-   13. BOTÓN CIA DESTACADO EN EL HEADER (CON ACTIVACIÓN EN SUBSECCIONES)
-   ========================================================================== */
-/* Estado normal del botón destacado */
-.navbar__inner .navbar-btn-cia {
-  background-color: transparent !important; 
-  border: 1px solid transparent !important; 
-  border-radius: 4px !important;
-  margin-left: 6px !important;
-  margin-right: 6px !important;
-  padding: 4px 12px !important; 
-  align-self: center !important; 
-  transition: all 0.2s ease-in-out !important;
-}
-
-/* Estado Hover O cuando el Regex de Docusaurus inyecta la clase activa oficial */
-.navbar__inner .navbar-btn-cia:hover,
-.navbar__inner .navbar-btn-cia.navbar__link--active {
-  background-color: rgba(255, 255, 255, 0.15) !important; 
-  border-color: #f9b905 !important;
-  text-decoration: none !important;
-}
-
-/* ==========================================================================
-   14. GRID DE TECNOLOGÍAS CON IMÁGENES ESTÁTICAS ALEATORIAS (HOME)
-   ========================================================================== */
 .home-logos-grid {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.7rem; /* Separación limpia entre iconos */
+  gap: 2.7rem;
   flex-wrap: wrap;
   margin: 3rem 0;
   padding: 1rem;
 }
 
 .tech-home-icon {
-  width: 55px; /* Tamaño ideal para cuando añada 5 iconos más */
+  width: 55px;
   height: auto;
   transition: transform 0.2s ease-in-out;
 }
@@ -511,8 +574,85 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
   transform: scale(1.18);
 }
 
+/* 🏷️ SISTEMA UNIVERSAL DE TOOLTIPS: DEBAJO CON PICO INTEGRADO CON BORDE HOMOGÉNEO */
+.tech-tooltip-container {
+  position: relative;
+  display: inline-flex !important;
+}
+
+/* 📦 CUERPO DEL BOCADILLO */
+.tech-tooltip-container::after {
+  content: attr(data-techname);
+  position: absolute;
+  top: calc(100% + 12px); 
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  
+  background-color: #2b2a33;   
+  color: #ffffff;              
+  border: 1px solid #42414d;   /* 🌟 Tu borde gris claro de referencia */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 6px;
+  white-space: nowrap;
+  
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 99999;
+  
+  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* 🔺 EL PIQUITO CON EFECTO CONTINUO DE BORDE (Técnica del Rombo Rotado) */
+.tech-tooltip-container::before {
+  content: '';
+  position: absolute;
+  
+  /* 🎛️ Lo clavamos matemáticamente en el lomo superior del bocadillo */
+  top: calc(100% + 8px); 
+  left: 50%;
+  
+  /* 📐 Creamos un cuadrado perfecto de 8x8px */
+  width: 8px;
+  height: 8px;
+  
+  /* 🎨 Mismo fondo y mismos bordes exactos que la caja principal */
+  background-color: #2b2a33;
+  border-left: 1px solid #42414d;
+  border-top: 1px solid #42414d;
+  
+  /* 🔄 Lo rotamos 45° para que las esquinas superior e izquierda formen el pico apuntando hacia arriba,
+     y le metemos el offset de 4px de la animación para que vaya pegado en bloque a la caja */
+  transform: translateX(-50%) translateY(4px) rotate(45deg);
+  transform-origin: center center;
+  
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 100000; /* Se superpone levemente tapando la línea interior de la caja y fusionando los bordes */
+  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s;
+}
+
+/* 🚀 DISPARADOR DE HOVER UNIFICADO (Mantenemos la rotación en el estado final) */
+.tech-tooltip-container:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tech-tooltip-container:hover::before {
+  opacity: 1;
+  visibility: visible;
+  /* Detiene la animación sumando la rotación final fija */
+  transform: translateX(-50%) translateY(0) rotate(45deg);
+}
+
 /* ==========================================================================
-   15. GALERÍA INTERACTIVA (ESTILO INDUSTRIAL EPS - FIX COMPLETO)
+   11. GALERÍA INTERACTIVA
    ========================================================================== */
 .gallery-grid {
   display: grid;
@@ -529,50 +669,29 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
 }
 
 .gallery-card:hover { border-color: #f9b905; }
-
 .gallery-thumbnail-wrapper { width: 100%; height: 130px; background: #000; overflow: hidden; }
 .gallery-thumbnail { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.2s; }
 .gallery-card:hover .gallery-thumbnail { opacity: 1; }
-
 .gallery-card-footer { padding: 0.6rem; font-size: 0.85rem; text-align: center; font-weight: 600; color: #fff; }
 
-/* --- Lightbox EPS Viewport Completo --- */
+/* Lightbox Base */
 .gallery-lightbox {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  width: 100vw; 
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.96); 
-  z-index: 9999;
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.96); z-index: 9999;
 }
 
-/* Capa absoluta al 100% para scroll nativo */
 .img-zoom-container { 
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  overflow: auto; /* Desbloquea el scroll perimetral al agrandar */
-  z-index: 10000;
-  padding: 100px 140px; /* Colchón de seguridad para que la imagen pase por debajo de los botones fijos */
-  box-sizing: border-box;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; overflow: auto; z-index: 10000; padding: 100px 140px; box-sizing: border-box;
 }
 
-/* Centrado compatible con desbordamientos de pantalla */
 .img-zoom-container img { 
-  margin: auto; /* Centrado mágico que respeta los límites superiores e izquierdos al hacer scroll */
-  width: auto;
-  height: auto;
-  object-fit: contain; 
+  margin: auto; width: auto; height: auto; object-fit: contain; 
   transition: max-width 0.2s ease, max-height 0.2s ease;
-  border-radius: 4px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  border-radius: 4px; box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
-/* Controles Fijos indexados por encima del scroll de la foto */
+/* Controles Fijos Lightbox */
 .gallery-controls-top {
   position: absolute; top: 30px; right: 30px; display: flex; gap: 15px; z-index: 10002;
 }
@@ -598,36 +717,21 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
 .prev { left: 20px; }
 .next { right: 20px; }
 
-/* Atajos de teclado informativos */
 .kbd-help {
-  position: absolute; color: #fff;
-  font-family: monospace; font-size: 0.8rem; text-transform: uppercase;
-  z-index: 10002;
+  position: absolute; color: #fff; font-family: monospace; font-size: 0.8rem; text-transform: uppercase; z-index: 10002;
 }
 .top-left { top: 30px; left: 30px; }
 .top-right { top: 60px; left: 30px; }
 
-/* Pie de foto blindado abajo en el centro */
 .gallery-lightbox-caption {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff; 
-  font-family: 'Inter', sans-serif;
-  font-size: 17px; 
-  font-weight: 500;
-  z-index: 10002;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 8px 18px;
-  border-radius: 4px;
-  backdrop-filter: blur(5px);
-  margin: 0;
-  white-space: nowrap;
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  color: #fff; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; z-index: 10002;
+  background: rgba(0, 0, 0, 0.7); padding: 8px 18px; border-radius: 4px;
+  backdrop-filter: blur(5px); margin: 0; white-space: nowrap;
 }
 
 /* ==========================================================================
-   16. CONTROL TOP INTEGRADO EN FOOTER
+   12. CONTROL TOP INTEGRADO EN EL PIE DE PÁGINA (ESTÁTICO)
    ========================================================================== */
 .footer-wrapper-relative {
   position: relative;
@@ -635,13 +739,11 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
 
 .custom-back-to-top {
   position: absolute;
-  
-  
-  bottom: 20px; /* El centro de las FLECHAS se alinea al píxel con el texto del copyright */  
-  right: 40px;  /* Margen limpio respecto al borde derecho */
+  bottom: 20px; 
+  right: 40px;  
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.35); /* Gris táctico mimetizado */
+  color: rgba(255, 255, 255, 0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -661,7 +763,6 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
   transition: transform 0.2s ease;
 }
 
-/* 🙈 ESTADO INICIAL DEL TEXTO: Oculto y desplazado hacia arriba */
 .custom-back-to-top span {
   opacity: 0;
   visibility: hidden;
@@ -670,646 +771,532 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
   transform: translateY(-6px); 
 }
 
-/* 🔥 ESTADO HOVER: Iluminación general del bloque */
-.custom-back-to-top:hover {
-  color: #f9b905;
-}
-
-/* Las flechas suben sutilmente en el hover */
-.custom-back-to-top:hover svg {
-  transform: rotate(-90deg) translateX(2px);
-}
-
-/* En hover, el texto se vuelve visible y cae suavemente a su posición real */
-.custom-back-to-top:hover span {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+.custom-back-to-top:hover { color: #f9b905; }
+.custom-back-to-top:hover svg { transform: rotate(-90deg) translateX(2px); }
+.custom-back-to-top:hover span { opacity: 1; visibility: visible; transform: translateY(0); }
 
 /* ==========================================================================
-   17. PORTAL DE INCIDENCIAS
+   13. PORTAL DE INCIDENCIAS (ARQUITECTURA DE FORMULARIOS MULTI-TEMA)
    ========================================================================== */
 .incidencias-page-bg {
-  width: 100%;
-  min-height: 100vh;
+  width: 100%; min-height: 100vh;
   background: linear-gradient(rgba(18, 18, 18, 0.88), rgba(18, 18, 18, 0.88)), 
               url('/img/cateps.webp') no-repeat center center fixed;
-  background-size: cover;
-  padding: 3rem 0;
-  box-sizing: border-box;
-  position: relative;
-}
-
-/* CAPA OSCURA FULL-SCREEN */
-.privacy-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.75); 
-  z-index: 100; 
-  animation: fadeInOverlay 0.2s ease-out forwards;
-}
-
-@keyframes fadeInOverlay {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  background-size: cover; padding: 3rem 0; box-sizing: border-box; position: relative;
 }
 
 .incidencias-wrapper {
-  max-width: 900px; 
-  width: 100%;   
-  margin: 0 auto; 
-  padding: 0 20px;
-  box-sizing: border-box;
+  max-width: 900px; width: 100%; margin: 0 auto; padding: 0 20px; box-sizing: border-box;
 }
 
-/* BARRA DE ESTADO EXTERNA PERIMETRAL */
 .incidencias-status-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.6rem; 
-  position: relative;    
-  width: 100%;
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; position: relative; width: 100%;
 }
 
-/* Encapsula los botones del ala izquierda */
-.status-bar-utilities {
-  display: flex;
-  align-items: center;
-  gap: 14px; 
-}
-
-/* Sello de Fecha y Hora estilo Consola (Lado Derecho) */
-.incidencias-timestamp {
-  font-family: monospace;
-  font-size: 1rem;
-  color: #f9b905; 
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin: 0;
-}
+.status-bar-utilities { display: flex; align-items: center; gap: 14px; }
+.incidencias-timestamp { font-family: monospace; font-size: 1rem; color: #f9b905; letter-spacing: 0.05em; text-transform: uppercase; margin: 0; }
 
 .incidencias-card {
-  background: #1e1e1e;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  padding: 2.5rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-  width: 100%;      
-  box-sizing: border-box;
-  position: relative; 
+  border-radius: 8px; padding: 2.5rem; width: 100%; box-sizing: border-box; position: relative; 
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Fila superior interna de la tarjeta */
-.incidencias-top-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
+[data-theme='dark'] .incidencias-card { background: #1e1e1e; border: 1px solid var(--ifm-color-emphasis-200); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+[data-theme='light'] .incidencias-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); }
 
-.terminal-dots {
-  display: flex;
-  gap: 8px;
-}
-
-.terminal-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-}
+.incidencias-top-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.terminal-dots { display: flex; gap: 8px; }
+.terminal-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
 .terminal-dot.red { background: #ff5f56; }
 .terminal-dot.yellow { background: #ffbd2e; }
 .terminal-dot.green { background: #27c93f; }
+.incidencias-card-logo { height: 24px; width: auto; object-fit: contain; }
 
-/* El isotipo de colores encajado arriba a la derecha */
-.incidencias-card-logo {
-  height: 24px;
-  width: auto;
-  object-fit: contain;
-}
+.incidencias-info-zone { display: flex; align-items: center; }
+.info-icon-btn, .reset-icon-btn { background: transparent; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.info-icon-btn { transition: transform 0.2s ease; z-index: 102; }
+.info-icon-btn:hover { transform: scale(1.1); }
+.info-svg-icon { width: 22px; height: 22px; object-fit: contain; animation: homeStylePulse 2s infinite ease-in-out; }
 
-/* ZONA DE CONTROL DE LA 'i' */
-.incidencias-info-zone {
-  display: flex;
-  align-items: center;
-}
+.reset-icon-btn { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 102; }
+.reset-svg-icon { width: 22px; height: 22px; object-fit: contain; opacity: 0.85; transition: opacity 0.2s ease, filter 0.2s ease; }
+.reset-icon-btn:hover { transform: rotate(-360deg) scale(1.1); }
+.reset-icon-btn:hover .reset-svg-icon { opacity: 1; filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); }
 
-.info-icon-btn {
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-  z-index: 102; 
-}
+.tooltip-privacy-box { border-radius: 6px; padding: 1.2rem; border: 1px solid #f9b905; animation: tooltipPrivacyZoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; position: fixed; top: 3rem; left: calc(50% - 358px); z-index: 1005 !important; width: 100vw; max-width: 440px; }
+[data-theme='dark'] .tooltip-privacy-box { background: #121212; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8); }
+[data-theme='light'] .tooltip-privacy-box { background: #ffffff; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15); }
 
-.info-icon-btn:hover {
-  transform: scale(1.1);
-}
+.tooltip-privacy-title { font-family: var(--ifm-font-family-base), system-ui, sans-serif; font-size: 1.05rem; font-weight: 800; color: #f9b905; margin: 0 0 0.6rem 0; letter-spacing: 0.05em; text-align: left; }
+.tooltip-privacy-text { font-size: 0.95rem !important; line-height: 1.45; margin: 0; text-align: left; }
+[data-theme='dark'] .tooltip-privacy-text { color: rgba(255, 255, 255, 0.85); }
+[data-theme='light'] .tooltip-privacy-text { color: #44403b; }
 
-/* ANIMACIÓN ESTILO HOME PARA LA 'i' */
-.info-svg-icon {
-  width: 22px;  
-  height: 22px;
-  object-fit: contain;
-  animation: homeStylePulse 2s infinite ease-in-out; 
-}
+.tooltip-privacy-close { position: absolute; top: 0.9rem; right: 1.1rem; background: transparent; border: none; font-size: 1.6rem; line-height: 1; font-family: Arial, sans-serif; cursor: pointer; padding: 0; transition: color 0.2s ease, transform 0.2s ease; }
+[data-theme='dark'] .tooltip-privacy-close { color: rgba(255, 255, 255, 0.35); }
+[data-theme='dark'] .tooltip-privacy-close:hover { color: #f9b905; transform: scale(1.1); }
+[data-theme='light'] .tooltip-privacy-close { color: #f9b905; }
+[data-theme='light'] .tooltip-privacy-close:hover { color: #4a5565; transform: scale(1.1); }
 
-@keyframes homeStylePulse {
-  0%, 100% { 
-    transform: scale(1); 
-    opacity: 0.8; 
-    filter: drop-shadow(0 0 2px rgba(249, 185, 5, 0.3)); 
-  }
-  50% { 
-    transform: scale(1.12); 
-    opacity: 1; 
-    filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.8)) 
-            drop-shadow(0 0 15px rgba(249, 185, 5, 0.4)); 
-  }
-}
+.terminal-title-center { font-family: var(--ifm-font-family-base), system-ui, sans-serif; font-weight: 800; font-size: 2rem; letter-spacing: -0.01em; margin: 0 0 1.5rem 0; text-align: center; text-transform: uppercase; }
+[data-theme='dark'] .terminal-title-center { color: #ffffff; }
+[data-theme='light'] .terminal-title-center { color: #1c1917; }
 
-/* MECÁNICA INTERACTIVA DEL BOTÓN DE RESET (Giro de 360 grados) */
-.reset-icon-btn {
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-  z-index: 102;
-}
+.incidencias-divider { border: none; margin: 0 0 1.5rem 0; }
+[data-theme='dark'] .incidencias-divider { border-top: 1px solid rgba(255, 255, 255, 0.15); }
+[data-theme='light'] .incidencias-divider { border-top: 1px solid rgba(0, 0, 0, 0.08); }
 
-.reset-svg-icon {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  opacity: 0.85;
-  transition: opacity 0.2s ease, filter 0.2s ease;
-}
+.incidencias-card .subtitle { font-size: 1rem; margin-bottom: 3rem; text-align: center; font-weight: 400; }
+[data-theme='dark'] .incidencias-card .subtitle { color: rgba(255, 255, 255, 0.4); }
+[data-theme='light'] .incidencias-card .subtitle { color: #6a7282; }
 
-.reset-icon-btn:hover {
-  transform: rotate(-360deg) scale(1.1); 
-}
+.incidencias-form { display: flex; flex-direction: column; gap: 2rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.8rem; }
+.form-group label { font-size: 16px !important; font-weight: 700; font-family: var(--ifm-font-family-base), system-ui, sans-serif; }
+[data-theme='dark'] .form-group label { color: #ffffff; }
+[data-theme='light'] .form-group label { color: #1c1917; }
 
-reset-icon-btn:hover .reset-svg-icon {
-  opacity: 1;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
-}
-
-/* CAJA DE PRIVACIDAD */
-.tooltip-privacy-box {
-  position: absolute;
-  top: 20px;
-  left: 85px;
-  z-index: 105;
-  width: 100vw;
-  max-width: 440px;
-  background: #121212;
-  border: 1px solid #f9b905;
-  border-radius: 6px;
-  padding: 1.2rem;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
-  animation: tooltipPrivacyZoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-@keyframes tooltipPrivacyZoomIn {
-  from { opacity: 0; transform: scale(0.9) translateY(5px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-/* FLECHA DIBUJADA */
-.privacy-drawn-arrow {
-  position: absolute;
-  right: 103%;
-  top: 1px;         /* Bajada para que nazca de la base de la 'i' */
-  width: 100px;
-  height: auto;
-  pointer-events: none;
-  animation: drawArrowEffect 0.4s ease-out 0.1s both;
-}
-
-@keyframes drawArrowEffect {
-  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
-  10% { opacity: 1; }
-  100% { clip-path: inset(0 0 0 0); opacity: 1; }
-}
-
-.tooltip-privacy-title {
-  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #f9b905;
-  margin: 0 0 0.6rem 0;
-  letter-spacing: 0.05em;
-  text-align: left;
-}
-
-.tooltip-privacy-text {
-  font-size: 0.95rem !important;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.45;
-  margin: 0;
-  text-align: left;
-}
-
-/* Título H2 centrado */
-.terminal-title-center {
-  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
-  font-weight: 800;
-  font-size: 2rem;
-  letter-spacing: -0.01em;
-  color: #ffffff;
-  margin: 0 0 1.5rem 0;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-/* Línea divisoria */
-.incidencias-divider {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  margin: 0 0 1.5rem 0;
-}
-
-/* Subtítulo */
-.incidencias-card .subtitle {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 1rem;
-  margin-bottom: 3rem;
-  text-align: center;
-  font-weight: 400;
-}
-
-.incidencias-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.form-group label {
-  font-size: 16px !important;
-  font-weight: 700;
-  color: #ffffff;
-  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
-}
-
-/* Estilo unificado para inputs */
+/* Form Inputs Comunes */
 .incidencias-form input[type="text"],
 .incidencias-form input[type="email"],
 .incidencias-form select,
 .incidencias-form textarea {
-  background: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
-  padding: 0.9rem 1rem;
-  color: #ffffff;
-  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
-  font-size: 16px !important;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  width: 100%;
+  border-radius: 6px; padding: 0.9rem 1rem; font-family: var(--ifm-font-family-base), system-ui, sans-serif;
+  font-size: 16px !important; transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s, color 0.2s; width: 100%;
 }
 
-.incidencias-form textarea {
-  resize: vertical; 
-}
+[data-theme='dark'] .incidencias-form input[type="text"],
+[data-theme='dark'] .incidencias-form input[type="email"],
+[data-theme='dark'] .incidencias-form select,
+[data-theme='dark'] .incidencias-form textarea { background: #121212; border: 1px solid rgba(255, 255, 255, 0.15); color: #ffffff; }
 
-/* Customización de las flechas desplegables estilo Chevron Geométrico */
+[data-theme='light'] .incidencias-form input[type="text"],
+[data-theme='light'] .incidencias-form input[type="email"],
+[data-theme='light'] .incidencias-form select,
+[data-theme='light'] .incidencias-form textarea { background: #faf8f5; border: 1px solid rgba(0, 0, 0, 0.12); color: #1c1917; }
+
+.incidencias-form textarea { resize: vertical; }
+
 .incidencias-form select {
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  
-  /* Dejamos hueco a la derecha para que el texto del aula no pise el icono */
-  padding-right: 2.5rem !important; 
-  
-  /* Inyección de SVG en código: Un chevron fino y limpio idéntico al "back to top" */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1.2rem center;
-  background-size: 14px;
-  
-  transition: border-color 0.2s, box-shadow 0.2s, background-image 0.2s;
+  cursor: pointer; appearance: none !important; -webkit-appearance: none !important; -moz-appearance: none !important;
+  padding-right: 2.5rem !important; background-repeat: no-repeat !important; background-position: right 1.2rem center !important;
+  background-size: 14px !important; transition: border-color 0.2s, box-shadow 0.2s, background-image 0.2s;
 }
 
-/* Cuando el desplegable está activo o tiene el foco, la flecha muta a amarillo corporativo */
-.incidencias-form select:focus {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f9b905' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-}
+[data-theme='dark'] .incidencias-form select { background: #121212 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba%28255,255,255,0.5%29' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); }
+[data-theme='light'] .incidencias-form select { background: #faf8f5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba%280,0,0,0.4%29' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); }
+.incidencias-form select:focus { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f9b905' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important; }
 
 .incidencias-form input:focus,
 .incidencias-form select:focus,
-.incidencias-form textarea:focus {
-  outline: none;
-  border-color: #f9b905;
-  box-shadow: 0 0 0 1px #f9b905;
-}
+.incidencias-form textarea:focus { outline: none; border-color: #f9b905; box-shadow: 0 0 0 1px #f9b905; }
 
-/* Checkbox personalizado EPS */
-.checkbox-group { margin-top: 0.5rem; }
-.checkbox-label { display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 16px !important; user-select: none; font-weight: 600; color: rgba(255,255,255,0.8); }
-.checkbox-label input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
-.custom-checkbox { width: 20px; height: 20px; background: #121212; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; display: inline-block; position: relative; transition: all 0.2s; }
-.checkbox-label input:checked ~ .custom-checkbox { background: rgba(249, 185, 5, 0.1); border-color: #f9b905; }
-.checkbox-label input:checked ~ .custom-checkbox:after { content: ""; position: absolute; left: 6px; top: 2px; width: 6px; height: 11px; border: solid #f9b905; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
-.checkbox-label:hover input ~ .custom-checkbox { border-color: #f9b905; }
+.incidencias-radio-group { display: flex; gap: 2rem; margin-top: 0.2rem; }
+.incidencias-radio-label { display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 16px !important; font-weight: 600; user-select: none; border-radius: 6px; padding: 0.7rem 1.2rem; transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s; }
+[data-theme='dark'] .incidencias-radio-label { background: #121212; border: 1px solid rgba(255, 255, 255, 0.15); color: #ffffff !important; }
+[data-theme='light'] .incidencias-radio-label { background: #faf8f5; border: 1px solid rgba(0, 0, 0, 0.12); color: #1c1917 !important; }
 
-/* Botón Estilo Consola */
+.custom-radio-box { width: 20px; height: 20px; border-radius: 4px; display: inline-block; position: relative; transition: all 0.2s; }
+[data-theme='dark'] .custom-radio-box { background: #121212; border: 1px solid rgba(255, 255, 255, 0.15); }
+[data-theme='light'] .custom-radio-box { background: #faf8f5; border: 1px solid rgba(0, 0, 0, 0.15); }
+.incidencias-radio-label input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+/* Radio SI / NO Control de Estados */
+.incidencias-radio-label.radio-si:hover, .incidencias-radio-label.radio-si:hover .custom-radio-box { border-color: #27c93f; }
+.incidencias-radio-label.radio-si:has(input:checked) { background: transparent !important; border-color: #27c93f !important; box-shadow: 0 0 8px rgba(39, 201, 63, 0.25); }
+.incidencias-radio-label.radio-si input:checked ~ .custom-radio-box { border-color: #27c93f !important; background: transparent !important; }
+.incidencias-radio-label.radio-si input:checked ~ .custom-radio-box:after { content: ""; position: absolute; left: 6px; top: 2px; width: 6px; height: 11px; border: solid #27c93f; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+
+.incidencias-radio-label.radio-no:hover, .incidencias-radio-label.radio-no:hover .custom-radio-box { border-color: #ff5f56; }
+.incidencias-radio-label.radio-no:has(input:checked) { background: transparent !important; border-color: #ff5f56 !important; box-shadow: 0 0 8px rgba(255, 95, 86, 0.25); }
+.incidencias-radio-label.radio-no input:checked ~ .custom-radio-box { border-color: #ff5f56 !important; background: transparent !important; }
+.incidencias-radio-label.radio-no input:checked ~ .custom-radio-box:after { content: ""; position: absolute; left: 6px; top: 2px; width: 6px; height: 11px; border: solid #ff5f56; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+
+.field-animate-fade { animation: fadeInField 0.25s ease-out forwards; }
+
+.incidencias-error-msg { font-size: 0.85rem; font-weight: 600; text-align: left; margin-top: 0.4rem; font-family: var(--ifm-font-family-base), system-ui, sans-serif; animation: fadeInField 0.2s ease-out forwards; color: #dc2626; }
+
+/* Botón Enviar */
 .btn-submit {
-  margin-top: 1rem;
-  background: transparent;
-  border: 1px solid #f9b905;
-  color: #f9b905;
-  padding: 1rem;
-  font-family: monospace;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  letter-spacing: 0.05em;
+  margin-top: 1rem; background: transparent; padding: 1rem; font-family: monospace; font-size: 1rem; font-weight: 700; cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s; letter-spacing: 0.05em; border-radius: 6px;
 }
-
-.btn-submit:hover:not(:disabled) { background: rgba(249, 185, 5, 0.1); }
+[data-theme='dark'] .btn-submit { color: #f9b905; border: 1px solid #f9b905; }
+[data-theme='light'] .btn-submit { color: #1c1917; border: 1px solid rgba(0, 0, 0, 0.12); background: #faf8f5; } 
+[data-theme='dark'] .btn-submit:hover:not(:disabled) { background: rgba(249, 185, 5, 0.1); }
+[data-theme='light'] .btn-submit:hover:not(:disabled) { background: rgba(249, 185, 5, 0.15); border-color: #f9b905; }
 .btn-submit:disabled { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.2); cursor: not-allowed; }
 
 .alert { padding: 1rem; border-radius: 4px; font-family: monospace; font-size: 0.9rem; margin-bottom: 1.5rem; }
 .alert-success { background: rgba(39, 201, 63, 0.1); border: 1px solid #27c93f; color: #27c93f; }
 .alert-danger { background: rgba(255, 95, 86, 0.1); border: 1px solid #ff5f56; color: #ff5f56; }
 
-/* Opciones del Punto 5 */
-.incidencias-radio-group {
-  display: flex;
-  gap: 2rem;
-  margin-top: 0.2rem;
+/* Modals & Overlays del Inspector */
+.privacy-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.75); z-index: 1000 !important; }
+.privacy-drawn-arrow { position: fixed; left: calc(50% - 448px); top: 4.2rem; width: 100px; height: auto; pointer-events: none; animation: drawArrowEffect 0.4s ease-out 0.1s both; z-index: 1004 !important; }
+.inspector-fade { transition: opacity 0.2s ease-out; }
+.rescue-eye-top-center { position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 10000; animation: inspectorPulseActive 2s infinite ease-in-out; }
+.rescue-eye-top-btn { background: transparent; border: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.rescue-eye-top-svg { width: 36px; height: 36px; object-fit: contain; }
+
+.mirror-info-zone { position: fixed; top: 3.1rem; left: calc(50% - 432px); z-index: 1006 !important; }
+.mirror-info-zone .info-icon-btn { opacity: 1 !important; background: transparent; }
+.incidencias-card-branding { display: flex; align-items: center; gap: 16px; }
+.branding-link { display: flex; align-items: center; transition: transform 0.2s ease, filter 0.2s ease; }
+.branding-link:hover { transform: scale(1.08); }
+.incidencias-card-logo.eps-logo-dim { height: 45px; width: auto; object-fit: contain; }
+.branding-link:hover .eps-logo-dim { filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.3)); }
+
+/* ==========================================================================
+   14. CONFIGURACIÓN GENERAL DEL SWITCH DE TEMAS (SOL / LUNA)
+   ========================================================================== */
+.cateps-theme-toggle-btn {
+  position: fixed; top: 1.5rem; right: 1.5rem; z-index: 25000; background: transparent;
+  border: none; padding: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: #f9b905; transition: color 0.25s ease, transform 0.2s ease;
+}
+.cateps-theme-toggle-btn:hover { transform: scale(1.1); color: #ffffff; }
+[data-theme='dark'] .cateps-theme-toggle-btn { color: rgba(255, 255, 255, 0.6); }
+[data-theme='dark'] .cateps-theme-toggle-btn:hover { color: #f9b905; }
+
+.theme-toggle-svg { width: 24px; height: 24px; }
+
+.main-circle-cateps,
+.theme-toggle-svg,
+.theme-toggle-svg > g,
+.sun-rays-cateps {
+  will-change: transform; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: 16px 16px !important;
 }
 
-.incidencias-radio-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
+.sun-rays-cateps { will-change: opacity, transform; transition: opacity 0.25s ease, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.moon-cradle-cateps {
+  will-change: transform; transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1); transform: translate(24px, -24px);
+}
+
+[data-theme='dark'] .theme-toggle-svg .main-circle-cateps { transform: scale(1.32); }
+[data-theme='dark'] .theme-toggle-svg .sun-rays-cateps { opacity: 0 !important; transform: scale(0.4) rotate(0.125turn); }
+[data-theme='dark'] .theme-toggle-svg .moon-cradle-cateps { transform: translate(9px, -3px) !important; }
+
+/* Engine View-Transitions */
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+[data-theme='dark']::view-transition-old(root) { z-index: 1; }
+[data-theme='dark']::view-transition-new(root) { z-index: 30000; }
+
+/* ==========================================================================
+   15. BOTÓN BACK TO TOP PERSONALIZADO GLOBAL (FLOTANTE)
+   ========================================================================== */
+.clean-btn.theme-back-to-top-button {
+  display: none !important;
+}
+
+.cateps-btn-flotante {
+  position: fixed !important;
+  bottom: 2.5rem !important;
+  right: 2.5rem !important;
+  background: transparent !important;
+  border: none !important;
+  color: #606770 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  z-index: 99 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, color 0.2s ease-in-out !important;
+}
+
+.cateps-btn-flotante.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.cateps-btn-flotante .cateps-linea-tope {
+  display: block !important;
+  width: 20px !important;
+  height: 2px !important;
+  background-color: #606770 !important;
+  margin-bottom: 0px !important; 
+  transition: background-color 0.2s ease-in-out !important;
+}
+
+.cateps-btn-flotante svg {
+  width: 20px !important;
+  height: 20px !important;
+  margin-top: -3px !important;
+  transition: color 0.2s ease-in-out !important;
+}
+
+.cateps-btn-flotante:hover { color: #93BD22 !important; background: transparent !important; }
+.cateps-btn-flotante:hover .cateps-linea-tope { background-color: #93BD22 !important; }
+
+/* ==========================================================================
+   16. TIPOGRAFÍA SISTEMA EN ADMONITIONS & ALERTAS NATIVAS
+   ========================================================================== */
+.theme-doc-markdown .admonition,
+.theme-doc-markdown .admonition *,
+.theme-doc-markdown .alert,
+.theme-doc-markdown .alert * {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
   font-size: 16px !important;
-  font-weight: 600;
-  user-select: none;
-  background: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
-  padding: 0.7rem 1.2rem;
-  color: #ffffff !important; 
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.custom-radio-box {
-  width: 20px;
-  height: 20px;
-  background: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
-  display: inline-block;
-  position: relative;
-  transition: all 0.2s;
-}
-
-.incidencias-radio-label input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* 🟢 INTERACTIVO SÍ (VERDE) */
-.incidencias-radio-label.radio-si:hover { border-color: #27c93f; }
-.incidencias-radio-label.radio-si:hover .custom-radio-box { border-color: #27c93f; }
-.incidencias-radio-label.radio-si:has(input:checked) { background: transparent !important; border-color: #27c93f !important; box-shadow: 0 0 8px rgba(39, 201, 63, 0.25); }
-.incidencias-radio-label.radio-si input:checked ~ .custom-radio-box { border-color: #27c93f !important; background: transparent !important; }
-.incidencias-radio-label.radio-si input:checked ~ .custom-radio-box:after { content: ""; position: absolute; left: 6px; top: 2px; width: 6px; height: 11px; border: solid #27c93f; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
-
-/* 🔴 INTERACTIVO NO (ROJO) */
-.incidencias-radio-label.radio-no:hover { border-color: #ff5f56; }
-.incidencias-radio-label.radio-no:hover .custom-radio-box { border-color: #ff5f56; }
-.incidencias-radio-label.radio-no:has(input:checked) { background: transparent !important; border-color: #ff5f56 !important; box-shadow: 0 0 8px rgba(255, 95, 86, 0.25); }
-.incidencias-radio-label.radio-no input:checked ~ .custom-radio-box { border-color: #ff5f56 !important; background: transparent !important; }
-.incidencias-radio-label.radio-no input:checked ~ .custom-radio-box:after { content: ""; position: absolute; left: 6px; top: 2px; width: 6px; height: 11px; border: solid #ff5f56; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
-
-/* Entrada Campo 6 */
-.field-animate-fade { animation: fadeInField 0.25s ease-out forwards; }
-@keyframes fadeInField { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Error Neón Inline */
-.incidencias-error-msg {
-  color: #ff0055;
-  text-shadow: 0 0 8px rgba(255, 0, 85, 0.4);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-align: left;
-  margin-top: 0.4rem;
-  font-family: var(--ifm-font-family-base), system-ui, sans-serif;
-  animation: fadeInField 0.2s ease-out forwards;
-}
-
-/* Botón de aspas (X) para cerrar el cuadro flotante */
-.tooltip-privacy-close {
-  position: absolute;
-  top: 0.9rem;
-  right: 1.1rem;
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.35); 
-  font-size: 1.6rem;
-  line-height: 1;
-  font-family: Arial, sans-serif; 
-  cursor: pointer;
-  padding: 0;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.tooltip-privacy-close:hover {
-  color: #f9b905;
-  transform: scale(1.1);
 }
 
 /* ==========================================================================
-   HEADER: ENLACE CONTACTO
+   17. CENTRAL DE ANIMACIONES CORE (@KEYWORDS ENGINE)
    ========================================================================== */
-.navbar__link[href*="contacto"].navbar__link--active {
-  border: 1px solid #27c93f;
-  background: rgba(39, 201, 63, 0.05) !important; /* Fondo translúcido en activo */
-  border-radius: 6px;
-  padding: 6px 14px !important;
-  margin: 0 0.2rem;
-  box-shadow: 0 0 8px rgba(39, 201, 63, 0.25); /* Aura neón verde */
-  transition: all 0.15s ease;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-/* El estado hover nativo de Docusaurus se encarga del resto cuando no está activo */
-
-/* Unificar tipografía y forzar los 16px en los desplegables */
-details, 
-summary,
-details p, 
-details div,
-details li {
-  font-family: var(--ifm-font-family-base), system-ui, -apple-system, sans-serif !important;
-  font-size: 16px !important;
-  line-height: 1.6 !important; /* Para que mantenga un buen espaciado de lectura */
-}
-
-/* Unificar tipografía y forzar 16px en los Admonitions */
-.theme-admonition,
-[class*="admonition"],
-.alert,
-.alert * {
-  font-family: var(--ifm-font-family-base), system-ui, -apple-system, sans-serif !important;
-  font-size: 16px !important;
-  line-height: 1.6 !important;
-}
-
-/* ==========================================================================
-   Sección 17.11: MUDANZA DE ESTILOS MODO INSPECTOR, FLECHA Y CAJA PRIVACIDAD
-   ========================================================================== */
-
-/* Capa oscura de fondo fija a la pantalla completa */
-.privacy-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 1000 !important; 
-}
-
-/* Caja de aviso de privacidad */
-.tooltip-privacy-box {
-  position: fixed;   
-  top: 3rem;
-  left: calc(50% - 358px);  
-  z-index: 1005 !important; 
-  width: 100vw;
-  max-width: 440px;
-  background: #121212;
-  border: 1px solid #f9b905;
-  border-radius: 6px;
-  padding: 1.2rem;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
-  animation: tooltipPrivacyZoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+@keyframes fadeInField {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes tooltipPrivacyZoomIn {
-  from { opacity: 0; transform: scale(0.9) translateY(5px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-.privacy-drawn-arrow {
-  position: fixed;     
-  left: calc(50% - 448px); 
-  top: 4.2rem;        
-  width: 100px;
-  height: auto;
-  pointer-events: none;
-  animation: drawArrowEffect 0.4s ease-out 0.1s both;
-  z-index: 1004 !important;
-}
-
-@keyframes drawArrowEffect {
-  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
-  10% { opacity: 1; }
-  100% { clip-path: inset(0 0 0 0); opacity: 1; }
-}
-
-.inspector-fade {
-  transition: opacity 0.2s ease-out;
-}
-
-/* BOTÓN DE RESCATE CENTRADO ARRIBA (LIMPIO Y DESNUDO) */
-.rescue-eye-top-center {
-  position: fixed;
-  top: 1.5rem;          
-  left: 50%;
-  transform: translateX(-50%); 
-  z-index: 10000;       
-  animation: inspectorPulseActive 2s infinite ease-in-out;
-}
-
-.rescue-eye-top-btn {
-  background: transparent; 
-  border: none;            
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.rescue-eye-top-svg {
-  width: 36px;             
-  height: 36px;
-  object-fit: contain;
-}
-
-@keyframes inspectorPulseActive {
-  0%, 100% { 
-    filter: drop-shadow(0 0 4px rgba(249, 185, 5, 0.5)); 
+/* ==========================================================================
+   18. RESPONSIVE QUIRÚRGICO (Ajustes de Layout en pantallas estrechas)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* PURGA DE NAVEGACIÓN VERTICAL EN MÓVILES */
+  .custom-back-to-top,
+  .cateps-btn-flotante,
+  .cateps-btn-flotante.visible {
+    display: none !important;
   }
-  50% { 
-    transform: translateX(-50%) scale(1.15); 
-    filter: drop-shadow(0 0 14px rgba(249, 185, 5, 0.95)) 
-            drop-shadow(0 0 25px rgba(249, 185, 5, 0.6)); 
+
+  /* FOOTER MINIMALISTA ACHATADO MÓVIL */
+  .footer,
+  .footer-wrapper-relative {
+    background-color: #000000 !important;
+    background-image: none !important;
+    padding: 1rem 0 !important;
+  }
+
+  .footer__bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  .footer__copyright {
+    text-align: center !important;
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    margin: 0 !important;
+    padding: 0 1rem !important;
   }
 }
 
-.mirror-info-zone {
-  position: fixed;
-  top: 3.1rem;             
-  left: calc(50% - 432px); 
-  z-index: 1006 !important; 
+/* ==========================================================================
+   18.1. FILTRO TÁCTIL AVANZADO (Fix para Nest Hub, Nest Hub Max y Tablets)
+   ========================================================================== */
+@media (pointer: coarse) {
+  /* Si el usuario usa el dedo (Smart Displays/Tablets), fulminamos el botón rebelde */
+  .custom-back-to-top,
+  .custom-back-to-top span {
+    display: none !important;
+  }
+  
+  /* Ajuste perimetral del footer en dispositivos táctiles grandes */
+  .footer,
+  .footer-wrapper-relative {
+    background-color: #000000 !important;
+    padding-bottom: 1.5rem !important;
+  }
 }
 
-.mirror-info-zone .info-icon-btn {
+/* ==========================================================================
+   19. AJUSTES NAVBAR CONTACTO
+   ========================================================================== */
+.navbar__items .navbar__item[href="/docs/contacto"] {
+  background-color: transparent !important; 
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+  padding: 4px 12px !important;
+  align-self: center !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.navbar__items .navbar__item[href="/docs/contacto"]:hover,
+.navbar__items .navbar__item[href="/docs/contacto"].navbar__link--active,
+.navbar__items .navbar__item[href="/docs/contacto"][class*="active"] {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: #93BD22 !important;                      
+  text-decoration: none !important;
+}
+
+/* Forzar fuente del sistema y tamaño de 16px en todas las tablas */
+.markdown table th,
+.markdown table td {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   20. ENLACE CORPORATIVO UNIVERSIDAD DE SEVILLA (US) - RELLENO SÓLIDO
+   ========================================================================== */
+/* 📍 Anclajes relativos exactos para que los bocadillos salgan debajo de cada elemento */
+.navbar__items--right .navbar__link[href="https://www.us.es/"],
+.navbar__items--right .navbar__link[href="https://eps.us.es/"],
+.navbar__items--right .header-github-link {
+  position: relative !important; 
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+/* Forzar paddings y esquinas solo en los enlaces de texto originales */
+.navbar__items--right .navbar__link[href="https://www.us.es/"],
+.navbar__items--right .navbar__link[href="https://eps.us.es/"] {
+  padding: 6px 12px !important; 
+  border-radius: 4px;            
+}
+
+/* Efecto Hover original de la US */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover {
+  background-color: #9D2235 !important; 
+  background: #9D2235 !important;
+  color: #FFFFFF !important;            
+  box-shadow: none !important;          
+  text-shadow: none !important;
+}
+
+/* Forzar el icono a blanco en el hover de la US */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover svg {
+  fill: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   🏷️ INYECCIÓN EXCLUSIVA DE TOOLTIPS ULTRA-PROFESIONALES (ABAJO CON PICO)
+   ========================================================================== */
+
+/* 📦 CUERPOS DE LOS BOCADILLOS: Ajuste individualizado de altura vertical */
+/* 🔺 Subimos sutilmente la US y la EPS a (100% + 8px) para compensar su padding nativo */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::after,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::after {
+  top: calc(100% + 8px) !important;
+}
+
+/* Base común idéntica para los cuerpos de la US y la EPS */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::after,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::after {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(4px) !important;
+  background-color: #2b2a33 !important;   
+  color: #ffffff !important;              
+  border: 1px solid #42414d !important;   
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 5px 11px !important;
+  border-radius: 6px !important;
+  white-space: nowrap !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  z-index: 999999 !important;
+  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 🔺 LOS PIQUITOS: Ajuste de colgado individualizado */
+/* 🔺 Subimos el pico de la US y la EPS a (100% + 4px) para que besen su nueva caja */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::before,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::before {
+  top: calc(100% + 4px) !important;
+}
+
+/* Base común idéntica para los picos (Rombo rotado a 45°) */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::before,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 50% !important;
+  width: 8px !important;
+  height: 8px !important;
+  background-color: #2b2a33 !important;
+  border-left: 1px solid #42414d !important;
+  border-top: 1px solid #42414d !important;
+  transform: translateX(-50%) translateY(4px) rotate(45deg) !important;
+  transform-origin: center center !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  z-index: 1000000 !important;
+  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s !important;
+  box-shadow: none !important;
+}
+
+/* 🚀 ASIGNACIÓN DE TEXTOS */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::after { content: "Universidad de Sevilla" !important; }
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::after { content: "Escuela Politécnica Superior" !important; }
+
+/* 🔄 DISPARADORES HOVER SIMÉTRICOS */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover::after,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]:hover::after {
   opacity: 1 !important;
-  background: transparent; 
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) !important;
 }
 
-.incidencias-card-branding {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover::before,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]:hover::before {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) rotate(45deg) !important;
 }
 
-.branding-link {
-  display: flex;
-  align-items: center;
-  transition: transform 0.2s ease, filter 0.2s ease;
+/* ==========================================================================
+   21. PERSONALIZACIÓN TAXONOMÍA: ETIQUETAS Y CONTADORES (DOCS TAGS)
+   ========================================================================== */
+.tagWithCount_h2kH {
+  transition: all 0.2s ease-in-out !important;
 }
 
-.branding-link:hover {
-  transform: scale(1.08);
+.tagWithCount_h2kH :not(a) {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: #FFF !important;                
+  border: 1px solid #FFF !important;
+  font-family: var(--ifm-font-family-monospace), monospace !important; 
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  padding: 2px 7px !important;              
+  border-radius: 4px !important;            
+  margin-left: 6px !important;              
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease-in-out !important;
 }
 
-.incidencias-card-logo.eps-logo-dim {
-  height: 45px;
-  width: auto;
-  object-fit: contain;
+.tagWithCount_h2kH:hover :not(a) {
+  background-color: rgba(249, 185, 5, 0.1) !important; 
+  box-shadow: 0 0 6px rgba(249, 185, 5, 0.2) !important; 
 }
 
-.branding-link:hover .eps-logo-dim {
-  filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.3));
+/* ==========================================================================
+   22. TABLA DE CONTENIDOS DE DOCUSAURUS
+   ========================================================================== */
+.table-of-contents__link {
+  font-size: 0.85rem;
 }

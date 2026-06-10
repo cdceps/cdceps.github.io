@@ -275,13 +275,13 @@
     "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
   },
   "theme.SearchBar.noResultsText": {
-    "message": "No results"
+    "message": "Sin resultados"
   },
   "theme.SearchBar.seeAllOutsideContext": {
-    "message": "See all results outside \"{context}\""
+    "message": "Ver todos los resultados fuera de \"{context}\""
   },
   "theme.SearchBar.searchInContext": {
-    "message": "See all results within \"{context}\""
+    "message": "Ver todos los resultados en \"{context}\""
   },
   "theme.SearchBar.seeAll": {
     "message": "Ver todos los resultados"
@@ -330,7 +330,7 @@
     "description": "The label of the link targeting the blog authors page"
   },
   "theme.blog.author.noPosts": {
-    "message": "This author has not written any posts yet.",
+    "message": "Este autor aún no ha publicado ninguna entrada.",
     "description": "The text for authors with 0 blog post"
   },
   "theme.contentVisibility.unlistedBanner.title": {

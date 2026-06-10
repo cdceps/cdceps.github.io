@@ -1,31 +1,28 @@
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
+
 /**
  * Crear una barra lateral nos permite:
- - crear un grupo ordenado de documentos
- - mostrar una barra lateral para cada documento de ese grupo
- - proporcionar navegación siguiente/anterior
-
- Las barras laterales se pueden generar desde el sistema de archivos o definir explícitamente aquí.
-
- Crea tantas barras laterales como desees.
+ * - crear un grupo ordenado de documentos
+ * - mostrar una barra lateral para cada documento de ese grupo
+ * - proporcionar navegación siguiente/anterior
+ *
+ * Las barras laterales se pueden generar desde el sistema de archivos o definir explícitamente aquí.
  */
 
-// @ts-check
-
-/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
-const sidebars = {
+const sidebars: SidebarsConfig = {
   sidebar: [
     {
       type: 'doc',
       id: 'readme',
-      label: 'Docs',
+      label: 'Introducción',
     },
     {
       type: 'category',
-      label: 'Aulas',
+      label: 'Aulas CATEPS',
       link: {
         type: 'generated-index',
         title: 'Guía de Aulas',
-        description: 'Configuración técnica, software y planos de las aulas de Informática.',
+        description: 'Configuración técnica, software y planos de las aulas de Informática del CATEPS.',
         slug: '/aulas',
       },
       collapsed: true,
@@ -67,7 +64,6 @@ const sidebars = {
       items: [
         'powershell-7',
         'powershell-gallery',
-        'avalonia-ui',
       ],
     },
     'contacto',

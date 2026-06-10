@@ -1,5 +1,10 @@
 ---
 title: PowerShell 7
+tags:
+  - Aulas
+  - Automatización
+  - PowerShell 7
+  - PowerShell Remoting
 sidebar_label: PowerShell 7
 ---
 
@@ -10,11 +15,13 @@ import TabItem from '@theme/TabItem';
 
 Automatización de procesos en la EPS.
 
-## ⚙️ ¿Qué es PowerShell?
+## ⚙️ PowerShell y su uso en la EPS
 
-Es una solución multiplataforma desarrollada por Microsoft para la automatización de tareas. Un ecosistema compuesto por un shell de línea de comandos, un lenguaje de scripting y un robusto marco de administración. Este entorno se apoya en dos pilares clave: [PowerShell Gallery](./powershell-gallery.md), el repositorio centralizado para compartir y adquirir módulos de confianza, y [PowerShell Remoting](/gestion-aulas-cateps/powershell-7#powershell-remoting), la tecnología que permite la administración y ejecución de comandos en equipos remotos de forma segura y escalable.
+Utilizamos esta solución multiplataforma desarrollada por Microsoft para la automatización avanzada de tareas en los laboratorios y para trabajar con datos estructurados (por ejemplo, JSON, CSV, XML, etc.), API REST y modelos de objetos. Disponemos de un ecosistema compuesto por un shell de línea de comandos, un lenguaje de scripting orientado a objetos y un marco de administración que se caracteriza por su robustez.
 
-Aunque Windows PowerShell viene preinstalado en todas las versiones modernas de Windows para automatizar tareas administrativas, en la [Escuela Politécnica Superior](https://eps.us.es/) estandarizamos el uso de PowerShell 7, aprovechando sus nuevas funcionalidades y mejoras en el rendimiento.
+Este entorno lo apoyamos en dos pilares clave: [PowerShell Gallery](./powershell-gallery.md), el repositorio centralizado para compartir y adquirir módulos de confianza, y [PowerShell Remoting](/docs/powershell-7#-powershell-remoting), la tecnología que nos permite la administración y ejecución de comandos en equipos remotos de forma segura y escalable.
+
+Aunque Windows PowerShell viene preinstalado en todas las versiones modernas de Windows para automatizar tareas administrativas estándar, en la [Escuela Politécnica Superior](https://eps.us.es/) estandarizamos el uso de [PowerShell 7](https://learn.microsoft.com/es-es/powershell/scripting/overview) como nuestra herramienta de referencia, aprovechando sus nuevas funcionalidades y mejoras en el rendimiento para cubrir las necesidades de la Escuela.
 
 ---
 
@@ -28,7 +35,7 @@ Aunque Windows PowerShell viene preinstalado en todas las versiones modernas de 
 />
 <br />
 
-## 🌐 PowerShell remoting
+## 🌐 PowerShell Remoting
 
 El corazón de nuestra gestión es **PowerShell Remoting (Comunicación remota de PowerShell)**. Basado en el protocolo **WinRM (Administración remota de Windows)**, nos permite ejecutar comandos de forma síncrona y asíncrona en los más de 300 puestos de la Escuela de forma centralizada.
 
@@ -99,7 +106,7 @@ El paradigma de gestión en la EPS se basa en un modelo híbrido que combina la 
 <Tabs>
 <TabItem value="opengnsys" label="1. Capa de Imagen (OpenGnsys)" default>
 
-OpenGnsys se encarga del despliegue masivo de la imagen del sistema operativo. Proporciona un estado **inalterable** y limpio en cada arranque mediante Multicast u otros protocolos, asegurando que el hardware esté listo y el SO base sea idéntico.
+OpenGnsys se encarga del despliegue masivo de la imagen del sistema operativo. Proporciona un estado **inalterable** y limpio mediante Multicast u otros protocolos, asegurando que el hardware esté listo y el SO base sea idéntico.
 
 </TabItem>
 <TabItem value="psremoting" label="2. Capa de Control (PS Remoting)">

@@ -1,9 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 
-function PannellumViewer({ image, title, author = "Centro de Cálculo EPS" }) {
-  const containerRef = useRef(null);
-  const viewerRef = useRef(null);
+interface PannellumViewerProps {
+  image: string;
+  title: string;
+  author?: string;
+}
+
+function PannellumViewer({ image, title, author = "Centro de Cálculo EPS" }: PannellumViewerProps): JSX.Element {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const viewerRef = useRef<any>(null);
 
   useEffect(() => {
     // Importamos el CSS oficial de la librería
@@ -13,16 +19,18 @@ function PannellumViewer({ image, title, author = "Centro de Cálculo EPS" }) {
     const pannellum = require('pannellum');
 
     // Inicializamos el visor
-    viewerRef.current = pannellum.viewer(containerRef.current, {
-      type: 'equirectangular',
-      panorama: image,
-      title: title,
-      author: author,
-      autoLoad: true,
-      autoRotate: -2,
-      compass: true, // Un toque técnico extra
-      mouseZoom: true,
-    });
+    if (containerRef.current) {
+      viewerRef.current = pannellum.viewer(containerRef.current, {
+        type: 'equirectangular',
+        panorama: image,
+        title: title,
+        author: author,
+        autoLoad: true,
+        autoRotate: -2,
+        compass: true, // Un toque técnico extra
+        mouseZoom: true,
+      });
+    }
 
     // Al cerrar la página, destruimos el visor para liberar RAM
     return () => {
@@ -45,7 +53,7 @@ function PannellumViewer({ image, title, author = "Centro de Cálculo EPS" }) {
 }
 
 // Componente exportado con protección para SSR (Server Side Rendering)
-export default function Panorama360(props) {
+export default function Panorama360(props: PannellumViewerProps): JSX.Element {
   return (
     <div style={{ 
       border: '1px solid #333', 

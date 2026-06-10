@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ImageGallery({ images }) {
-  const [index, setIndex] = useState(null);
-  const [zoom, setZoom] = useState(1);
+interface GalleryImage {
+  src: string;
+  title: string;
+}
+
+interface ImageGalleryProps {
+  images: GalleryImage[];
+}
+
+export default function ImageGallery({ images }: ImageGalleryProps): JSX.Element | null {
+  const [index, setIndex] = useState<number | null>(null);
+  const [zoom, setZoom] = useState<number>(1);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent): void => {
       if (index === null) return;
       if (e.key === 'ArrowRight') nextImg();
       if (e.key === 'ArrowLeft') prevImg();
@@ -15,21 +24,25 @@ export default function ImageGallery({ images }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [index]);
 
-  const closeLightbox = () => { setIndex(null); setZoom(1); };
+  const closeLightbox = (): void => { setIndex(null); setZoom(1); };
   
-  const nextImg = (e) => {
+  const nextImg = (e?: React.MouseEvent): void => {
     e?.stopPropagation();
-    setIndex((prev) => (prev + 1) % images.length);
-    setZoom(1);
+    if (index !== null) {
+      setIndex((prev) => (prev !== null ? (prev + 1) % images.length : 0));
+      setZoom(1);
+    }
   };
 
-  const prevImg = (e) => {
+  const prevImg = (e?: React.MouseEvent): void => {
     e?.stopPropagation();
-    setIndex((prev) => (prev - 1 + images.length) % images.length);
-    setZoom(1);
+    if (index !== null) {
+      setIndex((prev) => (prev !== null ? (prev - 1 + images.length) % images.length : 0));
+      setZoom(1);
+    }
   };
 
-  const handleZoom = (factor) => {
+  const handleZoom = (factor: number): void => {
     setZoom(prev => Math.max(0.5, Math.min(3, prev + factor)));
   };
 
