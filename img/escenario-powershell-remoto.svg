@@ -1,0 +1,57 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo Transparente -->
+  <rect width="800" height="400" fill="none" />
+  
+  <style>
+    .pc-stroke { stroke: #F9B905; stroke-width: 3; fill: none; }
+    .arrow-line { stroke: #F9B905; stroke-width: 3; fill: none; stroke-dasharray: 6; }
+    .prompt-text { fill: #F9B905; font-family: Consolas, monospace; font-size: 44px; font-weight: bold; }
+  </style>
+
+  <!-- PC ADMINISTRADOR (Nodo Emisor) -->
+  <g transform="translate(80, 150)">
+    <!-- Pantalla y chasis -->
+    <rect width="130" height="85" class="pc-stroke" rx="4"/>
+    <rect x="15" y="92" width="100" height="4" class="pc-stroke"/>
+    
+    <!-- Prompt >_ centrado -->
+    <text x="65" y="58" class="prompt-text" text-anchor="middle">&gt;_</text>
+  </g>
+
+  <!-- NODOS CLIENTES (Destinos) -->
+  <g transform="translate(620, 40)">
+    <!-- PC 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="85" height="55" class="pc-stroke" rx="3"/>
+      <rect x="12" y="62" width="60" height="3" class="pc-stroke"/>
+    </g>
+    <!-- PC 2 -->
+    <g transform="translate(0, 90)">
+      <rect width="85" height="55" class="pc-stroke" rx="3"/>
+      <rect x="12" y="62" width="60" height="3" class="pc-stroke"/>
+    </g>
+    <!-- PC 3 -->
+    <g transform="translate(0, 180)">
+      <rect width="85" height="55" class="pc-stroke" rx="3"/>
+      <rect x="12" y="62" width="60" height="3" class="pc-stroke"/>
+    </g>
+    <!-- PC 4 -->
+    <g transform="translate(0, 270)">
+      <rect width="85" height="55" class="pc-stroke" rx="3"/>
+      <rect x="12" y="62" width="60" height="3" class="pc-stroke"/>
+    </g>
+  </g>
+
+  <!-- FLECHAS DE ORQUESTACIÓN -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#F9B905" />
+    </marker>
+  </defs>
+
+  <!-- Líneas que mueren justo en el borde exterior del monitor de destino (x=610) -->
+  <path d="M215,192 C350,192 450,70 610,70" class="arrow-line" marker-end="url(#arrow)"/>
+  <path d="M215,192 C350,192 450,160 610,160" class="arrow-line" marker-end="url(#arrow)"/>
+  <path d="M215,192 C350,192 450,250 610,250" class="arrow-line" marker-end="url(#arrow)"/>
+  <path d="M215,192 C350,192 450,340 610,340" class="arrow-line" marker-end="url(#arrow)"/>
+</svg>
