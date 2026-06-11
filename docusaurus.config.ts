@@ -16,7 +16,7 @@ const config: Config = {
 
   future: {
     v4: true,
-    faster: true
+    faster: false
   },
   
   i18n: {
@@ -156,7 +156,7 @@ const config: Config = {
       footer: {
         style: 'light',
         links: [], 
-        copyright: `Copyright © ${new Date().getFullYear()} Escuela Politécnica Superior. Creado con Docusaurus <img src="/img/docusaurus-icon.svg" alt="Icono" style="width:25px; vertical-align:baseline; position:relative; bottom:-3px; margin-left:5px;" />`,
+        copyright: `Copyright © ${new Date().getFullYear()} Escuela Politécnica Superior. Creado con <a href="https://docusaurus.io/" class="footer-link-docusaurus">Docusaurus</a><img src="/img/docusaurus-icon.svg" alt="Icono" style="width:25px; vertical-align:baseline; position:relative; bottom:-3px; margin-left:5px;" />`,
       },
       prism: {
         theme: prismThemes.github,

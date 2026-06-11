@@ -46,7 +46,7 @@ const sidebars: SidebarsConfig = {
             {
               type: 'doc',
               id: 'cia-faq',
-              label: 'FAQ',
+              label: 'FAQs',
               className: 'sidebar-faq-item',
             },
           ],
