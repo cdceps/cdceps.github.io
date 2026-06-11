@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkayuda_docente_eps=globalThis.webpackChunkayuda_docente_eps||[]).push([[5390],{75390(e,a,c){c.d(a,{createArchitectureServices:()=>s.S});var s=c(65530);c(72519)}}]);
