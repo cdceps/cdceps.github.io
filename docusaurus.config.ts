@@ -16,7 +16,7 @@ const config: Config = {
 
   future: {
     v4: true,
-    faster: false
+    faster: true
   },
   
   i18n: {

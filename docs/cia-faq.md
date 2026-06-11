@@ -1,6 +1,6 @@
 ---
 title: Preguntas Frecuentes
-sidebar_label: FAQ
+sidebar_label: FAQs
 tags:
   - Aulas
   - Modo Examen
@@ -8,7 +8,7 @@ tags:
 sidebar_position: 4
 ---
 
-# FAQ CIA (Preguntas frecuentes)
+# Preguntas frecuentes
 
 En esta sección encontrará respuesta a las dudas más habituales sobre el despliegue y uso del script CIA en los laboratorios.
 
