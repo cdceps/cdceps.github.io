@@ -21,7 +21,7 @@ En esta sección encontrará respuesta a las dudas más habituales sobre el desp
 
 Es una solución para gestionar y coordinar el acceso a la red de los equipos de los alumnos en las aulas de informática durante prácticas o exámenes. Permite conmutar el estado de conectividad de los equipos del aula de forma simultánea, aplicando directivas de grupo y restricciones de sistema en segundos sin intervención física en los puestos. 
 
-Consulte la [sección del script](/docs/cia-control-internet-aulas.md) para más detalles.
+Consulte la [sección del script](/docs/cia-control-internet-aulas) para más detalles.
 </details>
 
 <details>
