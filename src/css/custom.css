@@ -248,8 +248,8 @@ table {
    6. INTEGRACIONES DE TERCEROS
    ========================================================================== */
 .header-github-link {
-  margin-left: 5px !important;  /* Simetría con Contacto */
-  margin-right: 5px !important; /* Simetría con Buscador */
+  margin-left: 6px !important;
+  margin-right: 6px !important;
   padding: 0 !important;
 }
 
@@ -321,11 +321,27 @@ html {
   scrollbar-color: #93bd22 #0a0a0a;
 }
 
+/* Dino decorativo del footer */
+.footer-dino {
+  width: 22px;
+  height: 22px;
+  vertical-align: baseline;
+  position: relative;
+  bottom: -3px;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.footer-dino:hover {
+  transform: rotate(12deg) scale(1.25);
+}
+
 /* ==========================================================================
    8. MOTOR DE BÚSQUEDA
    ========================================================================== */
 .navbar__search {
-  margin-left: 0 !important;
+  margin-left: 6px !important;
+  margin-right: 6px !important;
 }
 
 /* Ocultar el input nativo de Docusaurus en móvil para que no rompa el Layout */
@@ -527,7 +543,7 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
 /* Base común para todos los cursores que aparezcan en la web */
 .typed-cursor {
   font-weight: 900 !important;
-  margin-left: 8px !important;
+  margin-left: -0.15em !important;
   font-family: monospace !important;
 }
 
@@ -1166,7 +1182,9 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 .navbar__items--right .navbar__link[href="https://www.us.es/"],
 .navbar__items--right .navbar__link[href="https://eps.us.es/"] {
   padding: 6px 12px !important; 
-  border-radius: 4px;            
+  border-radius: 4px;
+  margin-left: 6px !important;
+  margin-right: 6px !important;  
 }
 
 /* Efecto Hover original de la US */

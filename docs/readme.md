@@ -20,7 +20,7 @@ Este espacio ha sido diseñado como un entorno centralizado de soporte digital p
 
 ---
 
-## 🗺️ Estructura del Portal
+## 🗺️ Estructura de la web
 
 Para facilitar la navegación y localización de recursos, el ecosistema de soporte se divide en los siguientes bloques:
 

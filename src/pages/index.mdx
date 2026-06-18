@@ -27,11 +27,11 @@ hide_title: true
     from { fill-opacity: 0; }
     to { fill-opacity: 1; }
   }
-  .eps-path { fill-opacity: 0; stroke-width: 1.5; stroke-linecap: round; }
+  .eps-path { fill-opacity: 0; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
   .eps-animate {
     animation: 
-      epsDraw var(--duration) cubic-bezier(0.4, 0, 0.2, 1) forwards,
-      epsFill 0.3s ease-in var(--duration) forwards;
+      epsDraw var(--duration) cubic-bezier(0.25, 0.1, 0.25, 1) forwards,
+      epsFill 0.5s ease-out calc(var(--duration) * 0.55) forwards;
   }
 `}</style>
 
@@ -61,7 +61,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
       const el2 = React.useRef(null);
       const svgRef = React.useRef(null);
 
-      // 🛠️ MAPEADO DE TECNOLOGÍAS: Estructura limpia id/nombre para escalar fácilmente a 10 mañana
+      // 🛠️ MAPEADO DE TECNOLOGÍAS: Estructura limpia id/nombre
       const techs = [
         { id: 'linux', name: 'Linux' },
         { id: 'opengnsys', name: 'OpenGnsys' },
@@ -78,7 +78,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
             path.style.setProperty('--len', length);
             path.style.strokeDasharray = length;
             path.style.strokeDashoffset = length;
-            const duration = length / 4000 + 0.15; 
+            const duration = length / 2200 + 0.3; 
             path.style.setProperty('--duration', `${duration}s`);
             path.style.stroke = path.getAttribute('fill');
             setTimeout(() => path.classList.add('eps-animate'), i * 80);
@@ -123,7 +123,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
             onComplete: (self) => {
               setTimeout(() => {
                 if (self.cursor) {
-                  self.cursor.style.display = 'none';
+                  self.cursor.style.visibility = 'hidden';
                   setShowLogos(true);
                   setTimeout(() => setStartEPS(true), 800);
                 }
@@ -140,16 +140,16 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
       }, []);
 
       return (
-        <header style={{ textAlign: 'left', padding: '8rem 0 4rem 0', width: 'fit-content', margin: '0 auto', position: 'relative' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4rem', marginBottom: '1.5rem', justifyContent: 'space-between' }}>
+        <header style={{ textAlign: 'left', padding: '8rem 0 3rem 0', width: 'fit-content', margin: '0 auto', position: 'relative' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4rem', marginBottom: '1.5rem', justifyContent: 'space-between' }}>
             <h1 style={{ fontSize: 'clamp(3rem, 8vw, 5.5rem)', lineHeight: '0.95', fontWeight: '900', letterSpacing: '-0.05em', textTransform: 'uppercase', margin: 0, minHeight: '1.7em', display: 'flex', flexDirection: 'column' }}>
               <div><span ref={el1} style={{ color: '#FFFFFF' }}></span></div>
               <div style={{ marginTop: '-0.1em' }}>
-                <span ref={el2} style={{ background: 'linear-gradient(90deg, #F9B905 0%, #FFD700 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block', paddingRight: '0.2em' }}></span>
+                <span ref={el2} style={{ background: 'linear-gradient(90deg, #F9B905 0%, #FFD700 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block', paddingRight: '0.15em' }}></span>
               </div>
             </h1>
 
-            <div style={{ opacity: startEPS ? 1 : 0, transition: 'opacity 0.2s', display: 'flex', alignItems: 'center', transform: 'translateX(-20px)' }}>
+            <div style={{ opacity: startEPS ? 1 : 0, transition: 'opacity 0.2s', display: 'flex', alignItems: 'center', transform: 'translateX(-20px) translateY(-12px)' }}>
               <svg ref={svgRef} version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1377 1341" style={{ height: 'clamp(6rem, 15vw, 10.5rem)', width: 'auto', display: 'block' }}>
                 <path className="eps-path" d="M0 0 C0.58 -0 0.58 -0 3.52 -0.01 C4.81 -0.01 6.1 -0 7.44 -0 C8.82 -0 10.2 -0 11.58 -0.01 C15.4 -0.01 19.23 -0.01 23.05 -0.01 C26.35 -0 29.65 -0 32.94 -0.01 C42.04 -0.01 51.14 -0.01 60.23 -0 C67.09 0 73.95 0.01 80.81 0.01 C178.51 0.04 276.2 0.48 373.89 0.94 C392.37 1.03 410.84 1.11 429.32 1.2 C429.92 1.2 429.92 1.2 433.01 1.21 C437.92 1.23 442.83 1.26 447.74 1.28 C556.23 1.76 664.72 2.31 803.69 3.13 C803.72 37.6 803.65 72.06 803.51 106.53 C803.5 109.02 803.49 111.5 803.48 113.98 C803.44 124.28 803.4 134.59 803.36 144.89 C803.3 158.85 803.24 172.81 803.19 186.77 C803.15 197.83 803.11 208.89 803.06 219.95 C803.03 226.13 803.01 232.3 802.99 238.48 C802.97 244.24 802.94 250 802.91 255.76 C802.9 257.87 802.9 259.99 802.89 262.1 C802.88 264.97 802.87 267.85 802.85 270.72 C802.85 271.57 802.85 272.41 802.85 273.28 C802.81 279.01 802.81 279.01 801.69 280.13 C798.71 280.22 795.75 280.26 792.77 280.25 C792.29 280.25 792.29 280.25 789.89 280.25 C786.69 280.25 783.49 280.25 780.28 280.24 C778.01 280.24 775.73 280.24 773.45 280.24 C767.23 280.24 761 280.23 754.78 280.22 C749.51 280.21 744.24 280.21 738.97 280.21 C686.57 280.17 634.17 279.97 581.77 279.74 C572.47 279.69 563.18 279.65 553.88 279.61 C553.19 279.61 552.51 279.61 551.81 279.6 C549.02 279.59 546.23 279.58 543.44 279.57 C517.85 279.46 492.27 279.35 466.68 279.23 C442.07 279.12 417.46 279.01 392.84 278.9 C391.28 278.9 389.71 278.89 388.15 278.88 C381.85 278.86 375.56 278.83 369.26 278.8 C351.68 278.72 334.1 278.65 316.52 278.57 C316.12 278.57 316.12 278.57 314.09 278.56 C288.72 278.45 263.35 278.34 237.99 278.22 C237.17 278.22 236.35 278.22 235.5 278.21 C222.21 278.15 208.92 278.09 195.63 278.03 C142.97 277.8 90.31 277.57 37.65 277.34 C24.37 277.28 11.09 277.22 -2.19 277.16 C-2.6 277.16 -2.6 277.16 -4.67 277.15 C-30.02 277.04 -55.37 276.93 -80.72 276.82 C-81.51 276.82 -82.31 276.81 -83.14 276.81 C-100.7 276.73 -118.27 276.65 -135.84 276.58 C-142.13 276.55 -148.42 276.52 -154.71 276.49 C-156.27 276.49 -157.83 276.48 -159.4 276.47 C-182.47 276.37 -205.55 276.27 -228.62 276.17 C-229.37 276.16 -230.12 276.16 -230.89 276.16 C-231.63 276.16 -232.38 276.15 -233.15 276.15 C-258.68 276.04 -284.22 275.92 -309.75 275.81 C-312.53 275.8 -315.31 275.78 -318.1 275.77 C-318.78 275.77 -319.46 275.77 -320.16 275.76 C-330.04 275.72 -339.91 275.67 -349.78 275.63 C-422.96 275.32 -496.13 274.79 -569.31 274.13 C-569.31 273.14 -569.31 272.15 -569.31 271.13 C-568.92 271.13 -568.92 271.13 -566.97 271.14 C-480.08 271.65 -395.93 259.88 -242.18 199.07 C-240.41 198.18 -238.64 197.3 -236.87 196.42 C-187.32 171.73 -139.46 139.23 -98.9 101.51 C-96.8 99.58 -94.67 97.7 -92.52 95.83 C-88.21 92.07 -84.03 88.18 -79.87 84.25 C-79.12 83.55 -78.38 82.85 -77.61 82.12 C-70.46 75.35 -63.46 68.57 -57.05 61.09 C-55.21 59.02 -53.28 57.07 -51.31 55.13 C-47.43 51.29 -43.85 47.27 -40.31 43.13 C-39.36 42.04 -38.42 40.95 -37.48 39.86 C-28.28 29.21 -19.58 18.23 -10.96 7.11 C-10.38 6.35 -9.79 5.59 -9.18 4.81 C-8.65 4.12 -8.12 3.44 -7.58 2.73 C-5.14 -0.34 -3.98 0 0 0 Z " fill="#F7B91D" transform="translate(569.30,1060.87)"/>
                 <path className="eps-path" d="M0 0 C69.84 -0.07 139.69 0.08 209.53 0.4 C218.92 0.45 228.3 0.49 237.69 0.53 C238.04 0.53 238.04 0.53 239.78 0.54 C243.3 0.56 246.82 0.57 250.33 0.59 C275.41 0.7 300.48 0.81 325.55 0.93 C350.29 1.04 375.03 1.15 399.76 1.26 C400.15 1.26 400.15 1.26 402.11 1.27 C409.2 1.3 416.29 1.33 423.38 1.37 C440.98 1.44 458.58 1.52 476.18 1.6 C476.98 1.61 477.78 1.61 478.6 1.61 C517.28 1.79 555.97 1.96 594.65 2.14 C608.03 2.2 621.41 2.26 634.79 2.32 C635.2 2.32 635.2 2.32 637.3 2.33 C676.08 2.5 714.86 2.68 753.64 2.85 C756.17 2.86 758.7 2.88 761.22 2.89 C777.97 2.96 794.71 3.04 811.45 3.11 C844.75 3.26 878.05 3.41 911.35 3.56 C912.93 3.57 914.52 3.57 916.1 3.58 C987.2 3.9 1058.31 4.22 1129.41 4.54 C1130.07 4.54 1130.74 4.55 1131.42 4.55 C1164.62 4.7 1197.81 4.85 1231 5 C1231.02 29.01 1231.04 53.02 1231.05 77.03 C1231.06 88.18 1231.06 99.34 1231.08 110.5 C1231.13 167.68 1230.89 224.83 1230 282 C1215.79 282.02 1201.59 282.04 1187.38 282.05 C1187.01 282.05 1187.01 282.05 1185.1 282.05 C1113.62 282.1 1042.14 281.91 970.66 281.6 C969.49 281.59 968.32 281.59 967.11 281.58 C937.91 281.45 908.71 281.32 879.52 281.18 C862.32 281.1 845.12 281.02 827.92 280.95 C824.26 280.93 820.6 280.91 816.93 280.9 C805.98 280.85 795.02 280.91 784.06 280.75 C777.99 280.73 771.92 280.7 765.85 280.67 C764.65 280.67 763.45 280.66 762.22 280.66 C745.45 280.58 728.68 280.49 711.92 280.38 C701.3 280.32 690.68 280.26 680.07 280.2 C678.91 280.19 677.75 280.18 676.55 280.18 C643.53 279.99 610.5 280.04 577.48 280.3 C569.36 280.36 561.25 280.41 553.14 280.44 C552.58 280.45 552.58 280.45 549.74 280.46 C544.16 280.48 538.58 280.5 533.01 280.52 C521.23 280.56 509.47 280.67 497.7 280.85 C489.79 280.97 481.89 281.02 473.98 281.01 C469.46 281.01 464.94 281.04 460.42 281.16 C434.2 281.81 434.2 281.81 427.22 277.14 C422.72 272.78 419.75 267.88 417.1 262.24 C415.57 259.13 413.64 256.6 411.5 253.88 C410.81 252.96 410.12 252.04 409.41 251.09 C404.61 244.93 399.59 238.94 394.59 232.93 C392.53 230.43 390.52 227.9 388.5 225.38 C384.27 220.19 379.73 215.33 375.13 210.48 C372.28 207.46 369.49 204.42 366.79 201.27 C362.45 196.27 357.77 191.62 353.08 186.95 C351.57 185.44 350.05 183.92 348.54 182.4 C343.75 177.61 338.92 172.93 333.77 168.52 C331 166.14 328.35 163.62 325.69 161.12 C320.87 156.64 315.92 152.38 310.78 148.26 C308.34 146.27 305.95 144.23 303.57 142.17 C295.55 135.23 287.04 128.99 278.46 122.78 C276.03 121.02 273.62 119.26 271.2 117.5 C256.24 106.6 240.81 96.63 225 87 C224.28 86.56 223.55 86.12 222.81 85.66 C157.33 45.94 84.16 17.75 8.88 3.49 C7.99 3.32 7.1 3.15 6.18 2.97 C5.41 2.83 4.65 2.69 3.86 2.54 C2 2 2 2 0 0 Z " fill="#92BC2B" transform="translate(146,0)"/>
@@ -161,7 +161,20 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
           </div>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem', marginTop: '2rem', justifyContent: 'space-between' }}>
-            <p style={{ fontSize: '1.5rem', maxWidth: '600px', lineHeight: '1.4', opacity: '0.8', fontWeight: '400', borderLeft: '4px solid #F9B905', paddingLeft: '1.5rem', margin: 0, flexShrink: 0 }}>
+            <p style={{ 
+              fontSize: '1.5rem', 
+              maxWidth: '600px', 
+              lineHeight: '1.4', 
+              opacity: showLogos ? 0.8 : 0, 
+              fontWeight: '400', 
+              borderLeft: '4px solid #F9B905', 
+              paddingLeft: '1.5rem', 
+              margin: 0, 
+              marginLeft: '-2px', 
+              flexShrink: 0,
+              transform: showLogos ? 'translateX(0)' : 'translateX(-200px)',
+              transition: 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+            }}>
               Soluciones de automatización y despliegue eficiente en la <b style={{ color: '#F9B905' }}>Escuela Politécnica Superior</b> para la gestión avanzada de sistemas.
               <kbd 
 				onClick={() => window.location.href = '/docs'} 
@@ -188,7 +201,12 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 				onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 185, 5, 0.3)'} 
 				onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 185, 5, 0.1)'} 
 				>
-				&gt;&gt;
+				<svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style={{ display: 'block' }}>
+				  <g fill="#f9b905">
+				    <path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path>
+				    <path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path>
+				  </g>
+				</svg>
 			</kbd>
             </p>
 
