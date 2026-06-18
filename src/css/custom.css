@@ -1062,6 +1062,12 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   font-size: 16px !important;
 }
 
+/* Espaciado vertical de los admonitions respecto al contenido */
+.theme-admonition {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
 /* ==========================================================================
    17. CENTRAL DE ANIMACIONES CORE (@KEYWORDS ENGINE)
    ========================================================================== */

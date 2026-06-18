@@ -19,6 +19,15 @@ sidebar_position: 1
 Cada vez es más frecuente que, durante un examen en un aula, algún alumno intente recurrir a páginas externas (asistentes de IA como ChatGPT o cualquier otro, así como foros, buscadores, etc.) para resolver las pruebas. Es una forma de plagio difícil de vigilar a simple vista. CIA cierra esa puerta: deja operativo únicamente lo necesario para el examen y bloquea el resto de Internet de forma simultánea en todos los puestos.
 :::
 
+{/* NUEVO: Infografía de arquitectura como pieza visual de cabecera */}
+<figure style={{ margin: '2.5rem auto', textAlign: 'center' }}>
+  <img
+    src="/img/cia-infografia.svg"
+    alt="Arquitectura del sistema CIA: el script en PowerShell 7 coordina el bloqueo de Internet en los puestos del aula mediante WinRM, con el modo examen, la seguridad por proxy y el control desde el equipo del profesor."
+    style={{ width: '100%', maxWidth: '880px', height: 'auto', display: 'block', margin: '0 auto' }}
+  />
+</figure>
+
 ------------------------------------------------------------------------
 
 import Tabs from '@theme/Tabs';
@@ -42,20 +51,36 @@ Cuando el modo examen está activo, el navegador del alumno (cualquiera: Edge, C
 ## Cómo se usa
 
 <Tabs>
-  <TabItem value="inicio" label="Arrancar la herramienta" default>
+  <TabItem value="inicio" label="Método 1: Script PowerShell 7 (local)" default>
 
-  El script se encuentra ya preparado en el equipo del profesor de cada aula.
+  El script se encuentra ya preparado en el equipo del profesor de cada aula. Encontrará su **acceso directo en el escritorio**, identificado con el icono de la herramienta.
 
-  1. Localice el archivo del aula correspondiente (por ejemplo, `CIA-L2-D-ATC.ps1`).
-  2. Haga clic derecho sobre él y elija **«Ejecutar con PowerShell»**.
-  3. Se abrirá una ventana de consola con el **menú principal** de CIA.
+  {/* NUEVO: Layout de revista - imagen del acceso directo a la izquierda, pasos a la derecha */}
+  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center', margin: '1.75rem 0' }}>
 
-  A partir de ahí, todo se maneja **escribiendo el número** de la opción deseada y pulsando **Enter**.
+    <figure style={{ flex: '0 0 320px', maxWidth: '320px', margin: 0, textAlign: 'center' }}>
+      <div style={{ borderRadius: '12px', padding: '0.5rem' }}>
+        <img
+          src="/img/Control-Internet-Aulas-acceso-directo.png"
+          alt="Acceso directo de Control Internet Aulas en el escritorio del equipo del profesor."
+          style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '10px' }}
+        />
+      </div>
+    </figure>
 
-  </TabItem>
-  <TabItem value="menu" label="El menú principal">
-
-  Al arrancar verá un menú con las siguientes opciones:
+    <div style={{ flex: '1 1 300px' }}>
+      <ol style={{ margin: 0, paddingLeft: '1.5rem', lineHeight: '1.8', fontSize: '1.05rem' }}>
+        <li style={{ marginBottom: '1rem' }}>Localice el acceso directo <strong>Control Internet Aulas</strong> en el escritorio.</li>
+        <li style={{ marginBottom: '1rem' }}>Haga <strong>doble clic</strong> sobre él.</li>
+        <li>Se abrirá una ventana de consola con el <strong>menú principal</strong> de CIA, listo para usar.</li>
+      </ol>
+      <p style={{ marginTop: '1.25rem', marginBottom: 0, fontSize: '1.05rem', lineHeight: '1.8' }}>
+        A partir de ahí, todo se maneja <strong>escribiendo el número</strong> de la opción deseada y pulsando <strong>Enter</strong>.
+      </p>
+    </div>
+  </div>
+  
+  Las opciones del menú son:
 
   | Opción | Acción | Para qué sirve |
   |:------:|:-------|:---------------|
@@ -69,6 +94,11 @@ Cuando el modo examen está activo, el navegador del alumno (cualquiera: Edge, C
   :::tip
   El menú permanece siempre abierto: tras cada acción, basta con pulsar **Enter** para volver a él. Puede consultar el estado tantas veces como necesite sin cerrar el programa.
   :::
+  
+  </TabItem>
+  <TabItem value="menu" label="Método 2: Gestión Centralizada (NuGet Repo)">
+
+  En pruebas.
 
   </TabItem>
 </Tabs>
@@ -79,7 +109,7 @@ Cuando el modo examen está activo, el navegador del alumno (cualquiera: Edge, C
 
 El uso habitual durante una prueba sigue tres pasos muy sencillos:
 
-1. **Antes de empezar** — Con todos los equipos encendidos y los alumnos con la sesión iniciada, seleccione la **Opción 1 (Bloquear Internet)**. La herramienta detectará automáticamente los puestos activos y aplicará el bloqueo.
+1. **Antes de empezar** — Con todos los equipos encendidos (no es necesario que la sesión de Windows 11 esté iniciada), seleccione la **Opción 1 (Bloquear Internet)**. La herramienta detectará automáticamente los puestos activos y aplicará el bloqueo.
 2. **Durante el examen** — Use la **Opción 3 (Ver estado)** de vez en cuando para confirmar que todos los puestos siguen en estado 🔒 **BLOQUEADO**.
 3. **Al terminar** — Seleccione la **Opción 2 (Revertir bloqueo)** para devolver el aula a la normalidad de cara a la siguiente clase.
 
@@ -123,7 +153,7 @@ Lo más habitual es que se acabe de arrancar y aún esté obteniendo dirección 
 Cuando se activa el bloqueo, CIA aplica dos capas de protección complementarias para que la restricción sea **robusta durante el tiempo que dura la prueba**:
 
 - **Redirección del tráfico.** El equipo deja de poder salir a Internet abierto. Solo se mantiene operativa una **lista blanca** de servicios imprescindibles para el examen (véase más abajo).
-- **Bloqueo de herramientas de configuración.** Se restringe el acceso a las utilidades del sistema que un alumno podría usar para intentar revertir la restricción (editor del registro, administrador de tareas, configuración de red, etc.). Durante el examen, esas herramientas quedan deshabilitadas para la cuenta del alumno.
+- **Bloqueo de herramientas de configuración.** Se restringe el acceso a las utilidades del sistema que un alumno podría usar para intentar revertir la restricción (editor del registro, administrador de tareas, configuración de red, etc.). Durante el examen, esas herramientas quedan deshabilitadas.
 
 ### Lista blanca (whitelist)
 
@@ -136,7 +166,6 @@ Aunque el resto de Internet quede bloqueado, el alumno conserva el acceso a los 
 | **Autenticación** | Servicios técnicos necesarios para el login institucional |
 | **Red local** | Recursos compartidos del propio laboratorio |
 
-##
 :::danger[El bloqueo NO persiste tras reiniciar]
 Por diseño, **si un equipo se reinicia o el alumno cierra y reabre la sesión, el bloqueo desaparece** en ese puesto. Es una medida de seguridad consensuada entre el profesorado y el Centro de Cálculo: evita que un aula quede inutilizable para el siguiente turno si se olvida desbloquear.
 
@@ -164,7 +193,7 @@ No afecta a la seguridad del aula. Una vez enviada la orden de bloqueo, esta res
 <details>
 <summary><strong>El número de puesto físico no coincide con el de la consola</strong></summary>
 
-Puede ocurrir de forma excepcional si el Centro de Cálculo ha sustituido un equipo averiado o ha habido una reconfiguración del cableado. **No modifique el script.** Deje que la clase continúe con normalidad y avise al personal técnico del CATEPS indicando el número de puesto afectado para actualizar el mapa de equipos.
+Puede ocurrir de forma excepcional si el Centro de Cálculo ha sustituido un equipo averiado, por poner un ejemplo. Deje que la clase continúe con normalidad y avise al personal técnico del CATEPS indicando el número de puesto afectado para actualizar el mapa de equipos.
 
 </details>
 
@@ -174,5 +203,7 @@ Puede ocurrir de forma excepcional si el Centro de Cálculo ha sustituido un equ
 Sí. La restricción se aplica a nivel del sistema operativo, por lo que afecta por igual a Edge, Chrome, Firefox, Brave, Opera y cualquier aplicación que use la configuración de red estándar de Windows.
 
 </details>
+
+Más en el [FAQ](/docs/cia-faq).
 
 ------------------------------------------------------------------------
