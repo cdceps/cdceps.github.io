@@ -34,7 +34,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ImageGallery from '@site/src/components/ImageGallery';
 
-## En qué consiste
+## ℹ️ En qué consiste
 
 CIA es un script que se ejecuta **exclusivamente en el equipo del profesor**. Desde ahí envía las órdenes de bloqueo y desbloqueo al resto de puestos del aula a través de la red, sin necesidad de tocar físicamente ningún ordenador del alumnado.
 
@@ -48,7 +48,7 @@ Cuando el modo examen está activo, el navegador del alumno (cualquiera: Edge, C
 
 ------------------------------------------------------------------------
 
-## Cómo se usa
+## 🚀 Cómo se usa
 
 <Tabs>
   <TabItem value="inicio" label="Método 1: Script PowerShell 7 (local)" default>
@@ -98,14 +98,14 @@ Cuando el modo examen está activo, el navegador del alumno (cualquiera: Edge, C
   </TabItem>
   <TabItem value="menu" label="Método 2: Gestión Centralizada (NuGet Repo)">
 
-  En pruebas.
+  Actualmente en pruebas 🧐.
 
   </TabItem>
 </Tabs>
 
 ------------------------------------------------------------------------
 
-## Flujo de trabajo en un examen
+## 📝 Flujo de trabajo en un examen
 
 El uso habitual durante una prueba sigue tres pasos muy sencillos:
 
@@ -119,7 +119,7 @@ El bloqueo se aplica únicamente a los puestos que estén **encendidos y con ses
 
 ------------------------------------------------------------------------
 
-## Interpretar el estado del aula
+## 🚦 Interpretar el estado del aula
 
 La **Opción 3 (Ver estado)** muestra una tabla con todos los puestos del aula y su situación en tiempo real. Cada equipo puede aparecer en uno de estos tres estados:
 
@@ -135,7 +135,7 @@ Lo más habitual es que se acabe de arrancar y aún esté obteniendo dirección 
 
 ------------------------------------------------------------------------
 
-## Capturas
+## 📸 Capturas
 
 <ImageGallery images={[
   { src: '/img/CIA-script-menu.png', title: 'Menú principal de CIA' },
@@ -148,14 +148,14 @@ Lo más habitual es que se acabe de arrancar y aún esté obteniendo dirección 
 
 ------------------------------------------------------------------------
 
-## Seguridad y modo examen
+## 🔐 Seguridad y modo examen
 
 Cuando se activa el bloqueo, CIA aplica dos capas de protección complementarias para que la restricción sea **robusta durante el tiempo que dura la prueba**:
 
 - **Redirección del tráfico.** El equipo deja de poder salir a Internet abierto. Solo se mantiene operativa una **lista blanca** de servicios imprescindibles para el examen (véase más abajo).
 - **Bloqueo de herramientas de configuración.** Se restringe el acceso a las utilidades del sistema que un alumno podría usar para intentar revertir la restricción (editor del registro, administrador de tareas, configuración de red, etc.). Durante el examen, esas herramientas quedan deshabilitadas.
 
-### Lista blanca (whitelist)
+### ✅ Lista blanca (whitelist)
 
 Aunque el resto de Internet quede bloqueado, el alumno conserva el acceso a los recursos necesarios para realizar la prueba:
 
@@ -174,7 +174,7 @@ La consecuencia es clara: **debe supervisar el aula durante el examen** y consul
 
 ------------------------------------------------------------------------
 
-## Situaciones frecuentes
+## 🛠️ Situaciones frecuentes
 
 <details>
 <summary><strong>Necesito desbloquear un solo puesto sin afectar al resto de la clase</strong></summary>
@@ -204,6 +204,6 @@ Sí. La restricción se aplica a nivel del sistema operativo, por lo que afecta 
 
 </details>
 
-Más en el [FAQ](/docs/cia-faq).
+Más en el [FAQ](/docs/cia-faq) de CIA.
 
 ------------------------------------------------------------------------
