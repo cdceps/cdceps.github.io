@@ -93,9 +93,9 @@ Por defecto, PowerShell utiliza SHA-256 para producir la suma de comprobación, 
   
 ---
 
-## Verify Authenticity Of Files
+## 🔐 Verificar la autenticidad de los archivos
 
-You can use the [file hashing method](https://en.wikipedia.org/wiki/File_verification) to verify if a file is genuine. This can be done using tools like [7-Zip](https://7-zip.org/) (After installing 7-Zip, right-click on the ISO file and go to 7-Zip > CRC SHA > SHA-256).
+Puede usar el [método de hash de archivos](https://es.wikipedia.org/wiki/Suma_de_verificación) para comprobar que el archivo es genuino. Esto se puede hacer con herramientas como [7-Zip](https://7-zip.org/): tras instalar 7-Zip, haga clic derecho sobre el archivo y vaya a **7-Zip > CRC SHA > SHA-256**.
 
 ---
 
