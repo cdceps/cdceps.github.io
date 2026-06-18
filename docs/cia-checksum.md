@@ -78,7 +78,7 @@ El **checksum** es una suma de comprobación generada a partir de un origen de d
 
 Si una sola línea de código, un carácter o un espacio en blanco del script `.ps1` es modificado por un tercero o se corrompe durante una transferencia de red, el Hash resultante cambiará por completo.
 
-### Windows
+### 👨🏻‍💻 En Windows
 
 Podemos introducir el comando `Get-FileHash` en PowerShell seguido de la ubicación del archivo. También podemos introducir el comando y luego arrastrar y soltar el archivo en la ventana de PowerShell.
 
