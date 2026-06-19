@@ -1,0 +1,244 @@
+<svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Diagrama de PowerShell Remoting: el equipo emisor envía órdenes en paralelo a los puestos del aula mediante WinRM.">
+  <defs>
+    <radialGradient id="psrBg" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#15202b"/>
+      <stop offset="60%" stop-color="#0c1218"/>
+      <stop offset="100%" stop-color="#070a0d"/>
+    </radialGradient>
+    <linearGradient id="psrHub" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d4664"/>
+      <stop offset="100%" stop-color="#0c131b"/>
+    </linearGradient>
+    <filter id="psrSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Pulso que viaja: un circulito que se mueve por cada linea -->
+  </defs>
+
+  <rect width="900" height="620" rx="14" fill="url(#psrBg)"/>
+
+  <!-- Titulo -->
+  <text x="450" y="46" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">PowerShell Remoting en acción</text>
+  <text x="450" y="72" text-anchor="middle" fill="#8b97a3" font-size="14">Una orden, emitida desde un único equipo, se ejecuta en paralelo sobre todos los puestos del aula</text>
+
+  <!-- ===== LINEAS CONECTORAS (emisor -> puestos) ===== -->
+  <!-- El emisor esta en (170, 330). Los 8 puestos a la derecha en rejilla. -->
+  <g stroke="#5b8aa6" stroke-width="1.5" opacity="0.3">
+    <line x1="170" y1="330" x2="560" y2="170"/>
+    <line x1="170" y1="330" x2="700" y2="170"/>
+    <line x1="170" y1="330" x2="560" y2="290"/>
+    <line x1="170" y1="330" x2="700" y2="290"/>
+    <line x1="170" y1="330" x2="560" y2="410"/>
+    <line x1="170" y1="330" x2="700" y2="410"/>
+    <line x1="170" y1="330" x2="560" y2="530"/>
+    <line x1="170" y1="330" x2="700" y2="530"/>
+  </g>
+
+  <!-- ===== PULSOS animados que viajan del emisor a cada puesto ===== -->
+  <!-- Cada pulso recorre su linea. Usamos animateMotion con path. -->
+  <g fill="#93bd22">
+    <circle r="5">
+      <animateMotion dur="2.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear" path="M170,330 L560,170"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="5">
+      <animateMotion dur="2.4s" begin="0.15s" repeatCount="indefinite" path="M170,330 L700,170"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.4s" begin="0.15s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="5">
+      <animateMotion dur="2.4s" begin="0.3s" repeatCount="indefinite" path="M170,330 L560,290"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.4s" begin="0.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="5">
+      <animateMotion dur="2.4s" begin="0.45s" repeatCount="indefinite" path="M170,330 L700,290"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.4s" begin="0.45s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="5">
+      <animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M170,330 L560,410"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="5">
+      <animateMotion dur="2.4s" begin="0.75s" repeatCount="indefinite" path="M170,330 L700,410"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.4s" begin="0.75s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="5">
+      <animateMotion dur="2.4s" begin="0.9s" repeatCount="indefinite" path="M170,330 L560,530"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.4s" begin="0.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="5">
+      <animateMotion dur="2.4s" begin="1.05s" repeatCount="indefinite" path="M170,330 L700,530"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="2.4s" begin="1.05s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ===== EMISOR (equipo central / servidor) ===== -->
+  <g transform="translate(170,330)" filter="url(#psrSoft)">
+    <circle r="74" fill="url(#psrHub)" stroke="#f9b905" stroke-width="2.5"/>
+    <circle r="74" fill="none" stroke="#93bd22" stroke-width="1.5" opacity="0.5">
+      <animate attributeName="r" values="74;88;74" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Icono PowerShell estilizado -->
+    <g transform="translate(-26,-24) scale(0.42)">
+      <path d="M10 12 L58 50 L10 88" fill="none" stroke="#f9b905" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="52" y1="88" x2="92" y2="88" stroke="#f9b905" stroke-width="11" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text x="170" y="438" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Equipo emisor</text>
+  <text x="170" y="458" text-anchor="middle" fill="#8b97a3" font-size="12.5">Profesor / Centro de Cálculo</text>
+
+  <!-- Etiqueta del canal WinRM sobre las lineas -->
+  <g transform="translate(370,300)">
+    <rect x="-58" y="-16" width="116" height="30" rx="15" fill="#0c1218" stroke="#93bd22" stroke-width="1.5"/>
+    <text x="0" y="4" text-anchor="middle" fill="#93bd22" font-size="13" font-weight="700">WinRM</text>
+  </g>
+  <text x="370" y="340" text-anchor="middle" fill="#5b8aa6" font-size="11.5" font-style="italic">Invoke-Command</text>
+
+  <!-- ===== PUESTOS DEL AULA (8 monitores en rejilla) ===== -->
+  <!-- Coordenadas alineadas con las lineas: x 560 y 700; y 170,290,410,530 -->
+  <g id="puestos">
+    <!-- Definimos un puesto como grupo reutilizable mediante <use> no, lo dibujamos inline para animar opacidad -->
+  </g>
+
+  <!-- Los 8 puestos -->
+  <g transform="translate(528,144)">
+    <!-- Cuerpo del monitor -->
+    <rect x="0" y="0" width="64" height="44" rx="5" fill="#0c1218" stroke="#5b8aa6" stroke-width="2">
+      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93bd22;#93bd22;#5b8aa6" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.0s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Pantalla -->
+    <rect x="6" y="6" width="52" height="32" rx="2.5" fill="#0a0f14">
+      <animate attributeName="fill" values="#0a0f14;#0a0f14;#1a2e0a;#1a2e0a;#0a0f14" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.0s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Check de "orden recibida" que aparece al iluminarse -->
+    <path d="M22 22 l5 5 l11 -11" fill="none" stroke="#93bd22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.83;0.88;0.97;1" dur="2.4s" begin="0.0s" repeatCount="indefinite"/>
+    </path>
+    <!-- Peana -->
+    <rect x="26" y="44" width="12" height="7" fill="#5b8aa6"/>
+    <rect x="20" y="51" width="24" height="3.5" rx="1.5" fill="#5b8aa6"/>
+  </g>
+  <g transform="translate(668,144)">
+    <!-- Cuerpo del monitor -->
+    <rect x="0" y="0" width="64" height="44" rx="5" fill="#0c1218" stroke="#5b8aa6" stroke-width="2">
+      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93bd22;#93bd22;#5b8aa6" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.15s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Pantalla -->
+    <rect x="6" y="6" width="52" height="32" rx="2.5" fill="#0a0f14">
+      <animate attributeName="fill" values="#0a0f14;#0a0f14;#1a2e0a;#1a2e0a;#0a0f14" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.15s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Check de "orden recibida" que aparece al iluminarse -->
+    <path d="M22 22 l5 5 l11 -11" fill="none" stroke="#93bd22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.83;0.88;0.97;1" dur="2.4s" begin="0.15s" repeatCount="indefinite"/>
+    </path>
+    <!-- Peana -->
+    <rect x="26" y="44" width="12" height="7" fill="#5b8aa6"/>
+    <rect x="20" y="51" width="24" height="3.5" rx="1.5" fill="#5b8aa6"/>
+  </g>
+  <g transform="translate(528,264)">
+    <!-- Cuerpo del monitor -->
+    <rect x="0" y="0" width="64" height="44" rx="5" fill="#0c1218" stroke="#5b8aa6" stroke-width="2">
+      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93bd22;#93bd22;#5b8aa6" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Pantalla -->
+    <rect x="6" y="6" width="52" height="32" rx="2.5" fill="#0a0f14">
+      <animate attributeName="fill" values="#0a0f14;#0a0f14;#1a2e0a;#1a2e0a;#0a0f14" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Check de "orden recibida" que aparece al iluminarse -->
+    <path d="M22 22 l5 5 l11 -11" fill="none" stroke="#93bd22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.83;0.88;0.97;1" dur="2.4s" begin="0.3s" repeatCount="indefinite"/>
+    </path>
+    <!-- Peana -->
+    <rect x="26" y="44" width="12" height="7" fill="#5b8aa6"/>
+    <rect x="20" y="51" width="24" height="3.5" rx="1.5" fill="#5b8aa6"/>
+  </g>
+  <g transform="translate(668,264)">
+    <!-- Cuerpo del monitor -->
+    <rect x="0" y="0" width="64" height="44" rx="5" fill="#0c1218" stroke="#5b8aa6" stroke-width="2">
+      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93bd22;#93bd22;#5b8aa6" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.45s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Pantalla -->
+    <rect x="6" y="6" width="52" height="32" rx="2.5" fill="#0a0f14">
+      <animate attributeName="fill" values="#0a0f14;#0a0f14;#1a2e0a;#1a2e0a;#0a0f14" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.45s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Check de "orden recibida" que aparece al iluminarse -->
+    <path d="M22 22 l5 5 l11 -11" fill="none" stroke="#93bd22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.83;0.88;0.97;1" dur="2.4s" begin="0.45s" repeatCount="indefinite"/>
+    </path>
+    <!-- Peana -->
+    <rect x="26" y="44" width="12" height="7" fill="#5b8aa6"/>
+    <rect x="20" y="51" width="24" height="3.5" rx="1.5" fill="#5b8aa6"/>
+  </g>
+  <g transform="translate(528,384)">
+    <!-- Cuerpo del monitor -->
+    <rect x="0" y="0" width="64" height="44" rx="5" fill="#0c1218" stroke="#5b8aa6" stroke-width="2">
+      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93bd22;#93bd22;#5b8aa6" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Pantalla -->
+    <rect x="6" y="6" width="52" height="32" rx="2.5" fill="#0a0f14">
+      <animate attributeName="fill" values="#0a0f14;#0a0f14;#1a2e0a;#1a2e0a;#0a0f14" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Check de "orden recibida" que aparece al iluminarse -->
+    <path d="M22 22 l5 5 l11 -11" fill="none" stroke="#93bd22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.83;0.88;0.97;1" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+    </path>
+    <!-- Peana -->
+    <rect x="26" y="44" width="12" height="7" fill="#5b8aa6"/>
+    <rect x="20" y="51" width="24" height="3.5" rx="1.5" fill="#5b8aa6"/>
+  </g>
+  <g transform="translate(668,384)">
+    <!-- Cuerpo del monitor -->
+    <rect x="0" y="0" width="64" height="44" rx="5" fill="#0c1218" stroke="#5b8aa6" stroke-width="2">
+      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93bd22;#93bd22;#5b8aa6" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.75s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Pantalla -->
+    <rect x="6" y="6" width="52" height="32" rx="2.5" fill="#0a0f14">
+      <animate attributeName="fill" values="#0a0f14;#0a0f14;#1a2e0a;#1a2e0a;#0a0f14" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.75s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Check de "orden recibida" que aparece al iluminarse -->
+    <path d="M22 22 l5 5 l11 -11" fill="none" stroke="#93bd22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.83;0.88;0.97;1" dur="2.4s" begin="0.75s" repeatCount="indefinite"/>
+    </path>
+    <!-- Peana -->
+    <rect x="26" y="44" width="12" height="7" fill="#5b8aa6"/>
+    <rect x="20" y="51" width="24" height="3.5" rx="1.5" fill="#5b8aa6"/>
+  </g>
+  <g transform="translate(528,504)">
+    <!-- Cuerpo del monitor -->
+    <rect x="0" y="0" width="64" height="44" rx="5" fill="#0c1218" stroke="#5b8aa6" stroke-width="2">
+      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93bd22;#93bd22;#5b8aa6" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.9s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Pantalla -->
+    <rect x="6" y="6" width="52" height="32" rx="2.5" fill="#0a0f14">
+      <animate attributeName="fill" values="#0a0f14;#0a0f14;#1a2e0a;#1a2e0a;#0a0f14" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="0.9s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Check de "orden recibida" que aparece al iluminarse -->
+    <path d="M22 22 l5 5 l11 -11" fill="none" stroke="#93bd22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.83;0.88;0.97;1" dur="2.4s" begin="0.9s" repeatCount="indefinite"/>
+    </path>
+    <!-- Peana -->
+    <rect x="26" y="44" width="12" height="7" fill="#5b8aa6"/>
+    <rect x="20" y="51" width="24" height="3.5" rx="1.5" fill="#5b8aa6"/>
+  </g>
+  <g transform="translate(668,504)">
+    <!-- Cuerpo del monitor -->
+    <rect x="0" y="0" width="64" height="44" rx="5" fill="#0c1218" stroke="#5b8aa6" stroke-width="2">
+      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93bd22;#93bd22;#5b8aa6" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="1.05s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Pantalla -->
+    <rect x="6" y="6" width="52" height="32" rx="2.5" fill="#0a0f14">
+      <animate attributeName="fill" values="#0a0f14;#0a0f14;#1a2e0a;#1a2e0a;#0a0f14" keyTimes="0;0.80;0.86;0.97;1" dur="2.4s" begin="1.05s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Check de "orden recibida" que aparece al iluminarse -->
+    <path d="M22 22 l5 5 l11 -11" fill="none" stroke="#93bd22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.83;0.88;0.97;1" dur="2.4s" begin="1.05s" repeatCount="indefinite"/>
+    </path>
+    <!-- Peana -->
+    <rect x="26" y="44" width="12" height="7" fill="#5b8aa6"/>
+    <rect x="20" y="51" width="24" height="3.5" rx="1.5" fill="#5b8aa6"/>
+  </g>
+
+  <!-- Pie -->
+  <text x="630" y="595" text-anchor="middle" fill="#5b8aa6" font-size="12.5">Puestos del aula · ejecución simultánea</text>
+</svg>

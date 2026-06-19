@@ -13,10 +13,10 @@ sidebar_position: 1
 
 # Control Internet Aulas
 
-**CIA** (Control Internet Aulas) es la herramienta que permite al docente **restringir el acceso a Internet** en los equipos de un aula durante prácticas y exámenes, pudiéndo **restaurarlo** al terminar, todo desde su propio puesto y en cuestión de segundos.
+**CIA** (Control Internet Aulas) es la herramienta que permite al docente **restringir el acceso a Internet** en los equipos de un aula durante prácticas y exámenes, pudiendo **restaurarlo** al terminar, todo desde su propio puesto y en cuestión de segundos.
 
 :::info[¿Por qué existe esta herramienta?]
-Cada vez es más frecuente que, durante un examen en un aula, algún alumno intente recurrir a páginas externas (asistentes de IA como ChatGPT o cualquier otro, así como foros, buscadores, etc.) para resolver las pruebas. Es una forma de plagio difícil de vigilar a simple vista. CIA cierra esa puerta: deja operativo únicamente lo necesario para el examen y bloquea el resto de Internet de forma simultánea en todos los puestos.
+Cada vez es más frecuente que, durante exámenes o prácticas, algún alumno intente recurrir a páginas externas (asistentes de IA como ChatGPT o cualquier otro, así como foros, buscadores, etc.) para resolver las pruebas. Es una forma de plagio difícil de vigilar a simple vista. CIA cierra esa puerta: deja operativo únicamente lo necesario para el examen y bloquea el resto de Internet de forma simultánea en todos los puestos.
 :::
 
 {/* NUEVO: Infografía de arquitectura como pieza visual de cabecera */}
@@ -24,7 +24,7 @@ Cada vez es más frecuente que, durante un examen en un aula, algún alumno inte
   <img
     src="/img/cia-infografia.svg"
     alt="Arquitectura del sistema CIA: el script en PowerShell 7 coordina el bloqueo de Internet en los puestos del aula mediante WinRM, con el modo examen, la seguridad por proxy y el control desde el equipo del profesor."
-    style={{ width: '100%', maxWidth: '880px', height: 'auto', display: 'block', margin: '0 auto' }}
+    style={{ width: '100%', height: 'auto', display: 'block', margin: '0 auto' }}
   />
 </figure>
 
@@ -39,11 +39,11 @@ import ImageGallery from '@site/src/components/ImageGallery';
 CIA es un script que se ejecuta **exclusivamente en el equipo del profesor**. Desde ahí envía las órdenes de bloqueo y desbloqueo al resto de puestos del aula a través de la red, sin necesidad de tocar físicamente ningún ordenador del alumnado.
 
 - **No requiere instalación en los equipos de los alumnos.** Estos solo reciben las órdenes; no contienen ningún archivo del sistema.
-- **Es independiente por aula.** Existe una versión del script para cada aula de informática (**L2-D-ATC**, **L1-D-ATC** y **L1-A-ESC**). Cada una conoce únicamente sus propios puestos, de modo que un bloqueo **jamás afecta a otra aula**.
+- **Es independiente por aula.** Existe una versión del script para cada aula de informática. Cada una conoce únicamente sus propios puestos, de modo que un bloqueo **jamás afecta a otra aula**.
 - **Actúa a demanda.** El docente decide cuándo activar el modo examen y cuándo retirarlo.
 
 :::note[Lo que el alumno experimenta]
-Cuando el modo examen está activo, el navegador del alumno (cualquiera: Edge, Chrome, Firefox…) deja de cargar páginas externas, pero **sigue teniendo acceso a Enseñanza Virtual y a los servicios de la Universidad**. Para el alumno es transparente: simplemente no puede salir a Internet abierto.
+Cuando el modo examen está activo, el navegador del alumno deja de cargar páginas externas, pero **sigue teniendo acceso a Enseñanza Virtual y a los servicios de la Universidad**. Para el alumno es transparente: simplemente no puede salir a Internet abierto. Esto también afecta, por ejemplo, a asistentes de IA instalados localmente.
 :::
 
 ------------------------------------------------------------------------
@@ -55,7 +55,7 @@ Cuando el modo examen está activo, el navegador del alumno (cualquiera: Edge, C
 
   El script se encuentra ya preparado en el equipo del profesor de cada aula. Encontrará su **acceso directo en el escritorio**, identificado con el icono de la herramienta.
 
-  {/* NUEVO: Layout de revista - imagen del acceso directo a la izquierda, pasos a la derecha */}
+  {/* NUEVO: Layout - imagen del acceso directo a la izquierda, pasos a la derecha */}
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center', margin: '1.75rem 0' }}>
 
     <figure style={{ flex: '0 0 320px', maxWidth: '320px', margin: 0, textAlign: 'center' }}>
@@ -105,16 +105,16 @@ Cuando el modo examen está activo, el navegador del alumno (cualquiera: Edge, C
 
 ------------------------------------------------------------------------
 
-## 📝 Flujo de trabajo en un examen
+## 📝 Flujo de trabajo
 
 El uso habitual durante una prueba sigue tres pasos muy sencillos:
 
 1. **Antes de empezar** — Con todos los equipos encendidos (no es necesario que la sesión de Windows 11 esté iniciada), seleccione la **Opción 1 (Bloquear Internet)**. La herramienta detectará automáticamente los puestos activos y aplicará el bloqueo.
-2. **Durante el examen** — Use la **Opción 3 (Ver estado)** de vez en cuando para confirmar que todos los puestos siguen en estado 🔒 **BLOQUEADO**.
+2. **Durante la prueba** — Use la **Opción 3 (Ver estado)** de vez en cuando para confirmar que todos los puestos siguen en estado 🔒 **BLOQUEADO**.
 3. **Al terminar** — Seleccione la **Opción 2 (Revertir bloqueo)** para devolver el aula a la normalidad de cara a la siguiente clase.
 
 :::warning[Bloquee con los equipos ya encendidos]
-El bloqueo se aplica únicamente a los puestos que estén **encendidos y con sesión iniciada** en el momento de pulsar la Opción 1. Si un alumno llega tarde y enciende su equipo después, ese puesto arrancará con Internet libre. No es un problema: basta con **volver a pulsar la Opción 1** y la herramienta detectará el equipo nuevo y lo bloqueará sin alterar a los que ya lo estaban.
+El bloqueo se aplica únicamente a los puestos que estén **encendidos con Windows cargado** en el momento de pulsar la Opción 1. Si un alumno llega tarde y enciende su equipo después, ese puesto arrancará con Internet libre. No es un problema: basta con **volver a pulsar la Opción 1** y la herramienta detectará el equipo nuevo y lo bloqueará sin alterar a los que ya lo estaban.
 :::
 
 ------------------------------------------------------------------------
@@ -130,12 +130,12 @@ La **Opción 3 (Ver estado)** muestra una tabla con todos los puestos del aula y
 | ❌ **OFFLINE** | El equipo está apagado o sin conexión de red |
 
 :::info[Un equipo encendido aparece como OFFLINE]
-Lo más habitual es que se acabe de arrancar y aún esté obteniendo dirección de red. Espere alrededor de **un minuto** y vuelva a consultar la Opción 3. Si pasados varios minutos sigue apareciendo como OFFLINE de forma persistente, puede tratarse de una incidencia real de red: en ese caso, abra un parte de incidencia.
+Lo más habitual es que se acabe de arrancar y aún esté obteniendo dirección de red. Espere unos instantes (puede demorarse hasta 60 segundos aproximadamente) y vuelva a consultar la Opción 3. Si pasados varios minutos sigue apareciendo como OFFLINE de forma persistente, puede tratarse de una incidencia real de red: en ese caso, abra un parte de incidencia.
 :::
 
 ------------------------------------------------------------------------
 
-## 📸 Capturas
+## 📸 Capturas de CIA
 
 <ImageGallery images={[
   { src: '/img/CIA-script-menu.png', title: 'Menú principal de CIA' },

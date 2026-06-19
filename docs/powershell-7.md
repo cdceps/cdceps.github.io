@@ -59,41 +59,13 @@ No abrimos la administración remota a toda la red. El tráfico WinRM está filt
 - **Gestión de Configuración:** Aseguramos que el software instalado, las variables de entorno y las políticas de seguridad sean idénticas en todo el aula.
 
 <div style={{ textAlign: 'center', margin: '2rem 0' }}>
-  <div style={{
-    position: 'relative',
-    paddingBottom: '56.25%', 
-    height: 0,
-    overflow: 'hidden',
-    maxWidth: '100%',
-    borderRadius: '12px',
-    border: '2px solid #F9B905',
-    boxShadow: '0 8px 25px rgba(0,0,0,0.5)',
-    backgroundColor: '#000'
-  }}>
-    <iframe
-      src="https://www.youtube.com/embed/qvJRaYlxI1w"
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        border: 'none'
-      }}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-  <div style={{ 
-    marginTop: '15px', 
-    fontSize: '0.9em', 
-    color: 'var(--ifm-color-emphasis-600)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px'
-  }}>
-    PowerShell Remoting y administración de sistemas.
+  <img
+    src="/img/powershell-remoting-difusion.svg"
+    alt="Diagrama animado de PowerShell Remoting: una orden emitida desde un único equipo se ejecuta en paralelo sobre todos los puestos del aula mediante WinRM."
+    style={{ width: '100%', height: 'auto', display: 'block', margin: '0 auto' }}
+  />
+  <div style={{ marginTop: '15px', fontSize: '0.9em', color: 'var(--ifm-color-emphasis-600)' }}>
+    PowerShell Remoting: difusión de órdenes en paralelo a los puestos del aula.
   </div>
 </div>
 
