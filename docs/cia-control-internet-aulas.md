@@ -33,6 +33,7 @@ Cada vez es más frecuente que, durante exámenes o prácticas, algún alumno in
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ImageGallery from '@site/src/components/ImageGallery';
+import { FaqAccordion, FaqItem } from '@site/src/components/FaqAccordion';
 
 ## ℹ️ En qué consiste
 
@@ -176,34 +177,39 @@ La consecuencia es clara: **debe supervisar el aula durante el examen** y consul
 
 ## 🛠️ Situaciones frecuentes
 
-<details>
-<summary><strong>Necesito desbloquear un solo puesto sin afectar al resto de la clase</strong></summary>
+<FaqAccordion>
+
+<FaqItem question="Necesito desbloquear un solo puesto sin afectar al resto de la clase">
 
 No hace falta levantar el bloqueo general. Pida al alumno que **cierre la sesión o reinicie el equipo**: al volver a iniciar sesión, ese puesto recuperará automáticamente el acceso normal, sin alterar el bloqueo de los demás compañeros.
 
-</details>
+</FaqItem>
 
-<details>
-<summary><strong>He cerrado el script sin querer durante el examen</strong></summary>
+<FaqItem question="He cerrado el script sin querer durante el examen">
 
 No afecta a la seguridad del aula. Una vez enviada la orden de bloqueo, esta reside en los puestos de los alumnos. El script solo es necesario para **enviar** la orden inicial y para **revertirla** al final. Vuelva a abrirlo cuando quiera para seguir consultando el estado o para desbloquear al terminar.
 
-</details>
+</FaqItem>
 
-<details>
-<summary><strong>El número de puesto físico no coincide con el de la consola</strong></summary>
+<FaqItem question="El número de puesto físico no coincide con el de la consola">
 
 Puede ocurrir de forma excepcional si el Centro de Cálculo ha sustituido un equipo averiado, por poner un ejemplo. Deje que la clase continúe con normalidad y avise al personal técnico del CATEPS indicando el número de puesto afectado para actualizar el mapa de equipos.
 
-</details>
+</FaqItem>
 
-<details>
-<summary><strong>¿Funciona con cualquier navegador?</strong></summary>
+<FaqItem question="¿Funciona con cualquier navegador?">
 
 Sí. La restricción se aplica a nivel del sistema operativo, por lo que afecta por igual a Edge, Chrome, Firefox, Brave, Opera y cualquier aplicación que use la configuración de red estándar de Windows.
 
-</details>
+</FaqItem>
 
-Más en el [FAQ](/docs/cia-faq) de CIA.
+</FaqAccordion>
+
+<div style={{ textAlign: 'center', margin: '3rem 0 1rem' }}>
+  <a href="/docs/cia-faq" aria-label="Consultar todo el FAQ" className="eps-faq-btn">
+    <span className="eps-faq-btn-label">Consultar todo el FAQ</span>
+    <span className="eps-faq-btn-blob" />
+  </a>
+</div>
 
 ------------------------------------------------------------------------

@@ -1324,3 +1324,50 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 .table-of-contents__link {
   font-size: 0.85rem;
 }
+
+/* ==========================================================================
+   23. BOTÓN CONSULTAR TODO EL FAQ
+   ========================================================================== */
+.eps-faq-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  padding: 0.75rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #f9b905;
+  background: transparent;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.eps-faq-btn-label {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  transition: color 350ms cubic-bezier(.4,0,.2,1);
+}
+
+.eps-faq-btn-blob {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 9999px;
+  background: #f9b905;
+  transform: translateY(50%) scale(0);
+  transition: transform 350ms cubic-bezier(.4,0,.2,1);
+}
+
+.eps-faq-btn:hover .eps-faq-btn-label {
+  color: #161a14;
+}
+
+.eps-faq-btn:hover .eps-faq-btn-blob {
+  transform: translateY(50%) scaleX(1.5) scaleY(2.2);
+}
