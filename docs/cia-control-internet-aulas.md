@@ -16,7 +16,9 @@ sidebar_position: 1
 **CIA** (Control Internet Aulas) es la herramienta que permite al docente **restringir el acceso a Internet** en los equipos de un aula durante prácticas y exámenes, pudiendo **restaurarlo** al terminar, todo desde su propio puesto y en cuestión de segundos.
 
 :::info[¿Por qué existe esta herramienta?]
-Cada vez es más frecuente que, durante exámenes o prácticas, algún alumno intente recurrir a páginas externas (asistentes de IA como ChatGPT o cualquier otro, así como foros, buscadores, etc.) para resolver las pruebas. Es una forma de plagio difícil de vigilar a simple vista. CIA cierra esa puerta: deja operativo únicamente lo necesario para el examen y bloquea el resto de Internet de forma simultánea en todos los puestos.
+
+Cada vez es más frecuente que, durante exámenes o prácticas, haya usuarios que intenten recurrir a páginas externas (asistentes de IA como ChatGPT o cualquier otro, así como foros, buscadores, etc.) para resolver las pruebas. Es una forma de plagio difícil de vigilar a simple vista. CIA cierra esa puerta: deja operativo únicamente lo necesario para la prueba y bloquea el resto de Internet de forma simultánea en todos los puestos.
+
 :::
 
 {/* NUEVO: Infografía de arquitectura como pieza visual de cabecera */}
@@ -44,7 +46,9 @@ CIA es un script que se ejecuta **exclusivamente en el equipo del profesor**. De
 - **Actúa a demanda.** El docente decide cuándo activar el modo examen y cuándo retirarlo.
 
 :::note[Lo que el alumno experimenta]
+
 Cuando el modo examen está activo, el navegador del alumno deja de cargar páginas externas, pero **sigue teniendo acceso a Enseñanza Virtual y a los servicios de la Universidad**. Para el alumno es transparente: simplemente no puede salir a Internet abierto. Esto también afecta, por ejemplo, a asistentes de IA instalados localmente.
+
 :::
 
 ------------------------------------------------------------------------
@@ -56,7 +60,7 @@ Cuando el modo examen está activo, el navegador del alumno deja de cargar pági
 
   El script se encuentra ya preparado en el equipo del profesor de cada aula. Encontrará su **acceso directo en el escritorio**, identificado con el icono de la herramienta.
 
-  {/* NUEVO: Layout - imagen del acceso directo a la izquierda, pasos a la derecha */}
+  {/* Layout - imagen del acceso directo a la izquierda, pasos a la derecha */}
   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'center', margin: '1.75rem 0' }}>
 
     <figure style={{ flex: '0 0 320px', maxWidth: '320px', margin: 0, textAlign: 'center' }}>
@@ -75,9 +79,9 @@ Cuando el modo examen está activo, el navegador del alumno deja de cargar pági
         <li style={{ marginBottom: '1rem' }}>Haga <strong>doble clic</strong> sobre él.</li>
         <li>Se abrirá una ventana de consola con el <strong>menú principal</strong> de CIA, listo para usar.</li>
       </ol>
-      <p style={{ marginTop: '1.25rem', marginBottom: 0, fontSize: '1.05rem', lineHeight: '1.8' }}>
-        A partir de ahí, todo se maneja <strong>escribiendo el número</strong> de la opción deseada y pulsando <strong>Enter</strong>.
-      </p>
+    <div style={{ marginTop: '1.25rem', marginBottom: 0, paddingLeft: '0.5rem', fontSize: '1.05rem', lineHeight: '1.8' }}>
+		A partir de ahí, todo se maneja <strong>escribiendo el número</strong> de la opción deseada y pulsando <strong>Enter</strong>.
+	  </div>
     </div>
   </div>
   
@@ -93,7 +97,9 @@ Cuando el modo examen está activo, el navegador del alumno deja de cargar pági
   | **5** | Salir | Cierra la herramienta |
 
   :::tip
+  
   El menú permanece siempre abierto: tras cada acción, basta con pulsar **Enter** para volver a él. Puede consultar el estado tantas veces como necesite sin cerrar el programa.
+  
   :::
   
   </TabItem>
@@ -115,7 +121,9 @@ El uso habitual durante una prueba sigue tres pasos muy sencillos:
 3. **Al terminar** — Seleccione la **Opción 2 (Revertir bloqueo)** para devolver el aula a la normalidad de cara a la siguiente clase.
 
 :::warning[Bloquee con los equipos ya encendidos]
+
 El bloqueo se aplica únicamente a los puestos que estén **encendidos con Windows cargado** en el momento de pulsar la Opción 1. Si un alumno llega tarde y enciende su equipo después, ese puesto arrancará con Internet libre. No es un problema: basta con **volver a pulsar la Opción 1** y la herramienta detectará el equipo nuevo y lo bloqueará sin alterar a los que ya lo estaban.
+
 :::
 
 ------------------------------------------------------------------------
@@ -131,7 +139,9 @@ La **Opción 3 (Ver estado)** muestra una tabla con todos los puestos del aula y
 | ❌ **OFFLINE** | El equipo está apagado o sin conexión de red |
 
 :::info[Un equipo encendido aparece como OFFLINE]
+
 Lo más habitual es que se acabe de arrancar y aún esté obteniendo dirección de red. Espere unos instantes (puede demorarse hasta 60 segundos aproximadamente) y vuelva a consultar la Opción 3. Si pasados varios minutos sigue apareciendo como OFFLINE de forma persistente, puede tratarse de una incidencia real de red: en ese caso, abra un parte de incidencia.
+
 :::
 
 ------------------------------------------------------------------------
@@ -168,9 +178,11 @@ Aunque el resto de Internet quede bloqueado, el alumno conserva el acceso a los 
 | **Red local** | Recursos compartidos del propio laboratorio |
 
 :::danger[El bloqueo NO persiste tras reiniciar]
-Por diseño, **si un equipo se reinicia o el alumno cierra y reabre la sesión, el bloqueo desaparece** en ese puesto. Es una medida de seguridad consensuada entre el profesorado y el Centro de Cálculo: evita que un aula quede inutilizable para el siguiente turno si se olvida desbloquear.
+
+Por diseño, **si un equipo se reinicia o el alumno cierra y reabre la sesión, el bloqueo desaparece** en ese puesto. Es una medida de seguridad consensuada: evita que un aula quede inutilizable para el siguiente turno si se olvida desbloquear.
 
 La consecuencia es clara: **debe supervisar el aula durante el examen** y consultar periódicamente la **Opción 3 (Ver estado)** para confirmar que ningún puesto ha vuelto al estado 🔓 LIBRE por un reinicio o cierre de sesión.
+
 :::
 
 ------------------------------------------------------------------------
@@ -185,7 +197,7 @@ No hace falta levantar el bloqueo general. Pida al alumno que **cierre la sesió
 
 </FaqItem>
 
-<FaqItem question="He cerrado el script sin querer durante el examen">
+<FaqItem question="He cerrado el script sin querer durante la prueba">
 
 No afecta a la seguridad del aula. Una vez enviada la orden de bloqueo, esta reside en los puestos de los alumnos. El script solo es necesario para **enviar** la orden inicial y para **revertirla** al final. Vuelva a abrirlo cuando quiera para seguir consultando el estado o para desbloquear al terminar.
 

@@ -104,7 +104,7 @@ Nuestra infraestructura de scripts está diseñada para crecer. No buscamos solo
 1. **Módulos Propios:** Centralización de funciones comunes en un módulo interno de la EPS alojado en nuestro repo local.
 2. **Auditoría Automatizada:** Scripts que reportan el estado de salud del hardware y software de cada aula a una base de datos central en tiempo real.
 3. **Manejo de Errores Avanzado:** Logging remoto en un servidor de eventos dedicado. Centralizar la Información y enviar reportes para analizarlos.
-<br />
+
 :::info[Nota de Compatibilidad]
 
 Windows 11 solo se distribuye como sistema operativo de 64 bits. En nuestras sedes, aprovechamos la arquitectura x64 para ejecutar PowerShell 7 con el máximo rendimiento, manteniendo la compatibilidad con módulos de 32 bits solo cuando es estrictamente necesario para software educativo heredado.
