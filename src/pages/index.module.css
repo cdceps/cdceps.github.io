@@ -1,0 +1,58 @@
+.techTooltipContainer {
+  position: relative;
+  display: inline-flex !important;
+}
+
+.techTooltipContainer::after {
+  content: attr(data-techname);
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background-color: #2b2a33;
+  color: #ffffff;
+  border: 1px solid #42414d;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 99999;
+  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.techTooltipContainer::before {
+  content: '';
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #2b2a33;
+  border-left: 1px solid #42414d;
+  border-top: 1px solid #42414d;
+  transform: translateX(-50%) translateY(4px) rotate(45deg);
+  transform-origin: center center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 100000;
+  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s;
+}
+
+.techTooltipContainer:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.techTooltipContainer:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) rotate(45deg);
+}

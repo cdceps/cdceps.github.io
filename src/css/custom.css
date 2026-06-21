@@ -547,14 +547,14 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
   font-family: monospace !important;
 }
 
-/* 🤍 ESTADO 1: Cursor de la primera línea (Hereda el blanco por defecto) */
+/* ESTADO 1: Cursor de la primera línea (Hereda el blanco por defecto) */
 h1 div span[style*="color: #FFFFFF"] + .typed-cursor,
 h1 div span:not([style*="transparent"]) + .typed-cursor {
   color: #FFFFFF !important;
   animation: blink 0.9s infinite !important;
 }
 
-/* 💛 ESTADO 2: El cursor de la segunda línea. 
+/* ESTADO 2: El cursor de la segunda línea. 
    Apunta al cursor que va justo detrás del span que tiene el degradado amarillo de fondo */
 h1 div span[style*="linear-gradient"] + .typed-cursor {
   color: #F9B905 !important;
@@ -570,105 +570,8 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   min-height: 100%;
 }
 
-.home-logos-grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.7rem;
-  flex-wrap: wrap;
-  margin: 3rem 0;
-  padding: 1rem;
-}
-
-.tech-home-icon {
-  width: 55px;
-  height: auto;
-  transition: transform 0.2s ease-in-out;
-}
-
-.tech-home-icon:hover {
-  transform: scale(1.18);
-}
-
-/* 🏷️ SISTEMA UNIVERSAL DE TOOLTIPS: DEBAJO CON PICO INTEGRADO CON BORDE HOMOGÉNEO */
-.tech-tooltip-container {
-  position: relative;
-  display: inline-flex !important;
-}
-
-/* 📦 CUERPO DEL BOCADILLO */
-.tech-tooltip-container::after {
-  content: attr(data-techname);
-  position: absolute;
-  top: calc(100% + 12px); 
-  left: 50%;
-  transform: translateX(-50%) translateY(4px);
-  
-  background-color: #2b2a33;   
-  color: #ffffff;              
-  border: 1px solid #42414d;   /* 🌟 Tu borde gris claro de referencia */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 5px 11px;
-  border-radius: 6px;
-  white-space: nowrap;
-  
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  z-index: 99999;
-  
-  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* 🔺 EL PIQUITO CON EFECTO CONTINUO DE BORDE (Técnica del Rombo Rotado) */
-.tech-tooltip-container::before {
-  content: '';
-  position: absolute;
-  
-  /* 🎛️ Lo clavamos matemáticamente en el lomo superior del bocadillo */
-  top: calc(100% + 8px); 
-  left: 50%;
-  
-  /* 📐 Creamos un cuadrado perfecto de 8x8px */
-  width: 8px;
-  height: 8px;
-  
-  /* 🎨 Mismo fondo y mismos bordes exactos que la caja principal */
-  background-color: #2b2a33;
-  border-left: 1px solid #42414d;
-  border-top: 1px solid #42414d;
-  
-  /* 🔄 Lo rotamos 45° para que las esquinas superior e izquierda formen el pico apuntando hacia arriba,
-     y le metemos el offset de 4px de la animación para que vaya pegado en bloque a la caja */
-  transform: translateX(-50%) translateY(4px) rotate(45deg);
-  transform-origin: center center;
-  
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  z-index: 100000; /* Se superpone levemente tapando la línea interior de la caja y fusionando los bordes */
-  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s;
-}
-
-/* 🚀 DISPARADOR DE HOVER UNIFICADO (Mantenemos la rotación en el estado final) */
-.tech-tooltip-container:hover::after {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-.tech-tooltip-container:hover::before {
-  opacity: 1;
-  visibility: visible;
-  /* Detiene la animación sumando la rotación final fija */
-  transform: translateX(-50%) translateY(0) rotate(45deg);
-}
-
 /* ==========================================================================
-   12. CONTROL TOP INTEGRADO EN EL PIE DE PÁGINA (ESTÁTICO)
+   11. CONTROL TOP INTEGRADO EN EL PIE DE PÁGINA (ESTÁTICO)
    ========================================================================== */
 .footer-wrapper-relative {
   position: relative;
@@ -856,36 +759,6 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 }
 
 /* ==========================================================================
-   19. AJUSTES NAVBAR CONTACTO
-   ========================================================================== */
-.navbar__items .navbar__item[href="/docs/contacto"] {
-  background-color: transparent !important; 
-  border: 1px solid transparent !important;
-  border-radius: 4px !important;
-  margin-left: 6px !important;
-  margin-right: 6px !important;
-  padding: 4px 12px !important;
-  align-self: center !important;
-  transition: all 0.2s ease-in-out !important;
-}
-
-.navbar__items .navbar__item[href="/docs/contacto"]:hover,
-.navbar__items .navbar__item[href="/docs/contacto"].navbar__link--active,
-.navbar__items .navbar__item[href="/docs/contacto"][class*="active"] {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-  border-color: #93BD22 !important;                      
-  text-decoration: none !important;
-}
-
-/* Forzar fuente del sistema y tamaño de 16px en todas las tablas */
-.markdown table th,
-.markdown table td {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-  font-size: 16px !important;
-  line-height: 1.5;
-}
-
-/* ==========================================================================
    20. ENLACE CORPORATIVO UNIVERSIDAD DE SEVILLA (US) - RELLENO SÓLIDO
    ========================================================================== */
 /* 📍 Anclajes relativos exactos para que los bocadillos salgan debajo de cada elemento */
@@ -1031,7 +904,7 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 }
 
 /* ==========================================================================
-   22. TABLA DE CONTENIDOS DE DOCUSAURUS
+   22. (TOC) TABLA DE CONTENIDOS DE DOCUSAURUS
    ========================================================================== */
 .table-of-contents__link {
   font-size: 0.85rem;

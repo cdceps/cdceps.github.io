@@ -38,6 +38,7 @@ hide_title: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import styles from './index.module.css';
 
 <div style={{
   fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
@@ -178,7 +179,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
               Soluciones de automatización y despliegue eficiente en la <b style={{ color: '#F9B905' }}>Escuela Politécnica Superior</b> para la gestión avanzada de sistemas.
               <kbd 
 				onClick={() => window.location.href = '/docs'} 
-				className={`tech-tooltip-container ${showLogos ? "glow-btn" : ""}`} /* 🚀 Añadimos la clase aquí */
+				className={`${styles.techTooltipContainer} ${showLogos ? "glow-btn" : ""}`}
 				data-techname="Ir a Docs" /* 🚀 Sustituimos el title por esto */
 				style={{ 
 				marginLeft: '15px', 
@@ -212,10 +213,9 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 
             <div style={{ display: 'flex', gap: '0.2rem', alignItems: 'center', flexWrap: 'nowrap' }}>
               {techs.map((tech, index) => (
-                /* 🚀 ENVOLVEMOS EN EL CONTENEDOR CON LA CLASE DE TOOLTIP Y EL ATRIBUTO DATA DINIÁMICO */
                 <div 
                   key={index} 
-                  className="tech-tooltip-container"
+                  className={styles.techTooltipContainer}
                   data-techname={tech.name}
                   style={{
                     width: '100px', height: '60px', display: 'flex', justifyContent: 'center', alignItems: 'center',
