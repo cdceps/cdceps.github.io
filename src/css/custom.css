@@ -8,6 +8,9 @@
  * Identidad visual, componentes, animaciones y arquitectura del tema
  * desarrollados para la web de documentación técnica del CdC.
  */
+ 
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 /* ============================================================================
     1.  Importaciones y fuentes externas
