@@ -1,9 +1,9 @@
-<svg viewBox="0 0 940 880" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Plano del aula L1-D-ATC: el equipo del profesor, pegado a la pared derecha, lanza un comando que se ejecuta a la vez en los 20 puestos del aula.">
+<svg viewBox="0 0 1000 920" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Plano del aula L1-D-ATC: el equipo del profesor lanza un comando que se ejecuta a la vez en los 20 puestos del aula.">
   <defs>
     <radialGradient id="aulaBg" cx="50%" cy="28%" r="85%">
-      <stop offset="0%" stop-color="#11180f"/>
-      <stop offset="55%" stop-color="#0a0e08"/>
-      <stop offset="100%" stop-color="#070a05"/>
+      <stop offset="0%" fill="#11180f" stop-color="#11180f"/>
+      <stop offset="55%" fill="#0a0e08" stop-color="#0a0e08"/>
+      <stop offset="100%" fill="#070a05" stop-color="#070a05"/>
     </radialGradient>
     <linearGradient id="profGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="rgba(147,189,34,0.35)"/>
@@ -13,7 +13,6 @@
       <feGaussianBlur stdDeviation="3" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-
     <pattern id="aulaGrid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#93BD22" stroke-width="0.6" opacity="0.08"/>
     </pattern>
@@ -22,334 +21,65 @@
     </pattern>
   </defs>
 
-  <rect width="940" height="880" rx="14" fill="url(#aulaBg)" stroke="#93BD22" stroke-width="1.5"/>
-  <rect width="940" height="880" rx="14" fill="url(#aulaGrid)"/>
-  <rect width="940" height="880" rx="14" fill="url(#aulaGridMajor)"/>
+  <rect width="1000" height="920" rx="14" fill="url(#aulaBg)" stroke="#93BD22" stroke-width="1.5"/>
+  <rect width="1000" height="920" rx="14" fill="url(#aulaGrid)"/>
+  <rect width="1000" height="920" rx="14" fill="url(#aulaGridMajor)"/>
 
-  <g stroke="#5b8aa6" stroke-width="1.5" opacity="0.28">
-    <path d="M800,108 C 450,228 120,50 120,158" fill="none"/>
-    <path d="M800,108 C 680,268 440,180 440,318" fill="none"/>
-    <path d="M800,108 L800,178" fill="none"/>
+  <g stroke="#5b8aa6" stroke-width="1.5" opacity="0.25">
+    <path d="M800,87 L800,110 L120,110" fill="none"/>
+    <path d="M120,110 L120,150" fill="none"/>
+    <path d="M440,110 L440,310" fill="none"/>
+    <path d="M800,110 L800,170" fill="none"/>
   </g>
+  
   <g>
-  <line x1="120" y1="205" x2="120" y2="222" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="120" y1="269" x2="120" y2="286" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="120" y1="333" x2="120" y2="350" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="120" y1="397" x2="120" y2="414" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="120" y1="461" x2="120" y2="478" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="120" y1="525" x2="120" y2="542" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="120" y1="589" x2="120" y2="606" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="120" y1="653" x2="120" y2="670" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="120" y1="717" x2="120" y2="734" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="440" y1="365" x2="440" y2="382" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="440" y1="429" x2="440" y2="446" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="440" y1="493" x2="440" y2="510" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="800" y1="225" x2="800" y2="242" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="800" y1="289" x2="800" y2="306" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="800" y1="353" x2="800" y2="370" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="800" y1="417" x2="800" y2="434" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
-  <line x1="800" y1="481" x2="800" y2="498" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
+    <line x1="120" y1="163" x2="120" y2="739" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
+    <line x1="440" y1="323" x2="440" y2="515" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
+    <line x1="800" y1="183" x2="800" y2="503" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
   </g>
 
   <g>
     <g opacity="0">
       <path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/>
-      <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.32;1" calcMode="linear" rotate="auto" path="M800,108 C 450,228 120,50 120,158"/>
-      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.04;0.30;0.33;1" dur="5s" repeatCount="indefinite"/>
+      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M800,87 L800,110 L120,110 L120,150"/>
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
       <path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/>
-      <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.32;1" calcMode="linear" rotate="auto" path="M800,108 C 680,268 440,180 440,318"/>
-      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.04;0.30;0.33;1" dur="5s" repeatCount="indefinite"/>
+      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M800,87 L800,110 L440,110 L440,310"/>
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/>
     </g>
     <g opacity="0">
       <path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/>
-      <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.32;1" calcMode="linear" rotate="auto" path="M800,108 L800,178"/>
-      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.04;0.30;0.33;1" dur="5s" repeatCount="indefinite"/>
+      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M800,87 L800,110 L800,170"/>
+      <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/>
     </g>
   </g>
-  <!-- Puestos -->
-  <g transform="translate(95,163)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-10</text>
-  </g>
-  <g transform="translate(95,227)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-09</text>
-  </g>
-  <g transform="translate(95,291)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-08</text>
-  </g>
-  <g transform="translate(95,355)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-07</text>
-  </g>
-  <g transform="translate(95,419)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-06</text>
-  </g>
-  <g transform="translate(95,483)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-05</text>
-  </g>
-  <g transform="translate(95,547)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-04</text>
-  </g>
-  <g transform="translate(95,611)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-03</text>
-  </g>
-  <g transform="translate(95,675)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-02</text>
-  </g>
-  <g transform="translate(95,739)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-01</text>
-  </g>
-  <g transform="translate(415,323)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-14</text>
-  </g>
-  <g transform="translate(415,387)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-13</text>
-  </g>
-  <g transform="translate(415,451)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-12</text>
-  </g>
-  <g transform="translate(415,515)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-11</text>
-  </g>
-  <g transform="translate(775,183)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-20</text>
-  </g>
-  <g transform="translate(775,247)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-19</text>
-  </g>
-  <g transform="translate(775,311)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-18</text>
-  </g>
-  <g transform="translate(775,375)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-17</text>
-  </g>
-  <g transform="translate(775,439)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-16</text>
-  </g>
-  <g transform="translate(775,503)">
-    <rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8">
-      <animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08">
-      <animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="5s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="5s" repeatCount="indefinite"/>
-    </path>
-    <rect x="20.0" y="34" width="10" height="5" fill="#5b8aa6"/>
-    <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/>
-    <text x="25.0" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-15</text>
-  </g>
-  <!-- PC del profesor -->
+
+  <g transform="translate(95,163)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-10</text></g>
+  <g transform="translate(95,227)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-09</text></g>
+  <g transform="translate(95,291)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-08</text></g>
+  <g transform="translate(95,355)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-07</text></g>
+  <g transform="translate(95,419)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-06</text></g>
+  <g transform="translate(95,419)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-06</text></g>
+  <g transform="translate(95,483)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-05</text></g>
+  <g transform="translate(95,547)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-04</text></g>
+  <g transform="translate(95,611)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-03</text></g>
+  <g transform="translate(95,675)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-02</text></g>
+  <g transform="translate(95,739)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-01</text></g>
+
+  <g transform="translate(415,323)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-14</text></g>
+  <g transform="translate(415,387)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-13</text></g>
+  <g transform="translate(415,451)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-12</text></g>
+  <g transform="translate(415,515)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-11</text></g>
+
+  <g transform="translate(775,183)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-20</text></g>
+  <g transform="translate(775,247)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-19</text></g>
+  <g transform="translate(775,311)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-18</text></g>
+  <g transform="translate(775,375)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-17</text></g>
+  <g transform="translate(775,439)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-16</text></g>
+  <g transform="translate(775,503)"><rect x="0" y="0" width="50" height="34" rx="4" fill="#0c1208" stroke="#5b8aa6" stroke-width="1.8"><animate attributeName="stroke" values="#5b8aa6;#5b8aa6;#93BD22;#93BD22;#5b8aa6;#5b8aa6" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><rect x="5" y="4" width="40" height="24" rx="2" fill="#0a0f08"><animate attributeName="fill" values="#0a0f08;#0a0f08;#1a2e0a;#1a2e0a;#0a0f08;#0a0f08" keyTimes="0;0.31;0.34;0.70;0.74;1" dur="8s" repeatCount="indefinite"/></rect><path d="M18.0 15.0 l4 4 l9 -9" fill="none" stroke="#93BD22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.35;0.70;0.73;1" dur="8s" repeatCount="indefinite"/></path><rect x="20" y="34" width="10" height="5" fill="#5b8aa6"/><rect x="15" y="39" width="20" height="3" rx="1.5" fill="#5b8aa6"/><text x="25" y="56" text-anchor="middle" fill="#cfd8c2" font-size="11" font-weight="600">PC-15</text></g>
+
   <g transform="translate(775,53)" filter="url(#aulaSoft)">
     <rect x="0" y="0" width="50" height="34" rx="4" fill="url(#profGrad)" stroke="#93BD22" stroke-width="2.5"/>
     <g transform="translate(14.0,8.0) scale(0.20)">
@@ -360,10 +90,10 @@
     <rect x="15.0" y="39" width="20" height="3" rx="1.5" fill="#93BD22"/>
     <text x="25.0" y="56" text-anchor="middle" fill="#93BD22" font-size="10.5" font-weight="700">PROFESOR</text>
   </g>
+
   <g transform="translate(810,730)">
     <text x="0" y="0" text-anchor="middle" fill="#93BD22" font-size="11" font-weight="bold" letter-spacing="2" font-family="sans-serif" opacity="0.9">ACCESO AL AULA</text>
     <g transform="translate(0,28)" style="filter: drop-shadow(0 0 8px rgba(147,189,34,0.6));">
-      <!-- tres chevrons que se desvanecen en cascada hacia la izquierda -->
       <path d="M12,-12 L-2,0 L12,12" fill="none" stroke="#93BD22" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
         <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" begin="0s" repeatCount="indefinite"/>
       </path>
@@ -374,7 +104,6 @@
         <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
       </path>
     </g>
-    <!-- Nombre del aula DEBAJO de Acceso al Aula -->
     <text x="0" y="92" text-anchor="middle" fill="#93BD22" font-size="30" font-weight="300" opacity="0.55">L1-D-ATC</text>
   </g>
 </svg>
