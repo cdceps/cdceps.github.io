@@ -1,11 +1,42 @@
-/* ==========================================================================
+/**
+ * Hoja de estilos personalizada — Web de Ayuda Docente · EPS
+ * Escuela Politécnica Superior · Centro de Cálculo (CATEPS)
+ * Universidad de Sevilla
+ *
+ * Autor: Juanjo Ibáñez Amat
+ *
+ * Identidad visual, componentes, animaciones y arquitectura del tema
+ * desarrollados para la web de documentación técnica del CdC.
+ */
+
+/* ============================================================================
+    1.  Importaciones y fuentes externas
+    2.  Variables y tema (colores EPS)
+    3.  Navbar: estructura y marca
+    4.  Navbar: buscador (escritorio)
+    5.  Navbar: buscador móvil (modal)
+    6.  Navbar: enlaces US / EPS y tooltips
+    7.  Navbar: enlace GitHub
+    8.  Sidebar (menú lateral)
+    9.  Contenedores nativos: tabs, tablas y paginación
+    10. Admonitions y alertas
+    11. Etiquetas (tags) de documentación
+    12. Tabla de contenidos (TOC)
+    13. Footer: enlaces, scrollbar, dino y botón nativo "volver arriba"
+    14. Home / portada
+    15. Miscelánea y cursor Typed.js
+    16. Animaciones globales (keyframes)
+    17. Responsive: footer en móvil y táctil
+   ============================================================================ */
+
+/* ============================================================================
    1. IMPORTACIONES & FUENTES EXTERNAS
-   ========================================================================== */
+   ============================================================================ */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
 
-/* ==========================================================================
+/* ============================================================================
    2. VARIABLES, TEMAS Y COLORES BASE (THEME CONFIG)
-   ========================================================================== */
+   ============================================================================ */
 :root {
   /* Paleta oficial de colores EPS (Modo Claro) */
   --ifm-color-primary: #a43b8d;
@@ -29,9 +60,9 @@
   --ifm-color-primary-lightest: #cde38f;
 }
 
-/* ==========================================================================
-   3. NAVEGACIÓN (NAVBAR, BRANDING & BOTONES DESTACADOS)
-   ========================================================================== */
+/* ============================================================================
+   3. NAVBAR: ESTRUCTURA Y MARCA
+   ============================================================================ */
 .navbar,
 .navbar-sidebar__brand {
   background-image: url('/img/bg.png');
@@ -151,199 +182,9 @@
   margin-bottom: 8px !important;
 }
 
-/* ==========================================================================
-   4. MENÚ LATERAL (SIDEBAR) & COMPONENTES NATIVOS
-   ========================================================================== */
-.sidebar-hr {
-  background-color: var(--ifm-toc-border-color);
-  margin: .5rem .75em;
-}
-
-/* Botones de colapso y expansión integrados */
-.collapseSidebarButtonIcon_kv0_,
-[class*='collapseSidebarButton'] svg,
-div[class*="expandButton"] svg g,
-div[class*="expandButton"] svg path {
-  color: #f9b905 !important;
-  fill: #f9b905 !important;
-  transition: all 0.3s ease;
-}
-
-div[class*="expandButton"],
-button[class*="collapseSidebarButton"] {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-div[class*="expandButton"]:hover svg g,
-button[class*="collapseSidebarButton"]:hover svg g,
-div[class*="expandButton"]:hover svg path,
-button[class*="collapseSidebarButton"]:hover svg path {
-  fill: #F9B905 !important;
-}
-
-/* Icono FAQ CIA - Menú Lateral */
-.sidebar-faq-item a {
-  display: flex !important;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-}
-
-.sidebar-faq-item a::after {
-  content: '';
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  background-image: url('../../static/img/eps-faq-icon-yellow.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  flex-shrink: 0;
-  margin-left: 2px;
-  filter: drop-shadow(0 0 2px rgba(249, 185, 5, 0.3));
-}
-
-.sidebar-faq-item a:hover::after {
-  filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.8));
-  transition: filter 0.2s ease-in-out;
-}
-
-/* Oculta el botón nativo "volver arriba" de Docusaurus (usamos el propio, BackToTopFlotante) */
-.clean-btn.theme-back-to-top-button {
-  display: none !important;
-}
-
-/* ==========================================================================
-   5. CONTENEDORES GLOBALES (TABS, TABLES & PESTAÑAS)
-   ========================================================================== */
-.tabs__item {
-  border: 1px var(--ifm-toc-border-color) solid;
-  border-radius: var(--ifm-global-radius);
-  margin: .1875em;
-  padding: .75em 1em;
-  margin-right: 5px;
-  transition: all 0.2s ease-in-out;
-}
-
-.tabs__item--active {
-  background-color: transparent !important;
-  border: 1px solid #f9b905 !important;
-  border-bottom: 1px solid #f9b905 !important;
-  color: #f9b905 !important;
-  border-radius: 6px !important;
-  box-shadow: 0 0 5px rgba(249, 185, 5, 0.2);
-}
-
-.tabs__item:hover:not(.tabs__item--active) {
-  background-color: rgba(249, 185, 5, 0.05) !important;
-}
-
-table {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: var(--ifm-code-font-size);
-}
-
-.pagination-nav {
-  display: none;
-}
-
-/* ==========================================================================
-   6. INTEGRACIONES DE TERCEROS
-   ========================================================================== */
-.header-github-link {
-  margin-left: 6px !important;
-  margin-right: 6px !important;
-  padding: 0 !important;
-}
-
-.header-github-link::before {
-  content: '';
-  display: block;
-  width: 25px;
-  height: 25px;
-  background-color: #ffffff !important;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-.header-github-link:hover::before {
-  background-color: #f9b905 !important;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.header-github-link:hover {
-  background-color: transparent !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-  opacity: 1 !important;
-}
-
-/* ==========================================================================
-   7. FOOTER & ENTORNO DE SCROLLBAR GLOBAL
-   ========================================================================== */
-.footer-link-docusaurus {
-  color: #25C19F !important;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.footer-link-docusaurus:hover {
-  text-decoration: underline !important;
-}
-
-/* Scrollbar Ecosistema Webkit (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #93bd22;
-  border-radius: 10px;
-  border: 2px solid #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #aadb32;
-}
-
-/* Compatibilidad Scrollbar Engine Firefox */
-html {
-  scrollbar-width: auto;
-  scrollbar-color: #93bd22 #0a0a0a;
-}
-
-/* Dino decorativo del footer */
-.footer-dino {
-  width: 22px;
-  height: 22px;
-  vertical-align: baseline;
-  position: relative;
-  bottom: -3px;
-  margin-left: 5px;
-  transition: transform 0.3s ease;
-}
-
-.footer-dino:hover {
-  transform: rotate(12deg) scale(1.25);
-}
-
-/* ==========================================================================
-   8. MOTOR DE BÚSQUEDA
-   ========================================================================== */
+/* ============================================================================
+   4. NAVBAR: BUSCADOR (ESCRITORIO)
+   ============================================================================ */
 .navbar__search {
   margin-left: 6px !important;
   margin-right: 6px !important;
@@ -356,13 +197,13 @@ html {
   }
 }
 
-/* ESTILOS EXCLUSIVOS PARA ESCRITORIO (Mantiene tu IBM Plex Mono intacto) */
+/* ESTILOS EXCLUSIVOS PARA ESCRITORIO (IBM Plex Mono intacto) */
 @media (min-width: 997px) {
   .cateps-search-movil-container,
   .cateps-github-movil-container {
     display: none !important; /* Escondemos los clones móviles en PC */
   }
-  
+
   .navbar__search-input {
     width: 190px !important;
     height: 36px !important;
@@ -374,7 +215,7 @@ html {
     color: #ffffff !important;
     background-image: none !important;
     padding-left: 12px !important;
-    padding-right: 85px !important; 
+    padding-right: 85px !important;
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease !important;
   }
 
@@ -394,9 +235,9 @@ html {
   .search-input-keyboard-shortcut-help kbd:first-child::after { content: "+" !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; width: 18px !important; height: 18px !important; margin-left: 8px !important; margin-right: 2px !important; background: #232228 !important; border: 1px solid #3a3940 !important; border-radius: 4px !important; box-shadow: inset 0 -1px 0 rgba(255,255,255,0.04) !important; color: #F9B905 !important; font-size: 11px !important; font-weight: 500 !important; }
 }
 
-/* ==========================================================================
-   8.1. MODAL DE BÚSQUEDA MÓVIL
-   ========================================================================== */
+/* ============================================================================
+   5. NAVBAR: BUSCADOR MÓVIL (MODAL)
+   ============================================================================ */
 @media (max-width: 996px) {
   /* Ocultar el GitHub nativo dentro del panel lateral de hamburguesa */
   .navbar-sidebar .header-github-link {
@@ -519,9 +360,376 @@ html {
   }
 }
 
-/* ==========================================================================
-   9. MISCELÁNEA & CURSORES DINÁMICOS (TYPED.JS)
-   ========================================================================== */
+/* ============================================================================
+   6. NAVBAR: ENLACES US / EPS Y TOOLTIPS
+   ============================================================================ */
+/* Anclaje relativo: necesario para que los bocadillos de tooltip se posicionen bien */
+.navbar__items--right .navbar__link[href="https://www.us.es/"],
+.navbar__items--right .navbar__link[href="https://eps.us.es/"] {
+  position: relative !important;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+/* Forzar paddings y esquinas solo en los enlaces de texto originales */
+.navbar__items--right .navbar__link[href="https://www.us.es/"],
+.navbar__items--right .navbar__link[href="https://eps.us.es/"] {
+  padding: 6px 12px !important;
+  border-radius: 4px;
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+}
+
+/* Efecto Hover original de la US */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover {
+  background-color: #9D2235 !important;
+  background: #9D2235 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Forzar el icono a blanco en el hover de la US */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover svg {
+  fill: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+/* Inyección exclusiva de tooltips */
+
+/* Cuerpos de los bocadillos: ajuste individualizado de altura vertical */
+/* Subimos sutilmente US y EPS a (100% + 8px) para compensar su padding nativo */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::after,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::after {
+  top: calc(100% + 8px) !important;
+}
+
+/* Base común idéntica para los cuerpos de US y EPS */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::after,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::after {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(4px) !important;
+  background-color: #2b2a33 !important;
+  color: #ffffff !important;
+  border: 1px solid #42414d !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 5px 11px !important;
+  border-radius: 6px !important;
+  white-space: nowrap !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  z-index: 999999 !important;
+  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::before,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::before {
+  top: calc(100% + 4px) !important;
+}
+
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::before,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 50% !important;
+  width: 8px !important;
+  height: 8px !important;
+  background-color: #2b2a33 !important;
+  border-left: 1px solid #42414d !important;
+  border-top: 1px solid #42414d !important;
+  transform: translateX(-50%) translateY(4px) rotate(45deg) !important;
+  transform-origin: center center !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  z-index: 1000000 !important;
+  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s !important;
+  box-shadow: none !important;
+}
+
+/* Asignación de textos */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]::after { content: "Universidad de Sevilla" !important; }
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]::after { content: "Escuela Politécnica Superior" !important; }
+
+/* Disparadores hover simétricos */
+.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover::after,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]:hover::after {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover::before,
+.navbar__items--right .navbar__link[href="https://eps.us.es/"]:hover::before {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) rotate(45deg) !important;
+}
+
+/* ============================================================================
+   7. NAVBAR: ENLACE GITHUB
+   ============================================================================ */
+.navbar__items--right .header-github-link {
+  position: relative !important;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.header-github-link {
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+  padding: 0 !important;
+}
+
+.header-github-link::before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-color: #ffffff !important;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.header-github-link:hover::before {
+  background-color: #f9b905 !important;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.header-github-link:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================================
+   8. SIDEBAR (MENÚ LATERAL)
+   ============================================================================ */
+.sidebar-hr {
+  background-color: var(--ifm-toc-border-color);
+  margin: .5rem .75em;
+}
+
+/* Botones de colapso y expansión integrados */
+.collapseSidebarButtonIcon_kv0_,
+[class*='collapseSidebarButton'] svg,
+div[class*="expandButton"] svg g,
+div[class*="expandButton"] svg path {
+  color: #f9b905 !important;
+  fill: #f9b905 !important;
+  transition: all 0.3s ease;
+}
+
+div[class*="expandButton"],
+button[class*="collapseSidebarButton"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+div[class*="expandButton"]:hover svg g,
+button[class*="collapseSidebarButton"]:hover svg g,
+div[class*="expandButton"]:hover svg path,
+button[class*="collapseSidebarButton"]:hover svg path {
+  fill: #F9B905 !important;
+}
+
+/* Icono FAQ CIA - Menú Lateral */
+.sidebar-faq-item a {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.sidebar-faq-item a::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-image: url('../../static/img/eps-faq-icon-yellow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  margin-left: 2px;
+  filter: drop-shadow(0 0 2px rgba(249, 185, 5, 0.3));
+}
+
+.sidebar-faq-item a:hover::after {
+  filter: drop-shadow(0 0 8px rgba(249, 185, 5, 0.8));
+  transition: filter 0.2s ease-in-out;
+}
+
+/* ============================================================================
+   9. CONTENEDORES NATIVOS: TABS, TABLAS Y PAGINACIÓN
+   ============================================================================ */
+.tabs__item {
+  border: 1px var(--ifm-toc-border-color) solid;
+  border-radius: var(--ifm-global-radius);
+  margin: .1875em;
+  padding: .75em 1em;
+  margin-right: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabs__item--active {
+  background-color: transparent !important;
+  border: 1px solid #f9b905 !important;
+  border-bottom: 1px solid #f9b905 !important;
+  color: #f9b905 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 5px rgba(249, 185, 5, 0.2);
+}
+
+.tabs__item:hover:not(.tabs__item--active) {
+  background-color: rgba(249, 185, 5, 0.05) !important;
+}
+
+table {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--ifm-code-font-size);
+}
+
+.pagination-nav {
+  display: none;
+}
+
+/* ============================================================================
+   10. ADMONITIONS Y ALERTAS
+   ============================================================================ */
+.theme-doc-markdown .admonition,
+.theme-doc-markdown .admonition *,
+.theme-doc-markdown .alert,
+.theme-doc-markdown .alert * {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 16px !important;
+}
+
+/* Espaciado vertical de los admonitions respecto al contenido */
+.theme-admonition {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+/* ============================================================================
+   11. ETIQUETAS (TAGS) DE DOCUMENTACIÓN
+   ============================================================================ */
+.tagWithCount_h2kH {
+  transition: all 0.2s ease-in-out !important;
+}
+
+.tagWithCount_h2kH :not(a) {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: #FFF !important;
+  border: 1px solid #FFF !important;
+  font-family: var(--ifm-font-family-monospace), monospace !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+  margin-left: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.tagWithCount_h2kH:hover :not(a) {
+  background-color: rgba(249, 185, 5, 0.1) !important;
+  box-shadow: 0 0 6px rgba(249, 185, 5, 0.2) !important;
+}
+
+/* ============================================================================
+   12. TABLA DE CONTENIDOS (TOC)
+   ============================================================================ */
+.table-of-contents__link {
+  font-size: 0.85rem;
+}
+
+/* ============================================================================
+   13. FOOTER: ENLACES, SCROLLBAR, DINO Y BOTÓN NATIVO "VOLVER ARRIBA"
+   ============================================================================ */
+.footer-link-docusaurus {
+  color: #25C19F !important;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-link-docusaurus:hover {
+  text-decoration: underline !important;
+}
+
+/* Scrollbar Ecosistema Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #93bd22;
+  border-radius: 10px;
+  border: 2px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aadb32;
+}
+
+/* Compatibilidad Scrollbar Engine Firefox */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #93bd22 #0a0a0a;
+}
+
+/* Dino decorativo del footer */
+.footer-dino {
+  width: 22px;
+  height: 22px;
+  vertical-align: baseline;
+  position: relative;
+  bottom: -3px;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.footer-dino:hover {
+  transform: rotate(12deg) scale(1.25);
+}
+
+/* Oculta el botón nativo "volver arriba" de Docusaurus (usamos BackToTopFlotante) */
+.clean-btn.theme-back-to-top-button {
+  display: none !important;
+}
+
+/* ============================================================================
+   14. HOME / PORTADA
+   ============================================================================ */
+[itemid="/"] .theme-doc-markdown {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* ============================================================================
+   15. MISCELÁNEA Y CURSOR TYPED.JS
+   ============================================================================ */
 .texto-verde {
   color: #93BD22;
 }
@@ -543,7 +751,7 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
   stroke: #f9b905 !important;
 }
 
-/* ⚙️ CONFIGURACIÓN DE LOS CURSORES NATIVOS DE TYPED.JS */
+/* Configuración de los cursores nativos de Typed.js */
 
 /* Base común para todos los cursores que aparezcan en la web */
 .typed-cursor {
@@ -552,49 +760,23 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
   font-family: monospace !important;
 }
 
-/* ESTADO 1: Cursor de la primera línea (Hereda el blanco por defecto) */
+/* Cursor de la primera línea (Hereda el blanco por defecto) */
 h1 div span[style*="color: #FFFFFF"] + .typed-cursor,
 h1 div span:not([style*="transparent"]) + .typed-cursor {
   color: #FFFFFF !important;
   animation: blink 0.9s infinite !important;
 }
 
-/* ESTADO 2: El cursor de la segunda línea. 
+/* Cursor de la segunda línea.
    Apunta al cursor que va justo detrás del span que tiene el degradado amarillo de fondo */
 h1 div span[style*="linear-gradient"] + .typed-cursor {
   color: #F9B905 !important;
   animation: blink 0.7s infinite !important;
 }
 
-/* ==========================================================================
-   10. MODELADO MAQUETA HOME Y ARQUITECTURA GENERAL
-   ========================================================================== */
-[itemid="/"] .theme-doc-markdown {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-/* ==========================================================================
-   16. TIPOGRAFÍA SISTEMA EN ADMONITIONS & ALERTAS NATIVAS
-   ========================================================================== */
-.theme-doc-markdown .admonition,
-.theme-doc-markdown .admonition *,
-.theme-doc-markdown .alert,
-.theme-doc-markdown .alert * {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
-  font-size: 16px !important;
-}
-
-/* Espaciado vertical de los admonitions respecto al contenido */
-.theme-admonition {
-  margin-top: 2rem !important;
-  margin-bottom: 2rem !important;
-}
-
-/* ==========================================================================
-   17. CENTRAL DE ANIMACIONES CORE (@KEYWORDS ENGINE)
-   ========================================================================== */
+/* ============================================================================
+   16. ANIMACIONES GLOBALES (KEYFRAMES)
+   ============================================================================ */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -610,9 +792,9 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* ==========================================================================
-   18. RESPONSIVE QUIRÚRGICO (Ajustes de Layout en pantallas estrechas)
-   ========================================================================== */
+/* ============================================================================
+   17. RESPONSIVE: FOOTER EN MÓVIL Y TÁCTIL
+   ============================================================================ */
 @media (max-width: 768px) {
   .footer {
     background-color: #000000 !important;
@@ -640,164 +822,10 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   }
 }
 
-/* ==========================================================================
-   18.1. FILTRO TÁCTIL AVANZADO (Fix para Nest Hub, Nest Hub Max y Tablets)
-   ========================================================================== */
+/* Filtro táctil avanzado (Fix para Nest Hub, Nest Hub Max y Tablets) */
 @media (pointer: coarse) {
   .footer {
     background-color: #000000 !important;
     padding-bottom: 1.5rem !important;
   }
-}
-
-/* ==========================================================================
-   20. ENLACE CORPORATIVO UNIVERSIDAD DE SEVILLA (US) - RELLENO SÓLIDO
-   ========================================================================== */
-/* 📍 Anclajes relativos exactos para que los bocadillos salgan debajo de cada elemento */
-.navbar__items--right .navbar__link[href="https://www.us.es/"],
-.navbar__items--right .navbar__link[href="https://eps.us.es/"],
-.navbar__items--right .header-github-link {
-  position: relative !important; 
-  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-}
-
-/* Forzar paddings y esquinas solo en los enlaces de texto originales */
-.navbar__items--right .navbar__link[href="https://www.us.es/"],
-.navbar__items--right .navbar__link[href="https://eps.us.es/"] {
-  padding: 6px 12px !important; 
-  border-radius: 4px;
-  margin-left: 6px !important;
-  margin-right: 6px !important;  
-}
-
-/* Efecto Hover original de la US */
-.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover {
-  background-color: #9D2235 !important; 
-  background: #9D2235 !important;
-  color: #FFFFFF !important;            
-  box-shadow: none !important;          
-  text-shadow: none !important;
-}
-
-/* Forzar el icono a blanco en el hover de la US */
-.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover svg {
-  fill: #FFFFFF !important;
-  color: #FFFFFF !important;
-}
-
-/* ==========================================================================
-   🏷️ INYECCIÓN EXCLUSIVA DE TOOLTIPS ULTRA-PROFESIONALES (ABAJO CON PICO)
-   ========================================================================== */
-
-/* 📦 CUERPOS DE LOS BOCADILLOS: Ajuste individualizado de altura vertical */
-/* 🔺 Subimos sutilmente la US y la EPS a (100% + 8px) para compensar su padding nativo */
-.navbar__items--right .navbar__link[href="https://www.us.es/"]::after,
-.navbar__items--right .navbar__link[href="https://eps.us.es/"]::after {
-  top: calc(100% + 8px) !important;
-}
-
-/* Base común idéntica para los cuerpos de la US y la EPS */
-.navbar__items--right .navbar__link[href="https://www.us.es/"]::after,
-.navbar__items--right .navbar__link[href="https://eps.us.es/"]::after {
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) translateY(4px) !important;
-  background-color: #2b2a33 !important;   
-  color: #ffffff !important;              
-  border: 1px solid #42414d !important;   
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 500 !important;
-  padding: 5px 11px !important;
-  border-radius: 6px !important;
-  white-space: nowrap !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-  z-index: 999999 !important;
-  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
-}
-
-/* 🔺 LOS PIQUITOS: Ajuste de colgado individualizado */
-/* 🔺 Subimos el pico de la US y la EPS a (100% + 4px) para que besen su nueva caja */
-.navbar__items--right .navbar__link[href="https://www.us.es/"]::before,
-.navbar__items--right .navbar__link[href="https://eps.us.es/"]::before {
-  top: calc(100% + 4px) !important;
-}
-
-/* Base común idéntica para los picos (Rombo rotado a 45°) */
-.navbar__items--right .navbar__link[href="https://www.us.es/"]::before,
-.navbar__items--right .navbar__link[href="https://eps.us.es/"]::before {
-  content: '' !important;
-  position: absolute !important;
-  left: 50% !important;
-  width: 8px !important;
-  height: 8px !important;
-  background-color: #2b2a33 !important;
-  border-left: 1px solid #42414d !important;
-  border-top: 1px solid #42414d !important;
-  transform: translateX(-50%) translateY(4px) rotate(45deg) !important;
-  transform-origin: center center !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-  z-index: 1000000 !important;
-  transition: opacity 0.12s linear, transform 0.12s ease-out, visibility 0.12s !important;
-  box-shadow: none !important;
-}
-
-/* 🚀 ASIGNACIÓN DE TEXTOS */
-.navbar__items--right .navbar__link[href="https://www.us.es/"]::after { content: "Universidad de Sevilla" !important; }
-.navbar__items--right .navbar__link[href="https://eps.us.es/"]::after { content: "Escuela Politécnica Superior" !important; }
-
-/* 🔄 DISPARADORES HOVER SIMÉTRICOS */
-.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover::after,
-.navbar__items--right .navbar__link[href="https://eps.us.es/"]:hover::after {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateX(-50%) translateY(0) !important;
-}
-
-.navbar__items--right .navbar__link[href="https://www.us.es/"]:hover::before,
-.navbar__items--right .navbar__link[href="https://eps.us.es/"]:hover::before {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateX(-50%) translateY(0) rotate(45deg) !important;
-}
-
-/* ==========================================================================
-   21. PERSONALIZACIÓN TAXONOMÍA: ETIQUETAS Y CONTADORES (DOCS TAGS)
-   ========================================================================== */
-.tagWithCount_h2kH {
-  transition: all 0.2s ease-in-out !important;
-}
-
-.tagWithCount_h2kH :not(a) {
-  background-color: transparent !important;
-  background: transparent !important;
-  color: #FFF !important;                
-  border: 1px solid #FFF !important;
-  font-family: var(--ifm-font-family-monospace), monospace !important; 
-  font-size: 0.8rem !important;
-  font-weight: 700 !important;
-  padding: 2px 7px !important;              
-  border-radius: 4px !important;            
-  margin-left: 6px !important;              
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  transition: all 0.2s ease-in-out !important;
-}
-
-.tagWithCount_h2kH:hover :not(a) {
-  background-color: rgba(249, 185, 5, 0.1) !important; 
-  box-shadow: 0 0 6px rgba(249, 185, 5, 0.2) !important; 
-}
-
-/* ==========================================================================
-   22. (TOC) TABLA DE CONTENIDOS DE DOCUSAURUS
-   ========================================================================== */
-.table-of-contents__link {
-  font-size: 0.85rem;
 }
