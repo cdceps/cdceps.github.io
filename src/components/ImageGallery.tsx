@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './ImageGallery.module.css';
 
 interface GalleryImage {
   src: string;
@@ -25,7 +26,7 @@ export default function ImageGallery({ images }: ImageGalleryProps): JSX.Element
   }, [index]);
 
   const closeLightbox = (): void => { setIndex(null); setZoom(1); };
-  
+
   const nextImg = (e?: React.MouseEvent): void => {
     e?.stopPropagation();
     if (index !== null) {
@@ -50,32 +51,32 @@ export default function ImageGallery({ images }: ImageGalleryProps): JSX.Element
 
   return (
     <div style={{ margin: '2rem 0' }}>
-      <div className="gallery-grid">
+      <div className={styles.galleryGrid}>
         {images.map((img, idx) => (
-          <div key={idx} className="gallery-card" onClick={() => setIndex(idx)}>
-            <div className="gallery-thumbnail-wrapper">
-              <img src={img.src} alt={img.title} className="gallery-thumbnail" />
+          <div key={idx} className={styles.galleryCard} onClick={() => setIndex(idx)}>
+            <div className={styles.galleryThumbnailWrapper}>
+              <img src={img.src} alt={img.title} className={styles.galleryThumbnail} />
             </div>
-            <div className="gallery-card-footer"><span>{img.title}</span></div>
+            <div className={styles.galleryCardFooter}><span>{img.title}</span></div>
           </div>
         ))}
       </div>
 
       {index !== null && (
-        <div className="gallery-lightbox" onClick={closeLightbox}>
-          
+        <div className={styles.galleryLightbox} onClick={closeLightbox}>
+
           {/* Indicadores de Teclado Fijos */}
-          <div className="kbd-help top-left">Esc para cerrar</div>
-          <div className="kbd-help top-right">Flechas para navegar</div>
+          <div className={`${styles.kbdHelp} ${styles.topLeft}`}>Esc para cerrar</div>
+          <div className={`${styles.kbdHelp} ${styles.topRight}`}>Flechas para navegar</div>
 
           {/* Controles Superiores Fijos */}
-          <div className="gallery-controls-top" onClick={e => e.stopPropagation()}>
+          <div className={styles.galleryControlsTop} onClick={e => e.stopPropagation()}>
             <button onClick={() => setZoom(1)} title="Ajustar tamaño inicial">
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 32 30" 
-                width="16" 
-                height="15" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 30"
+                width="16"
+                height="15"
                 fill="currentColor"
                 style={{ display: 'block' }}
               >
@@ -84,7 +85,7 @@ export default function ImageGallery({ images }: ImageGalleryProps): JSX.Element
             </button>
             <button onClick={() => handleZoom(0.25)}>+</button>
             <button onClick={() => handleZoom(-0.25)}>-</button>
-            <button onClick={closeLightbox} className="close-x" title="Cerrar">
+            <button onClick={closeLightbox} className={styles.closeX} title="Cerrar">
               <span style={{ display: 'inline-block', transform: 'translateY(-2px)', lineHeight: 1 }}>
                 &times;
               </span>
@@ -92,24 +93,24 @@ export default function ImageGallery({ images }: ImageGalleryProps): JSX.Element
           </div>
 
           {/* Flechas Laterales Fijas */}
-          <button className="nav-btn-clean prev" onClick={prevImg}>&#10094;</button>
-          <button className="nav-btn-clean next" onClick={nextImg}>&#10095;</button>
+          <button className={`${styles.navBtnClean} ${styles.prev}`} onClick={prevImg}>&#10094;</button>
+          <button className={`${styles.navBtnClean} ${styles.next}`} onClick={nextImg}>&#10095;</button>
 
           {/* Contenedor de Imagen a Pantalla Completa Real */}
-          <div className="img-zoom-container" onClick={closeLightbox}>
-            <img 
-              src={images[index].src} 
-              alt={images[index].title} 
+          <div className={styles.imgZoomContainer} onClick={closeLightbox}>
+            <img
+              src={images[index].src}
+              alt={images[index].title}
               onClick={e => e.stopPropagation()}
-              style={{ 
-                maxWidth: `${85 * zoom}vw`, 
+              style={{
+                maxWidth: `${85 * zoom}vw`,
                 maxHeight: `${75 * zoom}vh`
               }}
             />
           </div>
 
           {/* Pie de foto Fijo Flotante */}
-          <p className="gallery-lightbox-caption" onClick={e => e.stopPropagation()}>
+          <p className={styles.galleryLightboxCaption} onClick={e => e.stopPropagation()}>
              [{index + 1} / {images.length}] {images[index].title}
           </p>
         </div>

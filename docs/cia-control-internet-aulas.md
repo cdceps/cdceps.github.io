@@ -36,6 +36,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ImageGallery from '@site/src/components/ImageGallery';
 import { FaqAccordion, FaqItem } from '@site/src/components/FaqAccordion';
+import { FaqButton } from '@site/src/components/FaqButton';
 
 ## ℹ️ En qué consiste
 
@@ -215,9 +216,4 @@ Sí. La restricción se aplica a nivel del sistema operativo, por lo que afecta 
 Si los equipos se acaban de encender o han sido reiniciados, es muy probable que figuren como **OFFLINE** o que no procesen correctamente las órdenes remotas durante los primeros instantes. Este comportamiento es normal y se debe al tiempo de latencia necesario para que el servicio DHCP asigne una dirección IP y se estabilicen los servicios de gestión remota en el equipo de destino. Se recomienda esperar a que el sistema operativo esté totalmente cargado antes de realizar cualquier acción con el script.
 :::
 
-<div style={{ textAlign: 'center', margin: '3rem 0 1rem' }}>
-  <a href="/docs/cia-faq" aria-label="Consultar todo el FAQ" className="eps-faq-btn">
-    <span className="eps-faq-btn-label">Consultar todo el FAQ</span>
-    <span className="eps-faq-btn-blob" />
-  </a>
-</div>
+<FaqButton href="/docs/cia-faq" label="Consultar todo el FAQ" />

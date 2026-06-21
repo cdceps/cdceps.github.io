@@ -1,0 +1,69 @@
+/* GALERÍA INTERACTIVA */
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.galleryCard {
+  background: #1a1a1a;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.galleryCard:hover { border-color: #f9b905; }
+.galleryThumbnailWrapper { width: 100%; height: 130px; background: #000; overflow: hidden; }
+.galleryThumbnail { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.2s; }
+.galleryCard:hover .galleryThumbnail { opacity: 1; }
+.galleryCardFooter { padding: 0.6rem; font-size: 0.85rem; text-align: center; font-weight: 600; color: #fff; }
+
+/* Lightbox Base */
+.galleryLightbox {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.96); z-index: 9999;
+}
+.imgZoomContainer {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; overflow: auto; z-index: 10000; padding: 100px 140px; box-sizing: border-box;
+}
+.imgZoomContainer img {
+  margin: auto; width: auto; height: auto; object-fit: contain;
+  transition: max-width 0.2s ease, max-height 0.2s ease;
+  border-radius: 4px; box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+/* Controles Fijos Lightbox */
+.galleryControlsTop {
+  position: absolute; top: 30px; right: 30px; display: flex; gap: 15px; z-index: 10002;
+}
+.galleryControlsTop button {
+  background: transparent; border: 1px solid #f9b905; color: #f9b905;
+  width: 40px; height: 40px; cursor: pointer;
+  font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.galleryControlsTop button:hover { background: rgba(249, 185, 5, 0.1); }
+.galleryControlsTop button.closeX { font-size: 1.5rem; }
+
+.navBtnClean {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: transparent; border: none; color: #f9b905;
+  font-size: 2.5rem; cursor: pointer; z-index: 10002;
+  padding: 20px; transition: opacity 0.2s;
+}
+.navBtnClean:hover { color: #93BD22 !important; }
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.kbdHelp {
+  position: absolute; color: #fff; font-family: monospace; font-size: 0.8rem; text-transform: uppercase; z-index: 10002;
+}
+.topLeft { top: 30px; left: 30px; }
+.topRight { top: 60px; left: 30px; }
+
+.galleryLightboxCaption {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  color: #fff; font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 500; z-index: 10002;
+  background: rgba(0, 0, 0, 0.7); padding: 8px 18px; border-radius: 4px;
+  backdrop-filter: blur(5px); margin: 0; white-space: nowrap;
+}

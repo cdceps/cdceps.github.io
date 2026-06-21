@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 // Importamos los tipos de eventos nativos de React para blindar los controladores
 import type { ChangeEvent, FormEvent, MouseEvent } from 'react';
 import Layout from '@theme/Layout';
+import styles from './incidencias-aulas-cateps.module.css';
 
 /**
  * =========================================================================
@@ -27,7 +28,7 @@ const TIPOS_INCIDENCIA: string[] = [
 ];
 
 const LISTADO_AULAS: string[] = [
-  'L1-A-ESC', 'L1-D-ATC', 'L2-D-ATC', 'L1-D-IQ', 
+  'L1-A-ESC', 'L1-D-ATC', 'L2-D-ATC', 'L1-D-IQ',
   'L1-D-IEL', 'L1-D-MMC', 'L2-D-QA', 'DS5.4', 'Otras'
 ];
 
@@ -64,7 +65,7 @@ export default function IncidenciasAulas(): JSX.Element {
   const [formData, setFormData] = useState<FormDataState>(INITIAL_FORM_STATE);
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [sysTime, setSysTime] = useState<string>('');
-  
+
   /* Estados booleanos de control de interfaz de usuario */
   const [showPrivacy, setShowPrivacy] = useState<boolean>(false);
   const [hideForm, setHideForm] = useState<boolean>(false);
@@ -72,10 +73,10 @@ export default function IncidenciasAulas(): JSX.Element {
   const [fondoActual, setFondoActual] = useState<string>('/img/cateps.webp');
 
   /* Estado de la petición API a Formspree */
-  const [apiState, setApiState] = useState<ApiState>({ 
-    loading: false, 
-    success: false, 
-    error: false 
+  const [apiState, setApiState] = useState<ApiState>({
+    loading: false,
+    success: false,
+    error: false
   });
 
   /**
@@ -84,10 +85,10 @@ export default function IncidenciasAulas(): JSX.Element {
    * =========================================================================
    */
   const fluorAsterisk = useMemo(() => (
-    <span style={{ 
-      color: isDark ? '#ff0055' : '#dc2626', 
-      textShadow: isDark ? '0 0 8px rgba(255, 0, 85, 0.6)' : 'none', 
-      fontWeight: 'bold' 
+    <span style={{
+      color: isDark ? '#ff0055' : '#dc2626',
+      textShadow: isDark ? '0 0 8px rgba(255, 0, 85, 0.6)' : 'none',
+      fontWeight: 'bold'
     }}>
       {" "}*
     </span>
@@ -98,7 +99,7 @@ export default function IncidenciasAulas(): JSX.Element {
    * 3. EFECTOS (SINCRONIZACIÓN CON EL DOM Y RELOJ DEL SISTEMA)
    * =========================================================================
    */
-  
+
   /* Sincronización inicial del tema visual con Docusaurus */
   useEffect(() => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -112,9 +113,9 @@ export default function IncidenciasAulas(): JSX.Element {
 
     const formatTime = () => {
       const now = new Date();
-      const options: Intl.DateTimeFormatOptions = { 
-        day: '2-digit', month: 'short', year: 'numeric', 
-        hour: '2-digit', minute: '2-digit', second: '2-digit' 
+      const options: Intl.DateTimeFormatOptions = {
+        day: '2-digit', month: 'short', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
       };
       setSysTime(now.toLocaleString('es-ES', options).replace(',', ' ·'));
     };
@@ -159,7 +160,7 @@ export default function IncidenciasAulas(): JSX.Element {
         `circle(0px at ${x}px ${y}px)`,
         `circle(${endRadius}px at ${x}px ${y}px)`
       ];
-      
+
       document.documentElement.animate(
         { clipPath: nextDark ? clipPath : [...clipPath].reverse() },
         {
@@ -179,7 +180,7 @@ export default function IncidenciasAulas(): JSX.Element {
     if (type === 'checkbox') {
       val = (e.target as HTMLInputElement).checked ? 'Sí' : 'No';
     }
-    
+
     setFormData((prev) => {
       const nextState = { ...prev, [name]: val };
       /* Si cambia la notificación a 'No', purgamos el correo electrónico de forma preventiva */
@@ -215,7 +216,7 @@ export default function IncidenciasAulas(): JSX.Element {
     /* Análisis de campos obligatorios mediante mapeo estructurado */
     const validationErrors: Record<string, boolean> = {};
     const camposRequeridos: (keyof FormDataState)[] = ['nombreProfesor', 'tipoIncidencia', 'aula', 'descripcion', 'notificarEstado'];
-    
+
     camposRequeridos.forEach(campo => {
       if (!formData[campo] || !formData[campo].trim()) {
         validationErrors[campo] = true;
@@ -230,7 +231,7 @@ export default function IncidenciasAulas(): JSX.Element {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       setApiState({ loading: false, success: false, error: false });
-      return; 
+      return;
     }
 
     try {
@@ -254,7 +255,7 @@ export default function IncidenciasAulas(): JSX.Element {
 
   return (
     <Layout title="Incidencias CATEPS" description="Apertura de incidencias en las aulas">
-      
+
       {/* Purga perimetral de Layout nativo de Docusaurus en el portal de incidencias */}
       <style dangerouslySetInnerHTML={{__html: `
         .navbar { display: none !important; }
@@ -263,28 +264,28 @@ export default function IncidenciasAulas(): JSX.Element {
 
       {/* Switcher de tema flotante (Oculto en modo visualización pura de fondo) */}
       {!hideForm && (
-        <button 
-          id="theme-toggle-btn" 
+        <button
+          id="theme-toggle-btn"
           type="button"
-          className="cateps-theme-toggle-btn"
+          className={styles.catepsThemeToggleBtn}
           onClick={handleThemeToggle}
           title={isDark ? "Cambiar a Modo Claro" : "Cambiar a Modo Oscuro"}
           aria-label="Cambiar tema visual"
         >
-          <svg className="theme-toggle-svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg className={styles.themeToggleSvg} viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <mask id="moon-mask-cateps">
               <rect x="0" y="0" width="100%" height="100%" fill="white" />
-              <circle className="moon-cradle-cateps" cx="32" cy="0" r="12" fill="black" />
+              <circle className={styles.moonCradleCateps} cx="32" cy="0" r="12" fill="black" />
             </mask>
-            <circle className="main-circle-cateps" cx="16" cy="16" r="6.5" fill="currentColor" mask="url(#moon-mask-cateps)" />
-            <path className="sun-rays-cateps" fill="currentColor" stroke="none" d="M16 .9c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3S14.7.9 16 .9zm0 25.6c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3zm12.8-12.8c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zM6.7 4.4c1.3 0 2.3 1 2.3 2.3S8 9 6.7 9 4.4 8 4.4 6.7s1-2.3 2.3-2.3zm18.6 18.6c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3zM25.3 4.4c1.3 0 2.3 1 2.3 2.3S26.6 9 25.3 9 23 8 23 6.7s1-2.3 2.3-2.3zM6.7 23c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z" />
+            <circle className={styles.mainCircleCateps} cx="16" cy="16" r="6.5" fill="currentColor" mask="url(#moon-mask-cateps)" />
+            <path className={styles.sunRaysCateps} fill="currentColor" stroke="none" d="M16 .9c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3S14.7.9 16 .9zm0 25.6c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3zm12.8-12.8c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zM6.7 4.4c1.3 0 2.3 1 2.3 2.3S8 9 6.7 9 4.4 8 4.4 6.7s1-2.3 2.3-2.3zm18.6 18.6c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3zM25.3 4.4c1.3 0 2.3 1 2.3 2.3S26.6 9 25.3 9 23 8 23 6.7s1-2.3 2.3-2.3zM6.7 23c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z" />
           </svg>
         </button>
       )}
 
       {/* Telón perimetral de fondo de la página */}
-      <div 
-        className="incidencias-page-bg"
+      <div
+        className={styles.incidenciasPageBg}
         style={{
           backgroundImage: hideForm
             ? `linear-gradient(rgba(18, 18, 18, 0.45), rgba(18, 18, 18, 0.45)), url(${fondoActual})`
@@ -292,12 +293,12 @@ export default function IncidenciasAulas(): JSX.Element {
           transition: 'background-image 0.4s ease-in-out'
         }}
       >
-        
+
         {/* Recuperación de Interfaz: Ojo activo superior (Solo modo visualización) */}
         {hideForm && (
-          <div className="rescue-eye-top-center">
-            <button type="button" className="rescue-eye-top-btn" onClick={() => setHideForm(false)} title="Volver a mostrar el formulario">
-              <img src="/img/eye-on-icon.svg" alt="Mostrar formulario" className="rescue-eye-top-svg" />
+          <div className={styles.rescueEyeTopCenter}>
+            <button type="button" className={styles.rescueEyeTopBtn} onClick={() => setHideForm(false)} title="Volver a mostrar el formulario">
+              <img src="/img/eye-on-icon.svg" alt="Mostrar formulario" className={styles.rescueEyeTopSvg} />
             </button>
           </div>
         )}
@@ -305,17 +306,17 @@ export default function IncidenciasAulas(): JSX.Element {
         {/* Módulo de protección de datos e información perimetral */}
         {showPrivacy && (
           <>
-            <div className="privacy-overlay" onClick={() => setShowPrivacy(false)}></div>
-            <div className="mirror-info-zone">
-              <button type="button" className="info-icon-btn active" onClick={() => setShowPrivacy(false)} title="Cerrar aviso de privacidad">
-                <img src="/img/info-icon.svg" alt="Info Icon" className="info-svg-icon" />
+            <div className={styles.privacyOverlay} onClick={() => setShowPrivacy(false)}></div>
+            <div className={styles.mirrorInfoZone}>
+              <button type="button" className={`${styles.infoIconBtn} ${styles.active}`} onClick={() => setShowPrivacy(false)} title="Cerrar aviso de privacidad">
+                <img src="/img/info-icon.svg" alt="Info Icon" className={styles.infoSvgIcon} />
               </button>
             </div>
-            <img src="/img/arrow-icon.svg" alt="Indicador" className="privacy-drawn-arrow" />
-            <div className="tooltip-privacy-box">
-              <button type="button" className="tooltip-privacy-close" onClick={() => setShowPrivacy(false)} title="Cerrar aviso">&times;</button>
-              <h4 className="tooltip-privacy-title">AVISO DE PRIVACIDAD</h4>
-              <p className="tooltip-privacy-text">
+            <img src="/img/arrow-icon.svg" alt="Indicador" className={styles.privacyDrawnArrow} />
+            <div className={styles.tooltipPrivacyBox}>
+              <button type="button" className={styles.tooltipPrivacyClose} onClick={() => setShowPrivacy(false)} title="Cerrar aviso">&times;</button>
+              <h4 className={styles.tooltipPrivacyTitle}>AVISO DE PRIVACIDAD</h4>
+              <p className={styles.tooltipPrivacyText}>
                 Este formulario no almacena sesiones ni credenciales universitarias de forma automática. Únicamente se registrarán los datos introducidos explícitamente en los campos obligatorios para la gestión del parte.
               </p>
             </div>
@@ -323,128 +324,128 @@ export default function IncidenciasAulas(): JSX.Element {
         )}
 
         {/* Tarjeta y Envoltorio Principal */}
-        <div 
-          className="incidencias-wrapper inspector-fade"
+        <div
+          className={`${styles.incidenciasWrapper} ${styles.inspectorFade}`}
           style={{
             opacity: hideForm ? 0 : 1,
             pointerEvents: hideForm ? 'none' : 'auto'
           }}
         >
           {/* Barra de utilidades externa perimetral */}
-          <div className="incidencias-status-bar">
-            <div className="status-bar-utilities">
-              <button type="button" className={`info-icon-btn ${showPrivacy ? 'active' : ''}`} onClick={() => setShowPrivacy(!showPrivacy)} title="Aviso de privacidad">
-                <img src="/img/info-icon.svg" alt="Info Icon" className="info-svg-icon" />
+          <div className={styles.incidenciasStatusBar}>
+            <div className={styles.statusBarUtilities}>
+              <button type="button" className={`${styles.infoIconBtn} ${showPrivacy ? styles.active : ''}`} onClick={() => setShowPrivacy(!showPrivacy)} title="Aviso de privacidad">
+                <img src="/img/info-icon.svg" alt="Info Icon" className={styles.infoSvgIcon} />
               </button>
-              <button type="button" className="reset-icon-btn" onClick={handleReset} title="Limpiar formulario">
-                <img src="/img/reset-icon.svg" alt="Reset Icon" className="reset-svg-icon" />
+              <button type="button" className={styles.resetIconBtn} onClick={handleReset} title="Limpiar formulario">
+                <img src="/img/reset-icon.svg" alt="Reset Icon" className={styles.resetSvgIcon} />
               </button>
-              <button type="button" className="reset-icon-btn" onClick={() => setHideForm(true)} title="Ocultar interfaz para ver fondo">
-                <img src="/img/eye-off-icon.svg" alt="Ocultar interfaz" className="reset-svg-icon" />
+              <button type="button" className={styles.resetIconBtn} onClick={() => setHideForm(true)} title="Ocultar interfaz para ver fondo">
+                <img src="/img/eye-off-icon.svg" alt="Ocultar interfaz" className={styles.resetSvgIcon} />
               </button>
             </div>
-            <div className="incidencias-timestamp">
+            <div className={styles.incidenciasTimestamp}>
               {sysTime || 'CONECTANDO...'}
             </div>
           </div>
 
           {/* Tarjeta Consola */}
-          <div className="incidencias-card">
-            <div className="incidencias-top-controls">
-              <div className="terminal-dots">
-                <span className="terminal-dot red"></span>
-                <span className="terminal-dot yellow"></span>
-                <span className="terminal-dot green"></span>
+          <div className={styles.incidenciasCard}>
+            <div className={styles.incidenciasTopControls}>
+              <div className={styles.terminalDots}>
+                <span className={`${styles.terminalDot} ${styles.red}`}></span>
+                <span className={`${styles.terminalDot} ${styles.yellow}`}></span>
+                <span className={`${styles.terminalDot} ${styles.green}`}></span>
               </div>
-              <div className="incidencias-card-branding">
-                <a href="https://eps.us.es/" target="_blank" rel="noopener noreferrer" className="branding-link" title="Web Oficial EPS">
-                  <img src="/img/eps-isotipo-color.svg" alt="EPS Logo" className="incidencias-card-logo eps-logo-dim" />
+              <div className={styles.incidenciasCardBranding}>
+                <a href="https://eps.us.es/" target="_blank" rel="noopener noreferrer" className={styles.brandingLink} title="Web Oficial EPS">
+                  <img src="/img/eps-isotipo-color.svg" alt="EPS Logo" className={`${styles.incidenciasCardLogo} ${styles.epsLogoDim}`} />
                 </a>
               </div>
             </div>
 
-            <h2 className="terminal-title-center">INCIDENCIAS AULAS CATEPS</h2>
-            <hr className="incidencias-divider" />
-            <p className="subtitle">Apertura automatizada de incidencias en las aulas del CATEPS.</p>
+            <h2 className={styles.terminalTitleCenter}>INCIDENCIAS AULAS CATEPS</h2>
+            <hr className={styles.incidenciasDivider} />
+            <p className={styles.subtitle}>Apertura automatizada de incidencias en las aulas del CATEPS.</p>
 
-            <form onSubmit={handleSubmit} noValidate className="incidencias-form">
-              
+            <form onSubmit={handleSubmit} noValidate className={styles.incidenciasForm}>
+
               {/* Campo 1: Nombre */}
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label>1. Nombre completo del profesor o profesora{fluorAsterisk}</label>
                 <input type="text" name="nombreProfesor" value={formData.nombreProfesor} onChange={handleChange} placeholder="Introduzca su nombre completo, por favor..." />
-                {errors.nombreProfesor && <span className="incidencias-error-msg">Por favor, rellena este campo obligatorio.</span>}
+                {errors.nombreProfesor && <span className={styles.incidenciasErrorMsg}>Por favor, rellena este campo obligatorio.</span>}
               </div>
 
               {/* Campo 2: Categoría */}
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label>2. Seleccione el tipo de incidencia{fluorAsterisk}</label>
                 <select name="tipoIncidencia" value={formData.tipoIncidencia} onChange={handleChange}>
                   <option value="" disabled>Seleccione una opción...</option>
                   {TIPOS_INCIDENCIA.map(tipo => <option key={tipo} value={tipo}>{tipo}</option>)}
                 </select>
-                {errors.tipoIncidencia && <span className="incidencias-error-msg">Por favor, rellene este campo obligatorio.</span>}
+                {errors.tipoIncidencia && <span className={styles.incidenciasErrorMsg}>Por favor, rellene este campo obligatorio.</span>}
               </div>
 
               {/* Campo 3: Aula */}
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label>3. Aula{fluorAsterisk}</label>
                 <select name="aula" value={formData.aula} onChange={handleChange}>
                   <option value="" disabled>Seleccione el aula afectada...</option>
                   {LISTADO_AULAS.map(aula => <option key={aula} value={aula}>{aula}</option>)}
                 </select>
-                {errors.aula && <span className="incidencias-error-msg">Por favor, rellene este campo obligatorio.</span>}
+                {errors.aula && <span className={styles.incidenciasErrorMsg}>Por favor, rellene este campo obligatorio.</span>}
               </div>
 
               {/* Campo 4: Descripción */}
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label>4. Escriba una breve descripción de la incidencia{fluorAsterisk}</label>
                 <textarea name="descripcion" rows={4} value={formData.descripcion} onChange={handleChange} placeholder="Escriba su respuesta describiendo el problema..." />
-                {errors.descripcion && <span className="incidencias-error-msg">Por favor, rellene este campo obligatorio.</span>}
+                {errors.descripcion && <span className={styles.incidenciasErrorMsg}>Por favor, rellene este campo obligatorio.</span>}
               </div>
 
               {/* Campo 5: Radios Notificación */}
-              <div className="form-group">
+              <div className={styles.formGroup}>
                 <label>5. ¿Desea recibir información sobre el estado de esta incidencia?{fluorAsterisk}</label>
-                <div className="incidencias-radio-group">
-                  <label className="incidencias-radio-label radio-si">
+                <div className={styles.incidenciasRadioGroup}>
+                  <label className={`${styles.incidenciasRadioLabel} ${styles.radioSi}`}>
                     <input type="radio" name="notificarEstado" value="Sí" checked={formData.notificarEstado === 'Sí'} onChange={handleChange} required />
-                    <span className="custom-radio-box"></span> Sí
+                    <span className={styles.customRadioBox}></span> Sí
                   </label>
-                  <label className="incidencias-radio-label radio-no">
+                  <label className={`${styles.incidenciasRadioLabel} ${styles.radioNo}`}>
                     <input type="radio" name="notificarEstado" value="No" checked={formData.notificarEstado === 'No'} onChange={handleChange} required />
-                    <span className="custom-radio-box"></span> No
+                    <span className={styles.customRadioBox}></span> No
                   </label>
                 </div>
-                {errors.notificarEstado && <span className="incidencias-error-msg">Por favor, rellene este campo obligatorio.</span>}
+                {errors.notificarEstado && <span className={styles.incidenciasErrorMsg}>Por favor, rellene este campo obligatorio.</span>}
               </div>
 
               {/* Campo 6: Email condicional */}
               {formData.notificarEstado === 'Sí' && (
-                <div className="form-group field-animate-fade">
+                <div className={`${styles.formGroup} ${styles.fieldAnimateFade}`}>
                   <label>6. Correo electrónico{fluorAsterisk}</label>
                   <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Inserte su correo electrónico..." />
-                  {errors.email && <span className="incidencias-error-msg">Por favor, rellene este campo obligatorio.</span>}
+                  {errors.email && <span className={styles.incidenciasErrorMsg}>Por favor, rellene este campo obligatorio.</span>}
                 </div>
               )}
 
               {/* Alertas de Feedback */}
               {apiState.success && (
-                <div className="alert alert-success">
+                <div className={`${styles.alert} ${styles.alertSuccess}`}>
                   <strong>[OK]</strong> Incidencia registrada con éxito. La incidencia ha sido enviada al Centro de Cálculo.
                 </div>
               )}
 
               {apiState.error && (
-                <div className="alert alert-danger">
+                <div className={`${styles.alert} ${styles.alertDanger}`}>
                   <strong>[ERROR]</strong> No se pudo procesar el envío de la incidencia. Compruebe la red del aula.
                 </div>
               )}
 
-              <button type="submit" disabled={apiState.loading} className="btn-submit">
+              <button type="submit" disabled={apiState.loading} className={styles.btnSubmit}>
                 {apiState.loading ? 'ENVIANDO...' : 'ENVIAR INCIDENCIA'}
               </button>
-              
+
             </form>
           </div>
         </div>
