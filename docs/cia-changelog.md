@@ -20,8 +20,15 @@ sidebar_position: 2
 - **Optimización del módulo de restricciones:** Refactorización de la lógica de asignación de permisos administrativos. Se ha simplificado el código de bloqueo: ahora las restricciones se aplican a la vez con un bucle sobre una lista, reduciendo el volumen de código y facilitando la escalabilidad.
 
 #### Actualización
-
 - Actualización a [PowerShell 7.6.2](https://github.com/PowerShell/PowerShell/blob/master/CHANGELOG/7.6.md#762) en todos los puestos de `L1-D-ATC`, `L2-D-ATC` y `L1-A-ESC`.
+
+#### Compatibilidad de sistemas
+Se ha verificado la correcta aplicación de las directivas de seguridad en **Windows 11 25H2**.
+
+| Sistema Operativo | Versión | Build | Arquitectura | Estado |
+| :--- | :--- | :--- | :--- | :--- |
+| **Windows 11** | 25H2 | 26200.x | x64 / ARM64 | ✅ Total|
+
 
 ## 1.1.1
 ---
@@ -63,10 +70,6 @@ La documentación online (Opción 0) se abre en el navegador predeterminado del 
 #### Funcionalidades del sistema
 - **Finalización del módulo de gestión de puestos:** Se ha estabilizado la lógica de control para los equipos de las aulas, permitiendo el despliegue de la herramienta en los tres laboratorios del centro.
 - **Optimización de tiempos de respuesta:** Ajuste de los tiempos de espera (*timeouts*) para garantizar la estabilidad en entornos de red con alta latencia.
-
-:::info[Nota sobre la disponibilidad de red (DHCP)]
-Si los equipos se acaban de encender o han sido reiniciados, es muy probable que figuren como **OFFLINE** o que no procesen correctamente las órdenes remotas durante los primeros instantes. Este comportamiento es normal y se debe al tiempo de latencia necesario para que el servicio DHCP asigne una dirección IP y se estabilicen los servicios de gestión remota en el equipo de destino. Se recomienda esperar a que el sistema operativo esté totalmente cargado antes de realizar cualquier acción con el script.
-:::
 
 #### Seguridad
 - Implementación del "Bloqueo Total Administrativo": se añaden a la lista de restricciones `taskschd.msc`, `netplwiz.exe` y `secpol.msc`.

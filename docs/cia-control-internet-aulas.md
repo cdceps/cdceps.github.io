@@ -138,12 +138,6 @@ La **Opción 3 (Ver estado)** muestra una tabla con todos los puestos del aula y
 | 🔒 **BLOQUEADO** | El equipo está encendido y en modo examen (Internet restringido) |
 | ❌ **OFFLINE** | El equipo está apagado o sin conexión de red |
 
-:::info[Un equipo encendido aparece como OFFLINE]
-
-Lo más habitual es que se acabe de arrancar y aún esté obteniendo dirección de red. Espere unos instantes (puede demorarse hasta 60 segundos aproximadamente) y vuelva a consultar la Opción 3. Si pasados varios minutos sigue apareciendo como OFFLINE de forma persistente, puede tratarse de una incidencia real de red: en ese caso, abra un parte de incidencia.
-
-:::
-
 ------------------------------------------------------------------------
 
 ## 📸 Capturas de CIA
@@ -203,9 +197,9 @@ No afecta a la seguridad del aula. Una vez enviada la orden de bloqueo, esta res
 
 </FaqItem>
 
-<FaqItem question="El número de puesto físico no coincide con el de la consola">
+<FaqItem question="Un equipo encendido aparece como OFFLINE">
 
-Puede ocurrir de forma excepcional si el Centro de Cálculo ha sustituido un equipo averiado, por poner un ejemplo. Deje que la clase continúe con normalidad y avise al personal técnico del CATEPS indicando el número de puesto afectado para actualizar el mapa de equipos.
+Lo más habitual es que se acabe de arrancar y aún esté obteniendo dirección de red. Espere unos instantes (puede demorarse hasta 60 segundos aproximadamente) y vuelva a consultar la Opción 3. Si pasados varios minutos sigue apareciendo como OFFLINE de forma persistente, puede tratarse de una incidencia real de red: en ese caso, abra un parte de incidencia.
 
 </FaqItem>
 
@@ -217,11 +211,13 @@ Sí. La restricción se aplica a nivel del sistema operativo, por lo que afecta 
 
 </FaqAccordion>
 
+:::info[Nota sobre la disponibilidad de red (DHCP)]
+Si los equipos se acaban de encender o han sido reiniciados, es muy probable que figuren como **OFFLINE** o que no procesen correctamente las órdenes remotas durante los primeros instantes. Este comportamiento es normal y se debe al tiempo de latencia necesario para que el servicio DHCP asigne una dirección IP y se estabilicen los servicios de gestión remota en el equipo de destino. Se recomienda esperar a que el sistema operativo esté totalmente cargado antes de realizar cualquier acción con el script.
+:::
+
 <div style={{ textAlign: 'center', margin: '3rem 0 1rem' }}>
   <a href="/docs/cia-faq" aria-label="Consultar todo el FAQ" className="eps-faq-btn">
     <span className="eps-faq-btn-label">Consultar todo el FAQ</span>
     <span className="eps-faq-btn-blob" />
   </a>
 </div>
-
-------------------------------------------------------------------------
