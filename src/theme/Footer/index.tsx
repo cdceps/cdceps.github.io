@@ -1,25 +1,24 @@
 import React from 'react';
 import Footer from '@theme-original/Footer';
 import { useLocation } from '@docusaurus/router';
+import styles from './Footer.module.css';
 
 // Tipamos las propiedades heredadas de forma segura para evitar bucles de rutas
 export default function FooterWrapper(props: any): JSX.Element {
   const { pathname } = useLocation();
-  
+
   // 1. Control de rutas específicas
   const isHome = pathname === '/' || pathname === '/index.html';
-  
+
   // 🌟 DETECTOR DEL PORTAL DE INCIDENCIAS
   const isFormulario = pathname.includes('incidencias-aulas-cateps') || pathname.includes('gestion-aulas-cateps');
-
   const scrollToTop = (): void => {
     window.scrollTo({ top: 0, behavior: 'auto' }); // Hachazo instantáneo hacia arriba
   };
-
   // 🪓 CASO A: Si estamos en el formulario, metemos el footer minimalista sin Dino ni fuentes alteradas
   if (isFormulario) {
     return (
-      <div className="footer-wrapper-relative">
+      <div className={styles.footerWrapperRelative}>
         <footer className="footer footer--dark" style={{ backgroundColor: 'rgba(15, 15, 15, 0.9)', borderTop: '1px solid rgba(255, 255, 255, 0.07)', padding: '1.5rem 0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div className="container container-fluid text--center">
             <div className="footer__copyright" style={{ color: 'rgba(255, 255, 255, 0.45)' }}>
@@ -27,13 +26,12 @@ export default function FooterWrapper(props: any): JSX.Element {
             </div>
           </div>
         </footer>
-
         {/* Botón de TOP personalizado */}
-        <button className="custom-back-to-top" onClick={scrollToTop}>
-          <svg 
-            width="20" 
-            height="20" 
-            viewBox="0 0 20 20" 
+        <button className={styles.backToTop} onClick={scrollToTop}>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
             aria-hidden="true"
             style={{ display: 'block', transform: 'rotate(-90deg)' }}
           >
@@ -47,20 +45,18 @@ export default function FooterWrapper(props: any): JSX.Element {
       </div>
     );
   }
-
   // 📋 CASO B: El comportamiento original del resto de la web se mantiene intacto
   return (
-    <div className="footer-wrapper-relative">
+    <div className={styles.footerWrapperRelative}>
       {/* Footer original de Docusaurus recuperando su alias estándar */}
       <Footer {...props} />
-
       {/* Control con el SVG exacto de la sidebar rotado hacia arriba */}
       {!isHome && (
-        <button className="custom-back-to-top" onClick={scrollToTop}>
-          <svg 
-            width="20" 
-            height="20" 
-            viewBox="0 0 20 20" 
+        <button className={styles.backToTop} onClick={scrollToTop}>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
             aria-hidden="true"
             style={{ display: 'block', transform: 'rotate(-90deg)' }}
           >

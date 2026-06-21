@@ -1,59 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from '@docusaurus/router';
+import styles from './BackToTopFlotante.module.css';
 
 export default function BackToTopFlotante(): JSX.Element | null {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState<boolean>(false);
-
   const isHome = pathname === '/' || pathname === '/index.html';
   const isFormulario = pathname.includes('incidencias-aulas-cateps') || pathname.includes('gestion-aulas-cateps');
-
   useEffect(() => {
     if (isHome || isFormulario) return;
-
     const handleScroll = (): void => {
       const scrollY = window.scrollY;
       const totalHeight = document.documentElement.scrollHeight;
       const windowHeight = window.innerHeight;
-      
-      const distanceFromBottom = totalHeight - (scrollY + windowHeight);
 
+      const distanceFromBottom = totalHeight - (scrollY + windowHeight);
       if (scrollY > 300 && distanceFromBottom > 100) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHome, isFormulario]);
-
   const scrollToTopSmooth = (): void => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   };
-
   if (isHome || isFormulario) return null;
-
   return (
     <button
       type="button"
       onClick={scrollToTopSmooth}
-      className={`cateps-btn-flotante ${isVisible ? 'visible' : ''}`}
+      className={`${styles.btnFlotante} ${isVisible ? styles.visible : ''}`}
       title="Volver arriba"
       aria-label="Volver arriba"
     >
-      {/* 📏 Línea horizontal industrial */}
-      <span className="cateps-linea-tope"></span>
-      
-      {/* 🚀 SVG con Chevron simple */}
-      <svg 
-        width="20" 
-        height="20" 
-        viewBox="0 0 20 20" 
+      {/* Línea horizontal industrial */}
+      <span className={styles.lineaTope}></span>
+
+      {/* SVG con Chevron simple */}
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
         aria-hidden="true"
         style={{ display: 'block', transform: 'rotate(-90deg)' }}
       >

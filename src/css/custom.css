@@ -210,6 +210,11 @@ button[class*="collapseSidebarButton"]:hover svg path {
   transition: filter 0.2s ease-in-out;
 }
 
+/* Oculta el botón nativo "volver arriba" de Docusaurus (usamos el propio, BackToTopFlotante) */
+.clean-btn.theme-back-to-top-button {
+  display: none !important;
+}
+
 /* ==========================================================================
    5. CONTENEDORES GLOBALES (TABS, TABLES & PESTAÑAS)
    ========================================================================== */
@@ -571,102 +576,6 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 }
 
 /* ==========================================================================
-   11. CONTROL TOP INTEGRADO EN EL PIE DE PÁGINA (ESTÁTICO)
-   ========================================================================== */
-.footer-wrapper-relative {
-  position: relative;
-}
-
-.custom-back-to-top {
-  position: absolute;
-  bottom: 20px; 
-  right: 40px;  
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.35);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  z-index: 10;
-  padding: 0;
-  transition: color 0.2s ease;
-  font-family: var(--ifm-font-family-base), system-ui, -apple-system, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.custom-back-to-top svg {
-  width: 20px !important;  
-  height: 20px !important;
-  transition: transform 0.2s ease;
-}
-
-.custom-back-to-top span {
-  opacity: 0;
-  visibility: hidden;
-  margin-top: 4px;
-  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-  transform: translateY(-6px); 
-}
-
-.custom-back-to-top:hover { color: #f9b905; }
-.custom-back-to-top:hover svg { transform: rotate(-90deg) translateX(2px); }
-.custom-back-to-top:hover span { opacity: 1; visibility: visible; transform: translateY(0); }
-
-/* ==========================================================================
-   15. BOTÓN BACK TO TOP PERSONALIZADO GLOBAL (FLOTANTE)
-   ========================================================================== */
-.clean-btn.theme-back-to-top-button {
-  display: none !important;
-}
-
-.cateps-btn-flotante {
-  position: fixed !important;
-  bottom: 2.5rem !important;
-  right: 2.5rem !important;
-  background: transparent !important;
-  border: none !important;
-  color: #606770 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  cursor: pointer !important;
-  z-index: 99 !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, color 0.2s ease-in-out !important;
-}
-
-.cateps-btn-flotante.visible {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.cateps-btn-flotante .cateps-linea-tope {
-  display: block !important;
-  width: 20px !important;
-  height: 2px !important;
-  background-color: #606770 !important;
-  margin-bottom: 0px !important; 
-  transition: background-color 0.2s ease-in-out !important;
-}
-
-.cateps-btn-flotante svg {
-  width: 20px !important;
-  height: 20px !important;
-  margin-top: -3px !important;
-  transition: color 0.2s ease-in-out !important;
-}
-
-.cateps-btn-flotante:hover { color: #93BD22 !important; background: transparent !important; }
-.cateps-btn-flotante:hover .cateps-linea-tope { background-color: #93BD22 !important; }
-
-/* ==========================================================================
    16. TIPOGRAFÍA SISTEMA EN ADMONITIONS & ALERTAS NATIVAS
    ========================================================================== */
 .theme-doc-markdown .admonition,
@@ -705,16 +614,7 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
    18. RESPONSIVE QUIRÚRGICO (Ajustes de Layout en pantallas estrechas)
    ========================================================================== */
 @media (max-width: 768px) {
-  /* PURGA DE NAVEGACIÓN VERTICAL EN MÓVILES */
-  .custom-back-to-top,
-  .cateps-btn-flotante,
-  .cateps-btn-flotante.visible {
-    display: none !important;
-  }
-
-  /* FOOTER MINIMALISTA ACHATADO MÓVIL */
-  .footer,
-  .footer-wrapper-relative {
+  .footer {
     background-color: #000000 !important;
     background-image: none !important;
     padding: 1rem 0 !important;
@@ -744,15 +644,7 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
    18.1. FILTRO TÁCTIL AVANZADO (Fix para Nest Hub, Nest Hub Max y Tablets)
    ========================================================================== */
 @media (pointer: coarse) {
-  /* Si el usuario usa el dedo (Smart Displays/Tablets), fulminamos el botón rebelde */
-  .custom-back-to-top,
-  .custom-back-to-top span {
-    display: none !important;
-  }
-  
-  /* Ajuste perimetral del footer en dispositivos táctiles grandes */
-  .footer,
-  .footer-wrapper-relative {
+  .footer {
     background-color: #000000 !important;
     padding-bottom: 1.5rem !important;
   }
