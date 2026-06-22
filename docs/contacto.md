@@ -3,7 +3,7 @@ title: Contacto
 sidebar_label: Contacto
 ---
 
-# <img src="/img/logo-cateps.png" alt="EPS" className="img-header-contacto" /> Contacto
+# <img src="/img/logo-eps.png" alt="EPS" className="img-header-contacto" /> Contacto
 
 El **Centro de Cálculo de la Escuela Politécnica Superior** tiene como prioridad garantizar la estabilidad operativa de las aulas y la correcta ejecución de las herramientas de gestión. Si detecta un error técnico, discrepancias en la documentación o necesita algún tipo de soporte con nuestros scripts, utilice los canales oficiales que se detallan a continuación.
 

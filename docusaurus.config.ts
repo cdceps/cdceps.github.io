@@ -110,8 +110,8 @@ const config: Config = {
       navbar: {
         title: 'Ayuda Docente - EPS',
         logo: {
-          alt: 'logo CATEPS',
-          src: 'img/logo-cateps.png',
+          alt: 'logo EPS',
+          src: 'img/logo-eps.png',
         },
         items: [
           {

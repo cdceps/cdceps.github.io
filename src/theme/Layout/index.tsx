@@ -7,7 +7,7 @@ import BuscadorMovil from '@site/src/components/BuscadorMovil';
 export default function LayoutWrapper(props: any): JSX.Element {
   const { pathname } = useLocation();
   
-  /* Condicional de inmunidad: Si estamos en incidencias, evitamos inyectar los accesos de la navbar */
+  /* Si estamos en incidencias, evitamos inyectar los accesos de la navbar */
   const esPaginaIncidencias = pathname.includes('incidencias-aulas-cateps');
 
   return (
