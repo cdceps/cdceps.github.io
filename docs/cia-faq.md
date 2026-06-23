@@ -144,5 +144,7 @@ Este escenario puede ocurrir de forma excepcional si el Centro de Cálculo ha te
 ---
 
 :::tip[Ayuda]
+
 Si su consulta no aparece en esta lista, puede contactar con nosotros en la sección de [Contacto](/docs/contacto).
+
 :::

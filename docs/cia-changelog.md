@@ -59,7 +59,9 @@ Se ha verificado la correcta aplicación de las directivas de seguridad en **Win
 - Integración de códigos de escape ANSI para el renombrado dinámico de la pestaña de la terminal (`Control Internet Aulas`).
 
 :::tip[Uso]
+
 La documentación online (Opción 0) se abre en el navegador predeterminado del sistema, permitiendo al profesor consultar dudas sin cerrar la consola.
+
 :::
 
 ## 1.0.0
@@ -87,7 +89,9 @@ Para garantizar un despliegue fiable en todos los laboratorios del centro, se ha
 | **Windows 10** | 22H2 | 19045.x | x86 / x64 | ✅ Total|
 
 :::info[Nota Técnica]
+
 La versión 22H2 de Windows 10 es la última versión oficial lanzada por Microsoft antes de centrar el soporte exclusivamente en actualizaciones de seguridad y mantenimiento. El script CIA aprovecha la madurez de esta build para garantizar una estabilidad del 100% en equipos de laboratorio más antiguos.
+
 :::
 
 ## 0.9.0
@@ -113,7 +117,9 @@ La versión 22H2 de Windows 10 es la última versión oficial lanzada por Micros
 - Implementación de la función `Esperar-Enter` para pausar el flujo del script tras cada acción y evitar la pérdida de información en pantalla.
 
 :::info[Diseño]
+
 Se han estandarizado los colores de la consola siguiendo la paleta corporativa de la EPS: Cyan para IPs, Amarillo para advertencias y Verde para procesos finalizados.
+
 :::
 
 ## 0.7.0
@@ -147,7 +153,9 @@ Se han estandarizado los colores de la consola siguiendo la paleta corporativa d
 - Añadida barra de progreso (`Write-Progress`) para visualizar el estado del escaneo en tiempo real.
 
 :::info[Rendimiento]
+
 El tiempo de carga del menú inicial se ha reducido de ~20 segundos a menos de 3 segundos gracias al procesamiento asíncrono.
+
 :::
 
 #### UI (Interfaz de usuario)

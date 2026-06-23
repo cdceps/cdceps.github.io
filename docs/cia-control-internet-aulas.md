@@ -86,7 +86,7 @@ Cuando el modo examen está activo, el navegador del alumno deja de cargar pági
     </div>
   </div>
   
-  Las opciones del menú son:
+  Las opciones del menú principal son:
 
   | Opción | Acción | Para qué sirve |
   |:------:|:-------|:---------------|
