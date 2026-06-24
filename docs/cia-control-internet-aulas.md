@@ -117,13 +117,13 @@ Cuando el modo examen está activo, el navegador del alumno deja de cargar pági
 
 El uso habitual durante una prueba sigue tres pasos muy sencillos:
 
-1. **Antes de empezar** — Con todos los equipos encendidos (no es necesario que la sesión de Windows 11 esté iniciada), seleccione la **Opción 1 (Bloquear Internet)**. La herramienta detectará automáticamente los puestos activos y aplicará el bloqueo.
+1. **Antes de empezar** — Con todos los equipos encendidos en Windows 11 (no es necesario que la sesión de usuario de Windows 11 esté iniciada), seleccione la **Opción 1 (Bloquear Internet)**. La herramienta detectará automáticamente los puestos activos y aplicará el bloqueo.
 2. **Durante la prueba** — Use la **Opción 3 (Ver estado)** de vez en cuando para confirmar que todos los puestos siguen en estado 🔒 **BLOQUEADO**.
 3. **Al terminar** — Seleccione la **Opción 2 (Revertir bloqueo)** para devolver el aula a la normalidad de cara a la siguiente clase.
 
 :::warning[Bloquee con los equipos ya encendidos]
 
-El bloqueo se aplica únicamente a los puestos que estén **encendidos con Windows cargado** en el momento de pulsar la Opción 1. Si un alumno llega tarde y enciende su equipo después, ese puesto arrancará con Internet libre. No es un problema: basta con **volver a pulsar la Opción 1** y la herramienta detectará el equipo nuevo y lo bloqueará sin alterar a los que ya lo estaban.
+El bloqueo se aplica únicamente a los puestos que estén **encendidos con Windows cargado** en el momento de pulsar la Opción 1. Si un alumno llega tarde y enciende su equipo después, ese puesto arrancará con Internet libre. Basta con **volver a pulsar la Opción 1** y la herramienta detectará el equipo nuevo y lo bloqueará sin alterar a los que ya lo estaban.
 
 :::
 
