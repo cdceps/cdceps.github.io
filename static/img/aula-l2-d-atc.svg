@@ -21,19 +21,34 @@
   <rect width="760" height="1080" rx="14" fill="url(#aulaGrid)"/>
   <rect width="760" height="1080" rx="14" fill="url(#aulaGridMajor)"/>
 
-  <!-- Circuito estático: sale del lateral izq del profesor (x=620, y=1000) -->
-  <g stroke="#5b8aa6" stroke-width="1.5" opacity="0.25">
-    <path d="M620,1000 L620,1025 L84,1025" fill="none"/>
-    <path d="M84,1025 L84,35" fill="none"/>
-    <path d="M321,1025 L321,95" fill="none"/>
-    <path d="M439,1025 L439,95" fill="none"/>
+  <!-- Circuito estático azul: solo hasta el top del primer PC de cada columna -->
+  <!-- Profesor en translate(620,980): lateral izq x=620, centro vertical y=1000 -->
+  <!-- Col A: PC-22 en translate(55,35) → top y=35, centro x=84 -->
+  <!-- Col B: PC-11 en translate(292,95) → top y=95, centro x=321 -->
+  <!-- Col C: PC-10 en translate(410,95) → top y=95, centro x=439 -->
+  <!-- Circuito estático: bus horizontal bajo todos los PCs (y=960), ramales suben hasta bottom del último PC -->
+  <!-- Col A: PC-21 bottom y=163, centro x=84 -->
+  <!-- Col B: PC-20 bottom y=927, centro x=321 -->
+  <!-- Col C: PC-01 bottom y=927, centro x=439 -->
+  <g stroke="#5b8aa6" stroke-width="1.5" opacity="0.28">
+    <path d="M620,1000 L84,1000" fill="none"/>
+    <path d="M84,1000 L84,163" fill="none"/>
+    <path d="M321,1000 L321,927" fill="none"/>
+    <path d="M439,1000 L439,927" fill="none"/>
   </g>
 
-  <!-- Pulsos: salen del lateral izq del profesor, tocan top del primer PC de cada col y desaparecen -->
+  <!-- Buses internos verdes: top del primer PC hasta bottom del último de cada col -->
   <g>
-    <g opacity="0"><path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M620,1000 L620,1025 L84,1025 L84,35"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/></g>
-    <g opacity="0"><path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M620,1000 L620,1025 L321,1025 L321,95"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/></g>
-    <g opacity="0"><path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M620,1000 L620,1025 L439,1025 L439,95"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/></g>
+    <line x1="84" y1="35" x2="84" y2="163" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
+    <line x1="321" y1="95" x2="321" y2="927" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
+    <line x1="439" y1="95" x2="439" y2="927" stroke="#93BD22" stroke-width="1.5" opacity="0.18"/>
+  </g>
+
+  <!-- Pulsos: salen del lateral izq del profesor (x=620,y=1000), suben hasta bottom del último PC y desaparecen -->
+  <g>
+    <g opacity="0"><path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M620,1000 L84,1000 L84,163"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/></g>
+    <g opacity="0"><path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M620,1000 L321,1000 L321,927"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/></g>
+    <g opacity="0"><path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M620,1000 L439,1000 L439,927"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/></g>
   </g>
 
   <!-- Columna A: 2 sueltos arriba-izquierda -->

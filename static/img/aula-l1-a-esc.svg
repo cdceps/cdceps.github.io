@@ -45,25 +45,25 @@
     <!-- Pulso Columna 1 (PC-29 a PC-01): Recorre la máxima distancia, va muy rápido -->
     <g opacity="0">
       <path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/>
-      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M570,830 L570,769 L216,769 L216,706"/>
+      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M570,830 L570,769 L216,769 L216,730"/>
       <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/>
     </g>
     <!-- Pulso Columna 2 (PC-30 a PC-02): Velocidad rápida-media -->
     <g opacity="0">
       <path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/>
-      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M570,830 L570,769 L334,769 L334,706"/>
+      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M570,830 L570,769 L334,769 L334,730"/>
       <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/>
     </g>
     <!-- Pulso Columna 3 (PC-31 a PC-03): Velocidad media -->
     <g opacity="0">
       <path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/>
-      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M570,830 L570,769 L452,769 L452,706"/>
+      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M570,830 L570,769 L452,769 L452,730"/>
       <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/>
     </g>
     <!-- Pulso Columna 4 (PC-32 a PC-04): Recorrido cortísimo, va muy lento para esperar al resto -->
     <g opacity="0">
       <path d="M-6,-6 L6,0 L-6,6" fill="none" stroke="#93BD22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 6px rgba(147,189,34,0.9));"/>
-      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M570,830 L570,769 L570,706"/>
+      <animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.31;1" calcMode="linear" rotate="auto" path="M570,830 L570,769 L570,730"/>
       <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.02;0.29;0.32;1" dur="8s" repeatCount="indefinite"/>
     </g>
   </g>
