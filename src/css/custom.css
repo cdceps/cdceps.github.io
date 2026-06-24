@@ -832,3 +832,127 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     padding-bottom: 1.5rem !important;
   }
 }
+
+/* GitHub solo visible en menú hamburguesa, oculto en navbar escritorio y móvil */
+.navbar__item.navbar-github-mobile-only {
+  display: none !important;
+}
+
+.navbar-sidebar .navbar__item.navbar-github-mobile-only {
+  display: block !important;
+}
+
+@media (max-width: 996px) {
+  /* Hamburguesa a la derecha con color corporativo */
+  .navbar__toggle {
+    order: 3;
+    margin-left: auto;
+    color: #F9B905 !important;
+  }
+  
+  /* Flechas pegadas al texto */
+  .navbar-sidebar .menu__list-item-collapsible {
+    display: flex !important;
+    align-items: center !important;
+  }
+  .navbar-sidebar .menu__list-item-collapsible .menu__link {
+    flex: none !important;
+    width: auto !important;
+  }
+  
+  /* Navbar estable cuando el menú está abierto */
+.navbar-sidebar--show .navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+
+.navbar-sidebar--show .navbar__brand {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.navbar-sidebar--show .navbar__toggle {
+  color: #F9B905 !important;
+}
+
+  /* Links institucionales alineados a la izquierda sin tabulado */
+  .navbar-sidebar .menu__list .menu__list-item > a.menu__link {
+    padding-left: 0 !important;
+  }
+
+  /* Logo+título más a la izquierda */
+  .navbar__brand {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  /* Lupa a la izquierda del hamburguesa */
+  .cateps-search-movil-container {
+    right: 3.5rem !important;
+  }
+
+  /* Lupa: más grande y sin fondo */
+  .cateps-lupa-trigger {
+    background-color: transparent !important;
+    border: none !important;
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+  /* Ocultar GitHub clon móvil */
+  .cateps-github-movil-container {
+    display: none !important;
+  }
+
+  /* Ocultar en móvil: US, EPS, Contacto y buscador nativo */
+  .navbar__items--right .navbar__link[href="https://www.us.es/"],
+  .navbar__items--right .navbar__link[href="https://eps.us.es/"],
+  .navbar__items--right .navbar__link[href="/docs/contacto"],
+  .navbar__items--right .navbarSearchContainer_Bca1 {
+    display: none !important;
+  }
+
+  /* "AD" outline en amarillo corporativo */
+  .navbar__title {
+    font-size: 0 !important;
+  }
+
+  .navbar__title::after {
+    content: "AD";
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    color: transparent !important;
+    -webkit-text-stroke: 1.5px #F9B905 !important;
+    text-stroke: 1.5px #F9B905 !important;
+  }
+
+  /* Menú hamburguesa a pantalla completa */
+  .navbar-sidebar {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+
+  /* Fondo opaco — no se ve lo que hay detrás */
+  .navbar-sidebar__backdrop {
+    display: none !important;
+  }
+
+  /* Botón cerrar (X) en amarillo corporativo */
+  .navbar-sidebar__close {
+    color: #F9B905 !important;
+  }
+
+  .navbar-sidebar__close svg path,
+  .navbar-sidebar__close svg line {
+    stroke: #F9B905 !important;
+  }
+
+  /* Ocultar "Volver al menú principal" */
+  .navbar-sidebar__back {
+    display: none !important;
+  }
+}

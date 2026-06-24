@@ -140,6 +140,12 @@ const config: Config = {
             label: 'EPS',
             title: '',
           },
+		  {
+			href: 'https://github.com/cdceps/',
+			position: 'right',
+			label: 'GitHub EPS',
+			className: 'navbar-github-mobile-only',
+		  },
           {
             to: '/docs/contacto', 
             position: 'right',
