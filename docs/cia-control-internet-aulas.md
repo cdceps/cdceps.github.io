@@ -69,7 +69,7 @@ Cuando el modo examen está activo, el navegador del alumno deja de cargar pági
         <img
           src="/img/Control-Internet-Aulas-acceso-directo.png"
           alt="Acceso directo de Control Internet Aulas en el escritorio del equipo del profesor."
-          style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '10px' }}
+          style={{ width: '80%', height: 'auto', display: 'block', borderRadius: '10px' }}
         />
       </div>
     </figure>

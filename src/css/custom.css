@@ -29,7 +29,7 @@
     14. Home / portada
     15. Miscelánea y cursor Typed.js
     16. Animaciones globales (keyframes)
-    17. Responsive: footer en móvil y táctil
+    17. Responsive
    ============================================================================ */
 
 /* ============================================================================
@@ -796,7 +796,7 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 }
 
 /* ============================================================================
-   17. RESPONSIVE: FOOTER EN MÓVIL Y TÁCTIL
+   17. RESPONSIVE
    ============================================================================ */
 @media (max-width: 768px) {
   .footer {
@@ -823,6 +823,11 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     margin: 0 !important;
     padding: 0 1rem !important;
   }
+  
+  /* Ocultar footer en la home en móvil */
+	body.home-stop-flash .footerWrapperRelative_AWhh {
+	display: none !important;
+  }
 }
 
 /* Filtro táctil avanzado (Fix para Nest Hub, Nest Hub Max y Tablets) */
@@ -843,40 +848,47 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 }
 
 @media (max-width: 996px) {
+  /* Sin imagen de fondo en navbar móvil */
+  .navbar {
+    background-image: none !important;
+	background-color: #1b1b1d !important;
+  }
+
   /* Hamburguesa a la derecha con color corporativo */
   .navbar__toggle {
     order: 3;
     margin-left: auto;
     color: #F9B905 !important;
   }
-  
+
   /* Flechas pegadas al texto */
   .navbar-sidebar .menu__list-item-collapsible {
     display: flex !important;
     align-items: center !important;
   }
+
   .navbar-sidebar .menu__list-item-collapsible .menu__link {
     flex: none !important;
     width: auto !important;
   }
-  
+
   /* Navbar estable cuando el menú está abierto */
-.navbar-sidebar--show .navbar {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-}
+  .navbar-sidebar--show .navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+  }
 
-.navbar-sidebar--show .navbar__brand {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
-}
+  .navbar-sidebar--show .navbar__brand {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
 
-.navbar-sidebar--show .navbar__toggle {
-  color: #F9B905 !important;
-}
+  .navbar-sidebar--show .navbar__toggle {
+    color: #F9B905 !important;
+  }
 
   /* Links institucionales alineados a la izquierda sin tabulado */
   .navbar-sidebar .menu__list .menu__list-item > a.menu__link {
@@ -954,5 +966,79 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   /* Ocultar "Volver al menú principal" */
   .navbar-sidebar__back {
     display: none !important;
+  }
+}
+
+.navbar-sidebar,
+.theme-layout-navbar-sidebar {
+  background: #1b1b1d !important;
+  background-color: #1b1b1d !important;
+  --ifm-navbar-sidebar-background-color: #1b1b1d !important;
+}
+
+.navbar-sidebar__brand {
+  background: #1b1b1d !important;
+  background-image: none !important;
+}
+
+/* ============================================================================
+   18. HERO RESPONSIVE MÓVIL
+   ============================================================================ */
+
+@media (max-width: 996px) {
+
+  /* Contenedor raíz del hero */
+  header[style*="fit-content"] {
+    padding: 4rem 1.25rem 2rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ocultar: SVG EPS, logos de tecnologías, botón "Ir a Docs" */
+  header[style*="fit-content"] svg,
+  header[style*="fit-content"] > div:last-child > div:last-child,
+  header[style*="fit-content"] kbd {
+    display: none !important;
+  }
+
+  /* Fila 1: solo el h1, sin gap lateral */
+  header[style*="fit-content"] > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  /* H1: tamaño fluido móvil, sin tocar desktop */
+  header[style*="fit-content"] h1 {
+    font-size: clamp(2.5rem, calc(2.5rem + 1.5 * (100vw - 23.4375rem) / 38.875), 4rem) !important;
+    min-height: unset !important;
+  }
+
+  /* Fila 2: párrafo a ancho completo */
+  header[style*="fit-content"] > div:last-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+    margin-top: 1rem !important;
+  }
+
+  /* Párrafo: ancho completo, texto más compacto */
+  header[style*="fit-content"] p {
+    font-size: 1.375rem !important;
+    max-width: 100% !important;
+    flex-shrink: unset !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* iPhone SE y similares (≤390px) */
+@media (max-width: 390px) {
+  header[style*="fit-content"] h1 {
+    font-size: 2.2rem !important;
+  }
+  header[style*="fit-content"] p {
+    font-size: 1.2rem !important;
   }
 }
