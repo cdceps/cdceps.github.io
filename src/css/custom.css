@@ -254,8 +254,15 @@
   .cateps-search-movil-container {
     position: fixed !important;
     top: 0.75rem !important;
-    right: 1.5rem !important;
+    right: 3.5rem !important;
     z-index: 2000 !important;
+  }
+
+  /* Más separada en tablets */
+  @media (min-width: 768px) {
+    .cateps-search-movil-container {
+      right: 4.5rem !important;
+    }
   }
 
   /* Contenedor del clon de GitHub móvil */
@@ -806,6 +813,10 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   .navbar__toggle {
     display: none !important;
   }
+  
+  .navbar__item.navbar-github-mobile-only {
+    display: none !important;
+  }
 
   .navbar__items--left .navbar__item,
   .navbar__items--right .navbar__item {
@@ -925,14 +936,6 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   .navbar__brand {
     padding-left: 0 !important;
     margin-left: 0 !important;
-  }
-
-  /* Lupa: posición fija arriba a la derecha */
-  .cateps-search-movil-container {
-    position: fixed !important;
-    top: 0.75rem !important;
-    right: 3.5rem !important;
-    z-index: 2000 !important;
   }
 
   /* Lupa: más grande y sin fondo */
