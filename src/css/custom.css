@@ -809,9 +809,11 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   .navbar__toggle {
     display: none !important;
   }
-  .navbar__item.navbar-github-mobile-only {
-    display: none !important;
+  
+  .navbar-github-mobile-only {
+  display: none !important;
   }
+
   /* Restaurar icono GitHub en desktop */
   .navbar__item.header-github-link {
     display: flex !important;
