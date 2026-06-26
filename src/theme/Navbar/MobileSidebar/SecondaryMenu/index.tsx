@@ -86,9 +86,20 @@ function StaticDocsMenu(): ReactNode {
         </li>
       </CollapseToggle>
       <CollapseToggle label="Scripts">
-        <li className="menu__list-item">
-          <Link className="menu__link" to="/docs/cia-control-internet-aulas">CIA / Control Internet Aulas</Link>
-        </li>
+        <CollapseToggle label="CIA / Control Internet Aulas">
+          <li className="menu__list-item">
+            <Link className="menu__link" to="/docs/cia-control-internet-aulas">Introducción CIA</Link>
+          </li>
+          <li className="menu__list-item">
+            <Link className="menu__link" to="/docs/cia-changelog">Changelog</Link>
+          </li>
+          <li className="menu__list-item">
+            <Link className="menu__link" to="/docs/cia-checksum">Checksum</Link>
+          </li>
+          <li className="menu__list-item">
+            <Link className="menu__link" to="/docs/cia-faq">FAQs</Link>
+          </li>
+        </CollapseToggle>
       </CollapseToggle>
       <CollapseToggle label="Guías">
         <li className="menu__list-item">
