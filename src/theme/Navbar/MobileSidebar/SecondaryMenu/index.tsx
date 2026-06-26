@@ -41,7 +41,7 @@ function CollapseToggle({label, children}: {label: string; children: ReactNode})
 
 function InstitutionalLinks(): ReactNode {
   return (
-    <ul className="menu__list" style={{borderTop: '1px solid var(--ifm-toc-border-color)', paddingTop: '0.5rem', marginTop: '0.5rem'}}>
+    <ul className="menu__list menu__list--institutional" style={{borderTop: '1px solid var(--ifm-toc-border-color)', paddingTop: '0.5rem', marginTop: '0.5rem'}}>
       <li className="menu__list-item">
         <a className="menu__link" href="https://www.us.es/" target="_blank" rel="noopener noreferrer">
           US <ExternalIcon />
@@ -87,9 +87,6 @@ function StaticDocsMenu(): ReactNode {
       </CollapseToggle>
       <CollapseToggle label="Scripts">
         <CollapseToggle label="CIA / Control Internet Aulas">
-          <li className="menu__list-item">
-            <Link className="menu__link" to="/docs/cia-control-internet-aulas">Introducción CIA</Link>
-          </li>
           <li className="menu__list-item">
             <Link className="menu__link" to="/docs/cia-changelog">Changelog</Link>
           </li>

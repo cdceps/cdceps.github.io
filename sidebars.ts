@@ -34,14 +34,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Scripts', // 1. Contenedor puro, solo se despliega y no enlaza a nada
+      label: 'Scripts',
       items: [
         {
           type: 'category',
-          label: 'CIA / Control Internet Aulas', // 2. Subcategoría con el texto largo
-          link: { type: 'doc', id: 'cia-control-internet-aulas' },     // 3. Enlaza directamente a /docs/cia
+          label: 'CIA / Control Internet Aulas',
+          link: { type: 'doc', id: 'cia-control-internet-aulas' },
           items: [
-            'cia-changelog',                     // 4. Sus 3 subsecciones dependientes
+            'cia-changelog',
             'cia-checksum',
             {
               type: 'doc',
@@ -53,7 +53,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'html',
-          value: '<hr class="sidebar-hr" />',    // 5. La línea divisoria justo debajo de todo el bloque de CIA
+          value: '<hr class="sidebar-hr" />',
         },
       ],
     },
@@ -69,5 +69,4 @@ const sidebars: SidebarsConfig = {
     'contacto',
   ],
 };
-
 export default sidebars;

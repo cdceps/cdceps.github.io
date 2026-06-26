@@ -923,9 +923,9 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   .navbar-sidebar--show .navbar__toggle {
     color: #F9B905 !important;
   }
-
-  /* Links institucionales alineados a la izquierda sin tabulado */
-  .navbar-sidebar .menu__list .menu__list-item > a.menu__link {
+  
+  /* Alinear links institucionales con el resto del menú móvil */
+  .navbar-sidebar .menu__list--institutional {
     padding-left: 0 !important;
   }
 
