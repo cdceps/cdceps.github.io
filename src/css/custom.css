@@ -784,7 +784,6 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 /* ============================================================================
    17. NAVBAR: BREAKPOINT HAMBURGUESA FORZADO A 1024PX
    ============================================================================ */
-
 @media (max-width: 1024px) {
   .navbar__items--left .navbar__item,
   .navbar__items--left .navbar__link,
@@ -809,19 +808,18 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   .navbar__toggle {
     display: none !important;
   }
-  
-  .navbar-github-mobile-only {
-  display: none !important;
-  }
-
-  /* Restaurar icono GitHub en desktop */
-  .navbar__item.header-github-link {
-    display: flex !important;
-  }
   .navbar__items--left .navbar__item,
   .navbar__items--right .navbar__item {
     display: flex !important;
     align-items: center !important;
+  }
+  /* Restaurar icono GitHub en desktop */
+  .navbar__item.header-github-link {
+    display: flex !important;
+  }
+  /* Ocultar GitHub EPS duplicado en desktop */
+  .navbar__items--right .navbar__item.navbar-github-mobile-only {
+    display: none !important;
   }
   .navbar__items--right .navbar__item .iconExternalLink_nPIU {
     vertical-align: middle !important;
