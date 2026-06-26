@@ -785,7 +785,6 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
    17. NAVBAR: BREAKPOINT HAMBURGUESA FORZADO A 1024PX
    ============================================================================ */
 
-/* Ocultar items de navegación y forzar hamburguesa en móvil/tablet */
 @media (max-width: 1024px) {
   .navbar__items--left .navbar__item,
   .navbar__items--left .navbar__link,
@@ -796,11 +795,9 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   .header-github-link {
     display: none !important;
   }
-
   .navbar__toggle {
     display: flex !important;
   }
-
   /* Lupa en amarillo corporativo */
   .cateps-lupa-trigger svg {
     color: #F9B905 !important;
@@ -808,22 +805,22 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   }
 }
 
-/* Restaurar navbar de escritorio */
 @media (min-width: 1025px) {
   .navbar__toggle {
     display: none !important;
   }
-  
   .navbar__item.navbar-github-mobile-only {
     display: none !important;
   }
-
+  /* Restaurar icono GitHub en desktop */
+  .navbar__item.header-github-link {
+    display: flex !important;
+  }
   .navbar__items--left .navbar__item,
   .navbar__items--right .navbar__item {
     display: flex !important;
     align-items: center !important;
   }
-
   .navbar__items--right .navbar__item .iconExternalLink_nPIU {
     vertical-align: middle !important;
     margin-bottom: 1px !important;
