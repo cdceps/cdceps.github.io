@@ -29,7 +29,10 @@
     14. Home / portada
     15. Miscelánea y cursor Typed.js
     16. Animaciones globales (keyframes)
-    17. Responsive
+    17. Navbar: breakpoint hamburguesa forzado a 1024px
+    18. Responsive
+    19. Hero responsive móvil
+    20. Hero título móvil estático
    ============================================================================ */
 
 /* ============================================================================
@@ -194,17 +197,17 @@
 }
 
 /* Ocultar el input nativo de Docusaurus en móvil para que no rompa el Layout */
-@media (max-width: 996px) {
+@media (max-width: 1024px) {
   .navbar__search {
     display: none !important;
   }
 }
 
 /* ESTILOS EXCLUSIVOS PARA ESCRITORIO (IBM Plex Mono intacto) */
-@media (min-width: 997px) {
+@media (min-width: 1025px) {
   .cateps-search-movil-container,
   .cateps-github-movil-container {
-    display: none !important; /* Escondemos los clones móviles en PC */
+    display: none !important;
   }
 
   .navbar__search-input {
@@ -241,7 +244,7 @@
 /* ============================================================================
    5. NAVBAR: BUSCADOR MÓVIL (MODAL)
    ============================================================================ */
-@media (max-width: 996px) {
+@media (max-width: 1024px) {
   /* Ocultar el GitHub nativo dentro del panel lateral de hamburguesa */
   .navbar-sidebar .header-github-link {
     display: none !important;
@@ -251,19 +254,19 @@
   .cateps-search-movil-container {
     position: fixed !important;
     top: 0.75rem !important;
-    right: 1.5rem !important; /* Esquina derecha limpia */
+    right: 1.5rem !important;
     z-index: 2000 !important;
   }
 
-  /* Contenedor del clon de GitHub móvil (Justo a la izquierda de la lupa) */
+  /* Contenedor del clon de GitHub móvil */
   .cateps-github-movil-container {
     position: fixed !important;
     top: 0.75rem !important;
-    right: 4.25rem !important; /* Calibrado a 12px exactos de distancia con la lupa */
+    right: 4.25rem !important;
     z-index: 2000 !important;
   }
 
-  /* Estilos de botones unificados (Sombreado idéntico a Docs) */
+  /* Estilos de botones unificados */
   .cateps-lupa-trigger,
   .cateps-github-movil-btn {
     background-color: rgba(255, 255, 255, 0.15) !important;
@@ -278,7 +281,7 @@
   }
 
   .cateps-lupa-trigger {
-    color: #f9b905 !important; /* Amarillo corporativo */
+    color: #f9b905 !important;
   }
 
   /* Inyección de la máscara SVG de GitHub en el botón móvil */
@@ -297,7 +300,7 @@
   }
 
   .cateps-github-movil-btn:hover::before {
-    background-color: #f9b905 !important; /* Hover amarillo corporativo */
+    background-color: #f9b905 !important;
   }
 
   /* Capa oscura translúcida de fondo */
@@ -352,28 +355,26 @@
   .cateps-search-modal-close {
     background: transparent !important;
     border: none !important;
-    color: #f9b905 !important; /* Aspa en amarillo */
+    color: #f9b905 !important;
     font-size: 2rem !important;
     line-height: 1 !important;
     cursor: pointer !important;
   }
 
   .cateps-search-modal-footer {
-    display: none !important; /* Pie de página purgado */
+    display: none !important;
   }
 }
 
 /* ============================================================================
    6. NAVBAR: ENLACES US / EPS Y TOOLTIPS
    ============================================================================ */
-/* Anclaje relativo: necesario para que los bocadillos de tooltip se posicionen bien */
 .navbar__items--right .navbar__link[href="https://www.us.es/"],
 .navbar__items--right .navbar__link[href="https://eps.us.es/"] {
   position: relative !important;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
-/* Forzar paddings y esquinas solo en los enlaces de texto originales */
 .navbar__items--right .navbar__link[href="https://www.us.es/"],
 .navbar__items--right .navbar__link[href="https://eps.us.es/"] {
   padding: 6px 12px !important;
@@ -382,7 +383,6 @@
   margin-right: 6px !important;
 }
 
-/* Efecto Hover original de la US */
 .navbar__items--right .navbar__link[href="https://www.us.es/"]:hover {
   background-color: #9D2235 !important;
   background: #9D2235 !important;
@@ -391,22 +391,16 @@
   text-shadow: none !important;
 }
 
-/* Forzar el icono a blanco en el hover de la US */
 .navbar__items--right .navbar__link[href="https://www.us.es/"]:hover svg {
   fill: #FFFFFF !important;
   color: #FFFFFF !important;
 }
 
-/* Inyección exclusiva de tooltips */
-
-/* Cuerpos de los bocadillos: ajuste individualizado de altura vertical */
-/* Subimos sutilmente US y EPS a (100% + 8px) para compensar su padding nativo */
 .navbar__items--right .navbar__link[href="https://www.us.es/"]::after,
 .navbar__items--right .navbar__link[href="https://eps.us.es/"]::after {
   top: calc(100% + 8px) !important;
 }
 
-/* Base común idéntica para los cuerpos de US y EPS */
 .navbar__items--right .navbar__link[href="https://www.us.es/"]::after,
 .navbar__items--right .navbar__link[href="https://eps.us.es/"]::after {
   position: absolute !important;
@@ -454,11 +448,9 @@
   box-shadow: none !important;
 }
 
-/* Asignación de textos */
 .navbar__items--right .navbar__link[href="https://www.us.es/"]::after { content: "Universidad de Sevilla" !important; }
 .navbar__items--right .navbar__link[href="https://eps.us.es/"]::after { content: "Escuela Politécnica Superior" !important; }
 
-/* Disparadores hover simétricos */
 .navbar__items--right .navbar__link[href="https://www.us.es/"]:hover::after,
 .navbar__items--right .navbar__link[href="https://eps.us.es/"]:hover::after {
   opacity: 1 !important;
@@ -524,7 +516,6 @@
   margin: .5rem .75em;
 }
 
-/* Botones de colapso y expansión integrados */
 .collapseSidebarButtonIcon_kv0_,
 [class*='collapseSidebarButton'] svg,
 div[class*="expandButton"] svg g,
@@ -548,7 +539,6 @@ button[class*="collapseSidebarButton"]:hover svg path {
   fill: #F9B905 !important;
 }
 
-/* Icono FAQ CIA - Menú Lateral */
 .sidebar-faq-item a {
   display: flex !important;
   align-items: center;
@@ -620,7 +610,6 @@ table {
   font-size: 16px !important;
 }
 
-/* Espaciado vertical de los admonitions respecto al contenido */
 .theme-admonition {
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
@@ -675,7 +664,6 @@ table {
   text-decoration: underline !important;
 }
 
-/* Scrollbar Ecosistema Webkit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
@@ -695,13 +683,11 @@ table {
   background: #aadb32;
 }
 
-/* Compatibilidad Scrollbar Engine Firefox */
 html {
   scrollbar-width: auto;
   scrollbar-color: #93bd22 #0a0a0a;
 }
 
-/* Dino decorativo del footer */
 .footer-dino {
   width: 22px;
   height: 22px;
@@ -716,7 +702,6 @@ html {
   transform: rotate(12deg) scale(1.25);
 }
 
-/* Oculta el botón nativo "volver arriba" de Docusaurus (usamos BackToTopFlotante) */
 .clean-btn.theme-back-to-top-button {
   display: none !important;
 }
@@ -754,24 +739,18 @@ html[data-theme='light'] .navbar__items--right button:hover svg {
   stroke: #f9b905 !important;
 }
 
-/* Configuración de los cursores nativos de Typed.js */
-
-/* Base común para todos los cursores que aparezcan en la web */
 .typed-cursor {
   font-weight: 900 !important;
   margin-left: -0.15em !important;
   font-family: monospace !important;
 }
 
-/* Cursor de la primera línea (Hereda el blanco por defecto) */
 h1 div span[style*="color: #FFFFFF"] + .typed-cursor,
 h1 div span:not([style*="transparent"]) + .typed-cursor {
   color: #FFFFFF !important;
   animation: blink 0.9s infinite !important;
 }
 
-/* Cursor de la segunda línea.
-   Apunta al cursor que va justo detrás del span que tiene el degradado amarillo de fondo */
 h1 div span[style*="linear-gradient"] + .typed-cursor {
   color: #F9B905 !important;
   animation: blink 0.7s infinite !important;
@@ -796,7 +775,52 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 }
 
 /* ============================================================================
-   17. RESPONSIVE
+   17. NAVBAR: BREAKPOINT HAMBURGUESA FORZADO A 1024PX
+   ============================================================================ */
+
+/* Ocultar items de navegación y forzar hamburguesa en móvil/tablet */
+@media (max-width: 1024px) {
+  .navbar__items--left .navbar__item,
+  .navbar__items--left .navbar__link,
+  .navbar__items--right .navbar__item,
+  .navbar__items--right .navbar__link,
+  .theme-layout-navbar-left .navbar__item,
+  .theme-layout-navbar-left .navbar__link,
+  .header-github-link {
+    display: none !important;
+  }
+
+  .navbar__toggle {
+    display: flex !important;
+  }
+
+  /* Lupa en amarillo corporativo */
+  .cateps-lupa-trigger svg {
+    color: #F9B905 !important;
+    stroke: #F9B905 !important;
+  }
+}
+
+/* Restaurar navbar de escritorio */
+@media (min-width: 1025px) {
+  .navbar__toggle {
+    display: none !important;
+  }
+
+  .navbar__items--left .navbar__item,
+  .navbar__items--right .navbar__item {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .navbar__items--right .navbar__item .iconExternalLink_nPIU {
+    vertical-align: middle !important;
+    margin-bottom: 1px !important;
+  }
+}
+
+/* ============================================================================
+   18. RESPONSIVE
    ============================================================================ */
 @media (max-width: 768px) {
   .footer {
@@ -823,10 +847,12 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     margin: 0 !important;
     padding: 0 1rem !important;
   }
-  
-  /* Ocultar footer en la home en móvil */
-	body.home-stop-flash .footerWrapperRelative_AWhh {
-	display: none !important;
+}
+
+/* Ocultar footer en home en móvil y tablet */
+@media (max-width: 1024px) {
+  body.home-stop-flash .footerWrapperRelative_AWhh {
+    display: none !important;
   }
 }
 
@@ -847,11 +873,11 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   display: block !important;
 }
 
-@media (max-width: 996px) {
+@media (max-width: 1024px) {
   /* Sin imagen de fondo en navbar móvil */
   .navbar {
     background-image: none !important;
-	background-color: #1b1b1d !important;
+    background-color: #1b1b1d !important;
   }
 
   /* Hamburguesa a la derecha con color corporativo */
@@ -901,9 +927,12 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     margin-left: 0 !important;
   }
 
-  /* Lupa a la izquierda del hamburguesa */
+  /* Lupa: posición fija arriba a la derecha */
   .cateps-search-movil-container {
+    position: fixed !important;
+    top: 0.75rem !important;
     right: 3.5rem !important;
+    z-index: 2000 !important;
   }
 
   /* Lupa: más grande y sin fondo */
@@ -916,14 +945,6 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 
   /* Ocultar GitHub clon móvil */
   .cateps-github-movil-container {
-    display: none !important;
-  }
-
-  /* Ocultar en móvil: US, EPS, Contacto y buscador nativo */
-  .navbar__items--right .navbar__link[href="https://www.us.es/"],
-  .navbar__items--right .navbar__link[href="https://eps.us.es/"],
-  .navbar__items--right .navbar__link[href="/docs/contacto"],
-  .navbar__items--right .navbarSearchContainer_Bca1 {
     display: none !important;
   }
 
@@ -982,10 +1003,10 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 }
 
 /* ============================================================================
-   18. HERO RESPONSIVE MÓVIL
+   19. HERO RESPONSIVE MÓVIL
    ============================================================================ */
 
-@media (max-width: 996px) {
+@media (max-width: 1024px) {
 
   /* Contenedor raíz del hero */
   header[style*="fit-content"] {
@@ -1001,29 +1022,29 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     display: none !important;
   }
 
-  /* Fila 1: solo el h1, sin gap lateral */
+  /* Fila 1: título mobile, sin gap lateral */
   header[style*="fit-content"] > div:first-child {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 0 !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0 !important;
   }
 
-  /* H1: tamaño fluido móvil, sin tocar desktop */
+  /* Ocultar h1 de desktop en móvil (lo sustituye .hero-mobile-title) */
   header[style*="fit-content"] h1 {
-    font-size: clamp(2.5rem, calc(2.5rem + 1.5 * (100vw - 23.4375rem) / 38.875), 4rem) !important;
-    min-height: unset !important;
+    display: none !important;
   }
 
-  /* Fila 2: párrafo a ancho completo */
+  /* Fila 2: párrafo a ancho completo, con overflow hidden para la animación del separador */
   header[style*="fit-content"] > div:last-child {
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     gap: 0 !important;
-    margin-top: 1rem !important;
+    margin-top: 1.5rem !important;
+    overflow: hidden !important;
   }
 
-  /* Párrafo: ancho completo, texto más compacto */
+  /* Párrafo: ancho completo */
   header[style*="fit-content"] p {
     font-size: 1.375rem !important;
     max-width: 100% !important;
@@ -1031,14 +1052,89 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     border-left: none !important;
     padding-left: 0 !important;
   }
+
+  /* Línea separadora amarilla horizontal en móvil */
+  header[style*="fit-content"] > div:last-child::before {
+    content: '';
+    display: block;
+    height: 4px;
+    width: 70px;
+    background-color: #F9B905;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-200px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Activar separador cuando el párrafo es visible */
+  header[style*="fit-content"] > div:last-child:has(p[style*="opacity: 0.8"])::before {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+  }
 }
 
 /* iPhone SE y similares (≤390px) */
 @media (max-width: 390px) {
-  header[style*="fit-content"] h1 {
-    font-size: 2.2rem !important;
-  }
   header[style*="fit-content"] p {
     font-size: 1.2rem !important;
+  }
+}
+
+/* ============================================================================
+   20. HERO TÍTULO MÓVIL ESTÁTICO
+   ============================================================================ */
+.hero-mobile-title {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .hero-mobile-title {
+    display: flex;
+    flex-direction: column;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin: 0;
+    width: 100%;
+  }
+
+  .hero-mobile-line1,
+  .hero-mobile-line2,
+  .hero-mobile-line3 {
+    display: block;
+    opacity: 0;
+    transform: translateX(-60px);
+    animation: heroSlideIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    font-size: clamp(2.5rem, calc(2.5rem + 1.5 * (100vw - 23.4375rem) / 38.875), 4rem);
+  }
+
+  .hero-mobile-line1 {
+    color: #FFFFFF;
+    animation-delay: 0.1s;
+  }
+
+  .hero-mobile-line2 {
+    background: linear-gradient(90deg, #F9B905 0%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-delay: 0.2s;
+  }
+
+  .hero-mobile-line3 {
+    background: linear-gradient(90deg, #F9B905 0%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-delay: 0.3s;
+  }
+
+  @keyframes heroSlideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }

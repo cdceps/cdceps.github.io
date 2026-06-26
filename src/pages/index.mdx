@@ -58,6 +58,7 @@ import styles from './index.module.css';
       const [showLogos, setShowLogos] = React.useState(false);
       const [startEPS, setStartEPS] = React.useState(false);
       const [selectedColor, setSelectedColor] = React.useState('yellow');
+      const [isMobile, setIsMobile] = React.useState(false);
       const el1 = React.useRef(null);
       const el2 = React.useRef(null);
       const svgRef = React.useRef(null);
@@ -88,6 +89,9 @@ import styles from './index.module.css';
       }, [startEPS]);
 
       React.useEffect(() => {
+        const mobile = window.innerWidth <= 1024;
+        setIsMobile(mobile);
+
         document.body.classList.add('home-stop-flash');
         
         const scrollTimeout = setTimeout(() => {
@@ -100,6 +104,13 @@ import styles from './index.module.css';
         const colors = ['green', 'yellow', 'red', 'blue'];
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
         setSelectedColor(randomColor);
+
+        // En móvil no arrancamos Typed.js, mostramos el texto estático directamente
+        if (mobile) {
+          setShowLogos(true);
+          setTimeout(() => setStartEPS(true), 800);
+          return () => clearTimeout(scrollTimeout);
+        }
 
         let typed2;
         const typed1 = new Typed(el1.current, {
@@ -143,12 +154,21 @@ import styles from './index.module.css';
       return (
         <header style={{ textAlign: 'left', padding: '8rem 0 3rem 0', width: 'fit-content', margin: '0 auto', position: 'relative' }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4rem', marginBottom: '1.5rem', justifyContent: 'space-between' }}>
-            <h1 style={{ fontSize: 'clamp(3rem, 8vw, 5.5rem)', lineHeight: '0.95', fontWeight: '900', letterSpacing: '-0.05em', textTransform: 'uppercase', margin: 0, minHeight: '1.7em', display: 'flex', flexDirection: 'column' }}>
-              <div><span ref={el1} style={{ color: '#FFFFFF' }}></span></div>
-              <div style={{ marginTop: '-0.1em' }}>
-                <span ref={el2} style={{ background: 'linear-gradient(90deg, #F9B905 0%, #FFD700 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block', paddingRight: '0.15em' }}></span>
+
+            {isMobile ? (
+              <div className="hero-mobile-title">
+                <span className="hero-mobile-line1">SOPORTE DIGITAL</span>
+                <span className="hero-mobile-line2">PARA LA</span>
+                <span className="hero-mobile-line3">DOCENCIA.</span>
               </div>
-            </h1>
+            ) : (
+              <h1 style={{ fontSize: 'clamp(3rem, 8vw, 5.5rem)', lineHeight: '0.95', fontWeight: '900', letterSpacing: '-0.05em', textTransform: 'uppercase', margin: 0, minHeight: '1.7em', display: 'flex', flexDirection: 'column' }}>
+                <div><span ref={el1} style={{ color: '#FFFFFF' }}></span></div>
+                <div style={{ marginTop: '-0.1em' }}>
+                  <span ref={el2} style={{ background: 'linear-gradient(90deg, #F9B905 0%, #FFD700 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block', paddingRight: '0.15em' }}></span>
+                </div>
+              </h1>
+            )}
 
             <div style={{ opacity: startEPS ? 1 : 0, transition: 'opacity 0.2s', display: 'flex', alignItems: 'center', transform: 'translateX(-20px) translateY(-12px)' }}>
               <svg ref={svgRef} version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1377 1341" style={{ height: 'clamp(6rem, 15vw, 10.5rem)', width: 'auto', display: 'block' }}>
@@ -180,7 +200,7 @@ import styles from './index.module.css';
               <kbd 
 				onClick={() => window.location.href = '/docs'} 
 				className={`${styles.techTooltipContainer} ${showLogos ? "glow-btn" : ""}`}
-				data-techname="Ir a Docs" /* 🚀 Sustituimos el title por esto */
+				data-techname="Ir a Docs"
 				style={{ 
 				marginLeft: '15px', 
 				cursor: 'pointer', 
