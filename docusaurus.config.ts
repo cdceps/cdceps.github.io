@@ -4,7 +4,7 @@ import type { Config } from '@docusaurus/types';
 const config: Config = {
   title: 'Ayuda Docente',
   tagline: 'Centro de Soporte: Guías de configuración y gestión avanzada de sistemas de la EPS.',
-  favicon: 'img/favicon-cateps.ico',
+  favicon: 'img/favicon-cdceps.ico',
   baseUrl: '/', 
   baseUrlIssueBanner: true,
   url: 'https://cdceps.github.io', 
