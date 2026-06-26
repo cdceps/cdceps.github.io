@@ -108,7 +108,7 @@ const config: Config = {
 
       image: 'img/card.png',
       navbar: {
-        title: 'Ayuda Docente - EPS',
+        title: 'Ayuda Docente',
         logo: {
           alt: 'logo EPS',
           src: 'img/logo-eps.png',
