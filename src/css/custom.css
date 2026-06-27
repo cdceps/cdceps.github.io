@@ -830,45 +830,11 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
 /* ============================================================================
    18. RESPONSIVE
    ============================================================================ */
-@media (max-width: 768px) {
-  .footer {
-    background-color: #000000 !important;
-    background-image: none !important;
-    padding: 1rem 0 !important;
-  }
-
-  .footer__bottom {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: transparent !important;
-  }
-
-  .footer__copyright {
-    text-align: center !important;
-    font-size: 0.85rem !important;
-    line-height: 1.4 !important;
-    color: rgba(255, 255, 255, 0.6) !important;
-    margin: 0 !important;
-    padding: 0 1rem !important;
-  }
-}
 
 /* Ocultar footer en home en móvil y tablet */
 @media (max-width: 1024px) {
   body.home-stop-flash .footerWrapperRelative_AWhh {
     display: none !important;
-  }
-}
-
-/* Filtro táctil avanzado (Fix para Nest Hub, Nest Hub Max y Tablets) */
-@media (pointer: coarse) {
-  .footer {
-    background-color: #000000 !important;
-    padding-bottom: 1.5rem !important;
   }
 }
 

@@ -73,83 +73,71 @@ import styles from './index.module.css';
       ];
 
       React.useEffect(() => {
-        if (startEPS && svgRef.current) {
-          const paths = svgRef.current.querySelectorAll("path");
-          paths.forEach((path, i) => {
-            const length = path.getTotalLength();
-            path.style.setProperty('--len', length);
-            path.style.strokeDasharray = length;
-            path.style.strokeDashoffset = length;
-            const duration = length / 2200 + 0.3; 
-            path.style.setProperty('--duration', `${duration}s`);
-            path.style.stroke = path.getAttribute('fill');
-            setTimeout(() => path.classList.add('eps-animate'), i * 80);
-          });
-        }
-      }, [startEPS]);
+  const mobile = window.innerWidth <= 1024;
+  setIsMobile(mobile);
 
-      React.useEffect(() => {
-        const mobile = window.innerWidth <= 1024;
-        setIsMobile(mobile);
+  document.body.classList.add('home-stop-flash');
+  
+  const scrollTimeout = setTimeout(() => {
+    const isStrictHome = window.location.pathname === '/' || window.location.pathname.endsWith('/');
+    if (isStrictHome) {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'auto' });
+    }
+  }, 50);
+  
+  const colors = ['green', 'yellow', 'red', 'blue'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  setSelectedColor(randomColor);
 
-        document.body.classList.add('home-stop-flash');
-        
-        const scrollTimeout = setTimeout(() => {
-          const isStrictHome = window.location.pathname === '/' || window.location.pathname.endsWith('/');
-          if (isStrictHome) {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'auto' });
+  // En móvil no arrancamos Typed.js, mostramos el texto estático directamente
+  if (mobile) {
+    setShowLogos(true);
+    setTimeout(() => setStartEPS(true), 800);
+    return () => {
+      clearTimeout(scrollTimeout);
+      document.body.classList.remove('home-stop-flash');
+    };
+  }
+
+  let typed2;
+  const typed1 = new Typed(el1.current, {
+    strings: ['Soporte digital'],
+    typeSpeed: 50,
+    loop: false,
+    showCursor: true,
+    cursorChar: '|',
+    onComplete: (self) => {
+      self.cursor.style.display = 'none';
+      startSecondLine();
+    },
+  });
+
+  const startSecondLine = () => {
+    typed2 = new Typed(el2.current, {
+      strings: ['para la docencia.'],
+      typeSpeed: 50,
+      loop: false,
+      showCursor: true,
+      cursorChar: '|',
+      onComplete: (self) => {
+        setTimeout(() => {
+          if (self.cursor) {
+            self.cursor.style.visibility = 'hidden';
+            setShowLogos(true);
+            setTimeout(() => setStartEPS(true), 800);
           }
-        }, 50);
-        
-        const colors = ['green', 'yellow', 'red', 'blue'];
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        setSelectedColor(randomColor);
-
-        // En móvil no arrancamos Typed.js, mostramos el texto estático directamente
-        if (mobile) {
-          setShowLogos(true);
-          setTimeout(() => setStartEPS(true), 800);
-          return () => clearTimeout(scrollTimeout);
-        }
-
-        let typed2;
-        const typed1 = new Typed(el1.current, {
-          strings: ['Soporte digital'],
-          typeSpeed: 50,
-          loop: false,
-          showCursor: true,
-          cursorChar: '|',
-          onComplete: (self) => {
-            self.cursor.style.display = 'none';
-            startSecondLine();
-          },
-        });
-
-        const startSecondLine = () => {
-          typed2 = new Typed(el2.current, {
-            strings: ['para la docencia.'],
-            typeSpeed: 50,
-            loop: false,
-            showCursor: true,
-            cursorChar: '|',
-            onComplete: (self) => {
-              setTimeout(() => {
-                if (self.cursor) {
-                  self.cursor.style.visibility = 'hidden';
-                  setShowLogos(true);
-                  setTimeout(() => setStartEPS(true), 800);
-                }
-              }, 400);
-            }
-          });
-        };
-        
-        return () => { 
-          clearTimeout(scrollTimeout);
-          typed1.destroy(); 
-          if (typed2) typed2.destroy(); 
-        };
-      }, []);
+        }, 400);
+      }
+    });
+  };
+  
+  return () => { 
+    clearTimeout(scrollTimeout);
+    typed1.destroy(); 
+    if (typed2) typed2.destroy();
+    document.body.classList.remove('home-stop-flash');
+  };
+}, []);
 
       return (
         <header style={{ textAlign: 'left', padding: '8rem 0 3rem 0', width: 'fit-content', margin: '0 auto', position: 'relative' }}>
