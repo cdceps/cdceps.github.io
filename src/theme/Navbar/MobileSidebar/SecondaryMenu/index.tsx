@@ -39,7 +39,7 @@ function CollapseToggle({label, children}: {label: string; children: ReactNode})
   );
 }
 
-function InstitutionalLinks(): ReactNode {
+function ExternalLinks(): ReactNode {
   return (
     <ul className="menu__list menu__list--institutional" style={{borderTop: '1px solid var(--ifm-toc-border-color)', paddingTop: '0.5rem', marginTop: '0.5rem'}}>
       <li className="menu__list-item">
@@ -56,11 +56,6 @@ function InstitutionalLinks(): ReactNode {
         <a className="menu__link" href="https://github.com/cdceps/" target="_blank" rel="noopener noreferrer">
           GitHub EPS <ExternalIcon />
         </a>
-      </li>
-      <li className="menu__list-item">
-        <Link className="menu__link" to="/docs/contacto">
-          Contacto
-        </Link>
       </li>
     </ul>
   );
@@ -106,7 +101,12 @@ function StaticDocsMenu(): ReactNode {
           <Link className="menu__link" to="/docs/powershell-gallery">PowerShell Gallery</Link>
         </li>
       </CollapseToggle>
-      <InstitutionalLinks />
+      <li className="menu__list-item">
+        <Link className="menu__link" to="/docs/contacto">
+          Contacto
+        </Link>
+      </li>
+      <ExternalLinks />
     </ul>
   );
 }
@@ -118,7 +118,7 @@ export default function NavbarMobileSidebarSecondaryMenu(): ReactNode {
     return (
       <>
         {secondaryMenu.content}
-        <InstitutionalLinks />
+        <ExternalLinks />
       </>
     );
   }
