@@ -948,19 +948,21 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     display: none !important;
   }
 
-  /* "AD" outline en amarillo corporativo */
+  /* "AD" como SVG outline para compatibilidad iOS/Android */
   .navbar__title {
     font-size: 0 !important;
   }
 
   .navbar__title::after {
-    content: "AD";
-    font-size: 1.5rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.09em !important;
-    color: transparent !important;
-    -webkit-text-stroke: 1.5px #F9B905 !important;
-    text-stroke: 1.5px #F9B905 !important;
+    content: '' !important;
+    display: inline-block !important;
+    width: 60px !important;
+    height: 32px !important;
+    background-image: url('/img/navbar-ad.svg') !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: center !important;
+	margin-left: -8px !important;
   }
 
   /* Menú hamburguesa a pantalla completa */
