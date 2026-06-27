@@ -63,25 +63,25 @@ export default function FooterWrapper(props: any): JSX.Element {
   }
 
   // 📱 CASO B: Móvil — footer minimalista gris, solo copyright, sin dino
-  if (isMobile && !isHome) {
-    return (
-      <div className={styles.footerWrapperRelative}>
-        <footer style={{
-          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-          backgroundColor: '#1b1b1d',
-          padding: '0.75rem 1rem',
-          textAlign: 'center',
+if (isMobile && !isHome) {
+  return (
+    <div className={styles.footerWrapperRelative} style={{backgroundColor: '#1b1b1d', padding: 0}}>
+      <footer style={{
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        backgroundColor: '#1b1b1d',
+        padding: '0.75rem 1rem',
+        textAlign: 'center',
+      }}>
+        <div style={{
+          color: 'rgba(255, 255, 255, 0.45)',
+          fontSize: '0.78rem',
         }}>
-          <div style={{
-            color: 'rgba(255, 255, 255, 0.45)',
-            fontSize: '0.78rem',
-          }}>
-            Copyright © {new Date().getFullYear()} · Escuela Politécnica Superior
-          </div>
-        </footer>
-      </div>
-    );
-  }
+          Copyright © {new Date().getFullYear()} · Escuela Politécnica Superior
+        </div>
+      </footer>
+    </div>
+  );
+}
 
   // 📋 CASO C: El comportamiento original del resto de la web se mantiene intacto
   return (

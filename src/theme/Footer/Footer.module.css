@@ -40,28 +40,24 @@
 .backToTop:hover svg { transform: rotate(-90deg) translateX(2px); }
 .backToTop:hover span { opacity: 1; visibility: visible; transform: translateY(0); }
 
-/* Responsive (migrado del Bloque 18 de custom.css) */
 @media (max-width: 768px) {
   .backToTop {
     display: none !important;
   }
-
   .footerWrapperRelative {
-    background-color: #000000 !important;
+    background-color: #1b1b1d !important;
     background-image: none !important;
-    padding: 1rem 0 !important;
+    padding: 0 !important;
   }
 }
 
-/* Filtro táctil avanzado */
 @media (pointer: coarse) {
   .backToTop,
   .backToTop span {
     display: none !important;
   }
-
   .footerWrapperRelative {
-    background-color: #000000 !important;
-    padding-bottom: 1.5rem !important;
+    background-color: #1b1b1d !important;
+    padding: 0 !important;
   }
 }

@@ -73,9 +73,24 @@ import styles from './index.module.css';
       ];
 
       React.useEffect(() => {
+  if (startEPS && svgRef.current) {
+    const paths = svgRef.current.querySelectorAll("path");
+    paths.forEach((path, i) => {
+      const length = path.getTotalLength();
+      path.style.setProperty('--len', length);
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+      const duration = length / 2200 + 0.3; 
+      path.style.setProperty('--duration', `${duration}s`);
+      path.style.stroke = path.getAttribute('fill');
+      setTimeout(() => path.classList.add('eps-animate'), i * 80);
+    });
+  }
+}, [startEPS]);
+
+React.useEffect(() => {
   const mobile = window.innerWidth <= 1024;
   setIsMobile(mobile);
-
   document.body.classList.add('home-stop-flash');
   
   const scrollTimeout = setTimeout(() => {
