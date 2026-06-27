@@ -962,7 +962,8 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     background-repeat: no-repeat !important;
     background-size: contain !important;
     background-position: center !important;
-	margin-left: -8px !important;
+    margin-left: -8px !important;
+    vertical-align: middle !important;
   }
 
   /* Menú hamburguesa a pantalla completa */
