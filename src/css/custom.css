@@ -852,24 +852,68 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   .navbar {
     background-image: none !important;
     background-color: #1b1b1d !important;
+    min-height: var(--ifm-navbar-height) !important;
+    height: var(--ifm-navbar-height) !important;
+  }
+
+  /* Navbar inner centrado verticalmente siempre */
+  .navbar__inner {
+    min-height: var(--ifm-navbar-height) !important;
+    height: 100% !important;
+    align-items: center !important;
   }
 
   /* Hamburguesa a la derecha con color corporativo */
   .navbar__toggle {
     order: 3;
     margin-left: auto;
+    margin-right: 0 !important;
     color: #F9B905 !important;
-  }
-
-  /* Flechas pegadas al texto */
-  .navbar-sidebar .menu__list-item-collapsible {
+    width: 36px !important;
+    height: 36px !important;
     display: flex !important;
     align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
   }
 
-  .navbar-sidebar .menu__list-item-collapsible .menu__link {
-    flex: none !important;
-    width: auto !important;
+  /* Botón cerrar (X) mismo tamaño que hamburguesa */
+  .navbar-sidebar__close {
+    color: #F9B905 !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+
+  .navbar-sidebar__close svg path,
+  .navbar-sidebar__close svg line {
+    stroke: #F9B905 !important;
+  }
+
+  /* Lupa mismo tamaño */
+  .cateps-lupa-trigger {
+    background-color: transparent !important;
+    border: none !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+
+  /* Logo+título más a la izquierda y centrado verticalmente */
+  .navbar__brand {
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-left: 0 !important;
+    height: var(--ifm-navbar-height) !important;
+    display: flex !important;
+    align-items: center !important;
   }
 
   /* Navbar estable cuando el menú está abierto */
@@ -889,24 +933,21 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
   .navbar-sidebar--show .navbar__toggle {
     color: #F9B905 !important;
   }
-  
+
+  /* Flechas pegadas al texto */
+  .navbar-sidebar .menu__list-item-collapsible {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .navbar-sidebar .menu__list-item-collapsible .menu__link {
+    flex: none !important;
+    width: auto !important;
+  }
+
   /* Alinear links institucionales con el resto del menú móvil */
   .navbar-sidebar .menu__list--institutional {
     padding-left: 0 !important;
-  }
-
-  /* Logo+título más a la izquierda */
-  .navbar__brand {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-  }
-
-  /* Lupa: más grande y sin fondo */
-  .cateps-lupa-trigger {
-    background-color: transparent !important;
-    border: none !important;
-    width: 45px !important;
-    height: 45px !important;
   }
 
   /* Ocultar GitHub clon móvil */
@@ -943,20 +984,16 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     display: none !important;
   }
 
-  /* Botón cerrar (X) en amarillo corporativo */
-  .navbar-sidebar__close {
-    color: #F9B905 !important;
-  }
-
-  .navbar-sidebar__close svg path,
-  .navbar-sidebar__close svg line {
-    stroke: #F9B905 !important;
-  }
-
   /* Ocultar "Volver al menú principal" */
   .navbar-sidebar__back {
     display: none !important;
   }
+  
+  /* Eliminar padding vertical de la navbar en móvil */
+.navbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+ }
 }
 
 .navbar-sidebar,
