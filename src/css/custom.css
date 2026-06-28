@@ -1144,3 +1144,27 @@ h1 div span[style*="linear-gradient"] + .typed-cursor {
     }
   }
 }
+
+/* ============================================================================
+   21. HERO IPAD LANDSCAPE (1025px–1180px)
+   ============================================================================ */
+@media (min-width: 1025px) and (max-width: 1180px) {
+
+  /* Ocultar logo EPS y tech logos */
+  header[style*="fit-content"] > div:first-child > div:last-child,
+  header[style*="fit-content"] > div:last-child > div:last-child {
+    display: none !important;
+  }
+
+  /* Título ocupa todo el ancho */
+  header[style*="fit-content"] > div:first-child {
+    gap: 0 !important;
+  }
+
+  /* Párrafo a ancho completo sin restricción */
+  header[style*="fit-content"] p {
+    font-size: 1.25rem !important;
+    max-width: 100% !important;
+    flex-shrink: unset !important;
+  }
+}
