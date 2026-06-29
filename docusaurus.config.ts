@@ -57,13 +57,17 @@ const config: Config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          {
-            from: '/redirect-cia',
-            to: '/docs/cia-control-internet-aulas', 
-          },
-        ],
+	  {
+    from: '/redirect-cia',
+    to: '/docs/cia-control-internet-aulas',
       },
-    ],
+      {
+    from: '/docs/aulas',
+    to: '/docs/aulas-cateps',
+        },
+       ],
+      },
+     ],
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {

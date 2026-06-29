@@ -8,7 +8,6 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
  *
  * Las barras laterales se pueden generar desde el sistema de archivos o definir explícitamente aquí.
  */
-
 const sidebars: SidebarsConfig = {
   sidebar: [
     {
@@ -21,16 +20,21 @@ const sidebars: SidebarsConfig = {
       label: 'Aulas CATEPS',
       link: {
         type: 'generated-index',
-        title: 'Guía de Aulas',
+        title: 'Guía de Aulas CATEPS',
         description: 'Configuración técnica, software y planos de las aulas de Informática del CATEPS.',
-        slug: '/aulas',
+        slug: '/aulas-cateps', 
       },
       collapsed: true,
       items: [
-        'aulas/L1-D-ATC',
-        'aulas/L2-D-ATC',
-        'aulas/L1-A-ESC',
+        'aulas-cateps/L1-D-ATC',   
+        'aulas-cateps/L2-D-ATC',  
+        'aulas-cateps/L1-A-ESC',   
       ],
+    },
+    {
+      type: 'doc',
+      id: 'aulas-eps',            
+      label: 'Aulas EPS',
     },
     {
       type: 'category',
@@ -69,4 +73,5 @@ const sidebars: SidebarsConfig = {
     'contacto',
   ],
 };
+
 export default sidebars;

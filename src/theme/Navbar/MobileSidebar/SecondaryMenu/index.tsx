@@ -17,7 +17,6 @@ const ExternalIcon = () => (
   </svg>
 );
 
-// Si se pasa `to`, el label es un link navegable + la flechita expande los subitems
 function CollapseToggle({label, to, children}: {label: string; to?: string; children: ReactNode}) {
   const [collapsed, setCollapsed] = useState(true);
   return (
@@ -82,15 +81,18 @@ function StaticDocsMenu(): ReactNode {
       </li>
       <CollapseToggle label="Aulas CATEPS">
         <li className="menu__list-item">
-          <Link className="menu__link" to="/docs/aulas/L1-D-ATC">L1-D-ATC</Link>
+          <Link className="menu__link" to="/docs/aulas-cateps/L1-D-ATC">L1-D-ATC</Link>
         </li>
         <li className="menu__list-item">
-          <Link className="menu__link" to="/docs/aulas/L2-D-ATC">L2-D-ATC</Link>
+          <Link className="menu__link" to="/docs/aulas-cateps/L2-D-ATC">L2-D-ATC</Link>
         </li>
         <li className="menu__list-item">
-          <Link className="menu__link" to="/docs/aulas/L1-A-ESC">L1-A-ESC</Link>
+          <Link className="menu__link" to="/docs/aulas-cateps/L1-A-ESC">L1-A-ESC</Link>
         </li>
       </CollapseToggle>
+      <li className="menu__list-item">
+        <Link className="menu__link" to="/docs/aulas-eps">Aulas EPS</Link>
+      </li>
       <CollapseToggle label="Scripts">
         <CollapseToggle label="CIA / Control Internet Aulas" to="/docs/cia-control-internet-aulas">
           <li className="menu__list-item">
